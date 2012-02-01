@@ -3,5 +3,12 @@
 
     <string name="hello">Hello World, FristonPALActivity!</string>
     <string name="app_name">FristonPAL</string>
+    
+    <string name="btnshowmap">Show Map</string>
+    <string name="btnshowwiki">Show Wiki</string>
+    <string name="btnshowqr">Show QR</string>
+    <string name="btnshowroute">Show Route</string>
+    
+    <string name="ar_name">AR Wiki</string>
 
 </resources>
