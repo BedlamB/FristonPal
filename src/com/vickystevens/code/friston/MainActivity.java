@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
         mapBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-            	Intent mapIntent = new Intent(MainActivity.this, TestMap.class);
+            	Intent mapIntent = new Intent(MainActivity.this, GetLocation.class);
             	startActivity(mapIntent);
             }
         });
