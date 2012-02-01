@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
 	private Button wikiBtn=null;
 	private Button qrBtn=null;
 	private Button rtBtn=null;
+	private Button locBtn=null;
 	
     /** Called when the activity is first created. */
     @Override
@@ -37,11 +38,22 @@ public class MainActivity extends Activity {
         mapBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-            	Intent mapIntent = new Intent(MainActivity.this, GetLocation.class);
+            	Intent mapIntent = new Intent(MainActivity.this, ShowMap.class);
             	startActivity(mapIntent);
             }
         });
 
+        
+        // set up button listeners
+        locBtn=(Button)findViewById(R.id.btnGetLoc);
+        locBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+ //           	Log.d("usr clicked loc");
+            	Intent mapIntent = new Intent(MainActivity.this, GetLocation.class);
+            	startActivity(mapIntent);
+            }
+        });        
     
     	// wiki button listener
         wikiBtn=(Button)findViewById(R.id.btnChooseWiki);

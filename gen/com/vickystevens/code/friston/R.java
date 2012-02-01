@@ -20,14 +20,15 @@ public final class R {
     }
     public static final class id {
         public static final int btnChooseMap=0x7f050001;
-        public static final int btnChooseQr=0x7f050003;
-        public static final int btnChooseRt=0x7f050004;
-        public static final int btnChooseWiki=0x7f050002;
-        public static final int btnGetLocation=0x7f050008;
-        public static final int map=0x7f050005;
-        public static final int output=0x7f050007;
+        public static final int btnChooseQr=0x7f050004;
+        public static final int btnChooseRt=0x7f050005;
+        public static final int btnChooseWiki=0x7f050003;
+        public static final int btnGetLoc=0x7f050002;
+        public static final int btnGetLocation=0x7f050009;
+        public static final int map=0x7f050006;
+        public static final int output=0x7f050008;
         public static final int relativeLayout1=0x7f050000;
-        public static final int textView1=0x7f050006;
+        public static final int textView1=0x7f050007;
     }
     public static final class layout {
         public static final int main=0x7f030000;
