@@ -19,7 +19,8 @@ public final class R {
         public static final int ic_launcher=0x7f020002;
         public static final int icon=0x7f020003;
         public static final int marker=0x7f020004;
-        public static final int misc=0x7f020005;
+        public static final int marker2=0x7f020005;
+        public static final int misc=0x7f020006;
     }
     public static final class id {
         public static final int about_content=0x7f070000;
@@ -37,9 +38,9 @@ public final class R {
         public static final int about=0x7f030000;
         public static final int location=0x7f030001;
         public static final int main=0x7f030002;
-        public static final int mapshow=0x7f030003;
-        public static final int qrshow=0x7f030004;
-        public static final int routeshow=0x7f030005;
+        public static final int qrshow=0x7f030003;
+        public static final int routeshow=0x7f030004;
+        public static final int showmap=0x7f030005;
         public static final int wikishow=0x7f030006;
     }
     public static final class string {
