@@ -106,24 +106,17 @@ public class ShowMap extends MapActivity {
 		
 	private class SitesOverlay extends ItemizedOverlay<OverlayItem> {
 		private List<OverlayItem> items=new ArrayList<OverlayItem>();
-		private List<OverlayItem> pubs = new ArrayList<OverlayItem>();
-		private Drawable pubMarker=getResources().getDrawable(R.drawable.cw);
+
 		private Drawable marker=null;
 		
 		public SitesOverlay(Drawable marker) {
 			super(marker);
 			this.marker=marker;
-		
-
 			items.add(new OverlayItem(getPoint(50.842941, -0.131312),
-																"BR", "Central Brighton"));
-				
+        														"BR", "Central Brighton"));
 			items.add(new OverlayItem(getPoint(50.819583, -0.136420),
 																"Pier", "Brighton Pier"));
-			this.marker = pubMarker;
-			pubs.add(new OverlayItem(getPoint(50.824174,-0.135785),
-					"Brighton University",
-					"Home of Jazz at Lincoln Center"));
+
 			populate();
 		}
 		
