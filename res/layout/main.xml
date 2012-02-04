@@ -1,52 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/relativeLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@color/background" android:layout_height="fill_parent"
+              android:layout_width="fill_parent" android:padding="20dip"
+              android:orientation="horizontal">
 
-        <Button
+    <LinearLayout android:orientation="vertical"
+                  android:layout_height="wrap_content" android:layout_width="fill_parent"
+                  android:layout_gravity="center">
+
+    <TextView android:text="Friston Pal"
+              android:layout_height="wrap_content" android:layout_width="wrap_content"
+              android:layout_gravity="center" android:layout_marginBottom="20dip"
+              android:textSize="24sp"/>
+    <Button
             android:id="@+id/btnChooseMap"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:text="Map" />
+            android:text="Map"/>
 
-        <Button
+    <Button
             android:id="@+id/btnGetLoc"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
             android:layout_below="@+id/btnChooseMap"
-            android:text="Get Location" />
+            android:text="Get Location"/>
 
-        <Button
+    <Button
             android:id="@+id/btnChooseWiki"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
             android:layout_below="@+id/btnGetLoc"
-            android:text="Wiki" />
+            android:text="Wiki"/>
 
-        <Button
+    <Button
             android:id="@+id/btnChooseQr"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/btnChooseWiki"
-            android:text="QR" />
+             android:layout_below="@+id/btnChooseWiki"
+            android:text="QR"/>
 
         <Button
-            android:id="@+id/btnChooseRt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/btnChooseQr"
-            android:text="Route" />
+                android:id="@+id/btnChooseRt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnChooseQr"
+                android:text="Route"/>
 
-    </RelativeLayout>
+        <Button android:id="@+id/exit_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/exit_label"/>
+
+    </LinearLayout>
+</LinearLayout>
+
+

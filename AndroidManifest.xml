@@ -57,7 +57,10 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-               
+        <activity android:name=".EditPreferences"/>
+        <activity android:name=".AboutActivity"/>
+        <activity android:name=".PreferencesActivity"/>
+
     </application>
 
 </manifest>

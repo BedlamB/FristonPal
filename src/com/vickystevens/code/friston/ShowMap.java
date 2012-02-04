@@ -37,6 +37,7 @@ import java.util.List;
 public class ShowMap extends MapActivity {
 	private MapView map=null;
 	private MyLocationOverlay me=null;
+
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -45,10 +46,14 @@ public class ShowMap extends MapActivity {
 		
 		map=(MapView)findViewById(R.id.map);
 		
-		map.getController().setCenter(getPoint(40.76793169992044,
-																						-73.98180484771729));
+
+
+		// going to want to get users current location here and set centre on that
+		//	instead
+		map.getController().setCenter(getPoint(50.84827,-0.12070));
 		map.getController().setZoom(17);
 		map.setBuiltInZoomControls(true);
+		map.setSatellite(!map.isSatellite());
 		
 		Drawable marker=getResources().getDrawable(R.drawable.marker);
 		
@@ -101,28 +106,24 @@ public class ShowMap extends MapActivity {
 		
 	private class SitesOverlay extends ItemizedOverlay<OverlayItem> {
 		private List<OverlayItem> items=new ArrayList<OverlayItem>();
+		private List<OverlayItem> pubs = new ArrayList<OverlayItem>();
+		private Drawable pubMarker=getResources().getDrawable(R.drawable.cw);
 		private Drawable marker=null;
 		
 		public SitesOverlay(Drawable marker) {
 			super(marker);
 			this.marker=marker;
-			
-			items.add(new OverlayItem(getPoint(40.748963847316034,
-																					-73.96807193756104),
-																"UN", "United Nations"));
-			items.add(new OverlayItem(getPoint(40.76866299974387,
-																					-73.98268461227417),
-																"Lincoln Center",
-																"Home of Jazz at Lincoln Center"));
-			items.add(new OverlayItem(getPoint(40.765136435316755,
-																					-73.97989511489868),
-																"Carnegie Hall",
-							"Where you go with practice, practice, practice"));
-			items.add(new OverlayItem(getPoint(40.70686417491799,
-																					-74.01572942733765),
-																"The Downtown Club",
-												"Original home of the Heisman Trophy"));
+		
 
+			items.add(new OverlayItem(getPoint(50.842941, -0.131312),
+																"BR", "Central Brighton"));
+				
+			items.add(new OverlayItem(getPoint(50.819583, -0.136420),
+																"Pier", "Brighton Pier"));
+			this.marker = pubMarker;
+			pubs.add(new OverlayItem(getPoint(50.824174,-0.135785),
+					"Brighton University",
+					"Home of Jazz at Lincoln Center"));
 			populate();
 		}
 		

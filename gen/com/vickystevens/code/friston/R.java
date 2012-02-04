@@ -10,6 +10,9 @@ package com.vickystevens.code.friston;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int background=0x7f050000;
+    }
     public static final class drawable {
         public static final int cw=0x7f020000;
         public static final int eject=0x7f020001;
@@ -19,32 +22,49 @@ public final class R {
         public static final int misc=0x7f020005;
     }
     public static final class id {
-        public static final int btnChooseMap=0x7f050001;
-        public static final int btnChooseQr=0x7f050004;
-        public static final int btnChooseRt=0x7f050005;
-        public static final int btnChooseWiki=0x7f050003;
-        public static final int btnGetLoc=0x7f050002;
-        public static final int btnGetLocation=0x7f050009;
-        public static final int map=0x7f050006;
-        public static final int output=0x7f050008;
-        public static final int relativeLayout1=0x7f050000;
-        public static final int textView1=0x7f050007;
+        public static final int about_content=0x7f070000;
+        public static final int btnChooseMap=0x7f070003;
+        public static final int btnChooseQr=0x7f070006;
+        public static final int btnChooseRt=0x7f070007;
+        public static final int btnChooseWiki=0x7f070005;
+        public static final int btnGetLoc=0x7f070004;
+        public static final int btnGetLocation=0x7f070002;
+        public static final int exit_button=0x7f070008;
+        public static final int map=0x7f070009;
+        public static final int output=0x7f070001;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
-        public static final int mapshow=0x7f030001;
-        public static final int qrshow=0x7f030002;
-        public static final int routeshow=0x7f030003;
-        public static final int testmapview=0x7f030004;
-        public static final int wikishow=0x7f030005;
+        public static final int about=0x7f030000;
+        public static final int location=0x7f030001;
+        public static final int main=0x7f030002;
+        public static final int mapshow=0x7f030003;
+        public static final int qrshow=0x7f030004;
+        public static final int routeshow=0x7f030005;
+        public static final int wikishow=0x7f030006;
     }
     public static final class string {
-        public static final int app_name=0x7f040001;
-        public static final int ar_name=0x7f040006;
-        public static final int btnshowmap=0x7f040002;
-        public static final int btnshowqr=0x7f040004;
-        public static final int btnshowroute=0x7f040005;
-        public static final int btnshowwiki=0x7f040003;
-        public static final int hello=0x7f040000;
+        public static final int about_label=0x7f06000a;
+        public static final int about_text=0x7f06000d;
+        public static final int about_title=0x7f06000c;
+        public static final int app_name=0x7f060001;
+        public static final int ar_name=0x7f060006;
+        public static final int btnshowmap=0x7f060002;
+        public static final int btnshowqr=0x7f060004;
+        public static final int btnshowroute=0x7f060005;
+        public static final int btnshowwiki=0x7f060003;
+        public static final int color_coding_summary=0x7f060013;
+        public static final int color_coding_title=0x7f060012;
+        public static final int continue_label=0x7f060008;
+        public static final int exit_label=0x7f06000b;
+        public static final int grid_title=0x7f06000e;
+        public static final int hello=0x7f060000;
+        public static final int main_title=0x7f060007;
+        public static final int new_game_label=0x7f060009;
+        public static final int settings_label=0x7f06000f;
+        public static final int settings_shortcut=0x7f060011;
+        public static final int settings_title=0x7f060010;
+    }
+    public static final class xml {
+        public static final int settings=0x7f040000;
     }
 }

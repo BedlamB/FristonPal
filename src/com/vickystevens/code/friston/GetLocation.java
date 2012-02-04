@@ -28,7 +28,7 @@ public class GetLocation extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		setContentView(R.layout.testmapview);
+		setContentView(R.layout.location);
         locationView = (TextView)findViewById(R.id.output);
         //setContentView(locationView);
 		
