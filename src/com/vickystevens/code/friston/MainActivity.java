@@ -58,7 +58,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(locIntent);
                 break;
             case R.id.btnChooseWiki:
-                Intent arIntent = new Intent(this, ArActivity.class);
+                Intent arIntent = new Intent(this, BasicOpenARDemoActivity.class);
                 startActivity(arIntent);
                 break;
             case R.id.btnChooseQr:
