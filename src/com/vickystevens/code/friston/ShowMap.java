@@ -44,13 +44,11 @@ public class ShowMap extends MapActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showmap);
         map=(MapView)findViewById(R.id.map);
-		map.getController().setCenter(getPoint(50.84827,-0.12070));
-		map.getController().setZoom(17);
-		map.setBuiltInZoomControls(true);
+	//	map.getController().setZoom(17);
 		map.setSatellite(true);
 		
 		
-
+		// set up the drawables
 		Drawable marker=getResources().getDrawable(R.drawable.marker);
 		Drawable marker2=getResources().getDrawable(R.drawable.marker2);		
 		
@@ -83,20 +81,17 @@ public class ShowMap extends MapActivity
 
 
 		me=new MyCustomLocationOverlay(this, map);
-	//	me.enableMyLocation();
-		me.runOnFirstFix(new Runnable(){
+	/*	me.runOnFirstFix(new Runnable(){
 			public void run(){
 				map.getController().animateTo(me.getMyLocation());
 			}
-		});
+		});*/
     
 
 		map.getOverlays().add(me);
-		map.postInvalidate();
-     }
+	     }
     
-
-    
+   
     public boolean isRouteDisplayed(){
     	return false;
     }
