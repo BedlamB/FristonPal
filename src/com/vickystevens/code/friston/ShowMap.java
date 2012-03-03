@@ -33,7 +33,7 @@ public class ShowMap extends MapActivity
     private MapView map;
     long start;
     long stop;
-    private MyLocationOverlay me;
+    private MyCustomLocationOverlay me;
 
     
 
@@ -48,6 +48,7 @@ public class ShowMap extends MapActivity
 		map.getController().setZoom(17);
 		map.setBuiltInZoomControls(true);
 		map.setSatellite(true);
+		
 		
 
 		Drawable marker=getResources().getDrawable(R.drawable.marker);
@@ -81,15 +82,37 @@ public class ShowMap extends MapActivity
         overlayList.add(t);
 
 
-		me=new MyLocationOverlay(this, map);
+		me=new MyCustomLocationOverlay(this, map);
+	//	me.enableMyLocation();
+		me.runOnFirstFix(new Runnable(){
+			public void run(){
+				map.getController().animateTo(me.getMyLocation());
+			}
+		});
+    
+
 		map.getOverlays().add(me);
+		map.postInvalidate();
      }
     
+
+    
     public boolean isRouteDisplayed(){
-    	return true;
+    	return false;
     }
 
 
+
+    public void onPause(){
+    	super.onPause();
+    	me.disableMyLocation();
+    }
+    
+    public void onResume(){
+    	super.onResume();
+    	me.enableCompass();
+		me.enableMyLocation();
+    }
 
 
     class Touchy extends Overlay {

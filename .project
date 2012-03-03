@@ -30,4 +30,11 @@
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>res/drawable/arrow_green.png</name>
+			<type>1</type>
+			<location>/home/vicks/Downloads/back.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
