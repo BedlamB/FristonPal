@@ -16,6 +16,7 @@ import com.google.android.maps.Projection;
 
 
 
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Canvas;
@@ -26,6 +27,9 @@ import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class ShowMap extends MapActivity
@@ -34,6 +38,8 @@ public class ShowMap extends MapActivity
     long start;
     long stop;
     private MyCustomLocationOverlay me;
+    private Overlay trails, pubs;
+    private Button overlayButton, accessButton;
 
     
 
@@ -57,7 +63,7 @@ public class ShowMap extends MapActivity
         marker2.setBounds(0, 0, marker.getIntrinsicWidth(),
                 marker.getIntrinsicHeight());
 
-        // populate brap arraylist
+        // populate arraylist
         ArrayList<MyGeoPoint> pubOverlays = new ArrayList<MyGeoPoint>();
            // can get these from file later
         pubOverlays.add(new MyGeoPoint(50.842941, -0.141312, "BR", "The End Of The Rainbow"));
@@ -69,27 +75,47 @@ public class ShowMap extends MapActivity
         trailOverlays.add(new MyGeoPoint(50.842911, -0.131312, "MD", "Where Dreams Are Made"));
         trailOverlays.add(new MyGeoPoint(50.829200, -0.146230, "MD", "Xanadu"));
 
-        Overlay o = (new Brap(marker, trailOverlays));
-        map.getOverlays().add(o);
-        Overlay p = (new Brap(marker2, pubOverlays));
-        map.getOverlays().add(p);
+        trails = (new MyItemizedOverlay(marker, trailOverlays));
+        //add overlay
+        map.getOverlays().add(trails);
+        pubs = (new MyItemizedOverlay(marker2, pubOverlays));
+        //add overlay
+   //     map.getOverlays().add(pubs);
 
 
         Touchy t = new Touchy();
         List<Overlay> overlayList = map.getOverlays();
         overlayList.add(t);
 
-
+        // Button to control food overlay
+        overlayButton = (Button)findViewById(R.id.doOverlay);
+        overlayButton.setOnClickListener(new OnClickListener(){      
+            public void onClick(View v) {	
+        		addOverlay(map, pubs); 
+            }
+        });
+        
+        
 		me=new MyCustomLocationOverlay(this, map);
-	/*	me.runOnFirstFix(new Runnable(){
-			public void run(){
-				map.getController().animateTo(me.getMyLocation());
-			}
-		});*/
+    	map.getOverlays().add(me);
+    }
     
-
-		map.getOverlays().add(me);
-	     }
+	private void removeOverlay(MapView map, Overlay o, String name){
+	    
+		//case PUBS
+			// if(pubsshown (map.getOverlays.remove 
+			//else map.getOverlays.add(o)
+			// DH
+		//
+		
+		map.getOverlays().remove(o);
+	    map.postInvalidate();
+	}
+	
+	private void addOverlay(MapView map, Overlay o){
+		map.getOverlays().add(o);
+		map.postInvalidate();
+	}
     
    
     public boolean isRouteDisplayed(){
@@ -133,13 +159,13 @@ public class ShowMap extends MapActivity
 
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
-
+				
 					}
 				});
     			alert.setButton3("Option 3", new DialogInterface.OnClickListener() {
 
 					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
+				
 
 					}
 				});
@@ -160,14 +186,12 @@ public class ShowMap extends MapActivity
 
 
 
-
-
-
-	private class Brap extends ItemizedOverlay<OverlayItem> {
+// extends ItemIzed overlay
+	private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 		private List<OverlayItem> items=new ArrayList<OverlayItem>();
         private Drawable marker=null;
 
-		public Brap(Drawable marker, ArrayList<MyGeoPoint> points) {
+		public MyItemizedOverlay(Drawable marker, ArrayList<MyGeoPoint> points) {
 
             super(marker);
 			this.marker=marker;
@@ -177,13 +201,15 @@ public class ShowMap extends MapActivity
             populate();
 
         }
-
+		
 
 		@Override
 		protected OverlayItem createItem(int i) {
 			return(items.get(i));
 		}
 
+
+		
         public void draw(Canvas canvas, MapView mapv, boolean shadow){
             super.draw(canvas, mapv, shadow);
 

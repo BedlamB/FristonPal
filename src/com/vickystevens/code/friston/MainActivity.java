@@ -25,7 +25,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	private Button wikiBtn=null;
 	private Button qrBtn=null;
 	private Button rtBtn=null;
-	private Button locBtn=null;
 	
     /** Called when the activity is first created. */
     @Override
@@ -36,8 +35,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         // click-handlers for buttons
         View mapButton = findViewById(R.id.btnChooseMap);
         mapButton.setOnClickListener(this);
-        View locButton = findViewById(R.id.btnGetLoc);
-        locButton.setOnClickListener(this);
         View arButton = findViewById(R.id.btnChooseWiki);
         arButton.setOnClickListener(this);
         View qrButton = findViewById(R.id.btnChooseQr);
@@ -52,10 +49,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btnChooseMap:
                 Intent mapIntent = new Intent(this, ShowMap.class);
                 startActivity(mapIntent);
-                break;
-            case R.id.btnGetLoc:
-                Intent locIntent = new Intent(this, GetLocation.class);
-                startActivity(locIntent);
                 break;
             case R.id.btnChooseQr:
                 Intent qrIntent = new Intent(this, QrActivity.class);

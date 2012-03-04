@@ -7,4 +7,35 @@
 		android:layout_height="fill_parent"
 		android:apiKey="0JTKLQEELP9vw05WQj3u8JUpXUUg-asQ1R4hrBg"
 		android:clickable="true" />
+	        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" 
+            android:padding="0px"           
+            >
+                                                    
+        <Button android:id="@+id/doOverlay"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_weight="1.0" 
+            android:textSize="12sp"   
+            android:text="@string/overlay_label" />
+            
+        <Button android:id="@+id/doAccess"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:textSize="12sp" 
+            android:text="@string/access_label" />
+            
+        <Button android:id="@+id/doRoute"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30px"
+            android:layout_weight="1.0"
+            android:textSize="12sp" 
+            android:text="@string/route_label" />
+                        
+        </LinearLayout>
 </RelativeLayout>

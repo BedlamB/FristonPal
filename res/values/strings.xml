@@ -10,7 +10,10 @@
     <string name="btnshowroute">Show Route</string>
 
     <string name="ar_name">AR Wiki</string>
-
+    <string name="goLabel">Show the Map</string>
+    <string name="overlay_label">Food</string>
+    <string name="access_label">Access</string>
+    <string name="route_label">Route</string>
 
     <string name="main_title">Android Game of Life</string>
     <string name="continue_label">Continue</string>
