@@ -38,8 +38,18 @@ public class ShowMap extends MapActivity
     long start;
     long stop;
     private MyCustomLocationOverlay me;
-    private Overlay trails, pubs;
-    private Button overlayButton, accessButton;
+    private Overlay trails, pubs, purple;
+    private Button pubsButton, trailsButton, purpleButton;
+    private boolean PUBS_SHOWN, TRAILS_SHOWN, PURPLE_SHOWN;
+    public enum OverlayType
+    {
+        PUBS,
+        TRAILS,
+        DOWNHILL,
+        PURPLE,
+        JUMPS
+      
+    }
 
     
 
@@ -50,18 +60,23 @@ public class ShowMap extends MapActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showmap);
         map=(MapView)findViewById(R.id.map);
-	//	map.getController().setZoom(17);
+		map.getController().setZoom(17);
 		map.setSatellite(true);
 		
 		
 		// set up the drawables
-		Drawable marker=getResources().getDrawable(R.drawable.marker);
-		Drawable marker2=getResources().getDrawable(R.drawable.marker2);		
+		Drawable pubsMarker=getResources().getDrawable(R.drawable.pubsmarker);
+		Drawable trailsMarker=getResources().getDrawable(R.drawable.trailsmarker);	
+		Drawable purpleMarker=getResources().getDrawable(R.drawable.purplemarker);
+//		Drawable downhillMarker=getResources().getDrawable(R.drawable.downhillMarker);		
+//		Drawable jumpsMarker=getResources().getDrawable(R.drawable.jumpsMarker);	
 		
-		marker.setBounds(0, 0, marker.getIntrinsicWidth(),
-														marker.getIntrinsicHeight());
-        marker2.setBounds(0, 0, marker.getIntrinsicWidth(),
-                marker.getIntrinsicHeight());
+		pubsMarker.setBounds(0, 0, pubsMarker.getIntrinsicWidth(),
+				pubsMarker.getIntrinsicHeight());
+        trailsMarker.setBounds(0, 0, trailsMarker.getIntrinsicWidth(),
+                trailsMarker.getIntrinsicHeight());
+        purpleMarker.setBounds(0, 0, trailsMarker.getIntrinsicWidth(),
+                purpleMarker.getIntrinsicHeight());
 
         // populate arraylist
         ArrayList<MyGeoPoint> pubOverlays = new ArrayList<MyGeoPoint>();
@@ -74,24 +89,53 @@ public class ShowMap extends MapActivity
          // can get these from file later
         trailOverlays.add(new MyGeoPoint(50.842911, -0.131312, "MD", "Where Dreams Are Made"));
         trailOverlays.add(new MyGeoPoint(50.829200, -0.146230, "MD", "Xanadu"));
+        
+        ArrayList<MyGeoPoint> purpleOverlays = new ArrayList<MyGeoPoint>();
+        // can get these from file later
+        purpleOverlays.add(new MyGeoPoint(50.852911, -0.161312, "MD", "Where Dreams Are Made"));
+        purpleOverlays.add(new MyGeoPoint(50.879200, -0.186230, "MD", "Xanadu"));
 
-        trails = (new MyItemizedOverlay(marker, trailOverlays));
-        //add overlay
+        pubs = (new MyItemizedOverlay(pubsMarker, pubOverlays));
+        trails = (new MyItemizedOverlay(trailsMarker, trailOverlays));
+        purple  = (new MyItemizedOverlay(purpleMarker, purpleOverlays));
+        //add overlays
         map.getOverlays().add(trails);
-        pubs = (new MyItemizedOverlay(marker2, pubOverlays));
+        map.getOverlays().add(purple);
+        map.getOverlays().add(pubs);
+
         //add overlay
    //     map.getOverlays().add(pubs);
+        PUBS_SHOWN = true;
+        TRAILS_SHOWN = true;
+        PURPLE_SHOWN = true;
 
 
         Touchy t = new Touchy();
         List<Overlay> overlayList = map.getOverlays();
         overlayList.add(t);
-
-        // Button to control food overlay
-        overlayButton = (Button)findViewById(R.id.doOverlay);
-        overlayButton.setOnClickListener(new OnClickListener(){      
+        
+        
+        // Button to add overlays
+        pubsButton = (Button)findViewById(R.id.pubsOverlay);
+        pubsButton.setOnClickListener(new OnClickListener(){      
             public void onClick(View v) {	
-        		addOverlay(map, pubs); 
+            	toggleOverlay(map, pubs, OverlayType.PUBS);
+            }
+        });
+        
+        // Button to add overlays
+        trailsButton = (Button)findViewById(R.id.trailsOverlay);
+        trailsButton.setOnClickListener(new OnClickListener(){      
+            public void onClick(View v) {	
+            	toggleOverlay(map, trails, OverlayType.TRAILS);
+            }
+        });
+        
+        // Button to add overlays
+        purpleButton = (Button)findViewById(R.id.purpleOverlay);
+        purpleButton.setOnClickListener(new OnClickListener(){      
+            public void onClick(View v) {	
+            	toggleOverlay(map, purple, OverlayType.PURPLE);
             }
         });
         
@@ -100,22 +144,31 @@ public class ShowMap extends MapActivity
     	map.getOverlays().add(me);
     }
     
-	private void removeOverlay(MapView map, Overlay o, String name){
-	    
-		//case PUBS
-			// if(pubsshown (map.getOverlays.remove 
-			//else map.getOverlays.add(o)
-			// DH
-		//
-		
-		map.getOverlays().remove(o);
-	    map.postInvalidate();
+	private void toggleOverlay(MapView map, Overlay o, OverlayType type){
+    
+		        switch (type) {
+		            case PUBS:    if (PUBS_SHOWN){map.getOverlays().remove(o); PUBS_SHOWN = !PUBS_SHOWN;}
+		            			else {map.getOverlays().add(o);PUBS_SHOWN = !PUBS_SHOWN; map.postInvalidate();}
+		            	break;
+		            case TRAILS:  if (TRAILS_SHOWN){map.getOverlays().remove(o); TRAILS_SHOWN = !TRAILS_SHOWN;}
+        						else {map.getOverlays().add(o);TRAILS_SHOWN = !TRAILS_SHOWN; map.postInvalidate();}
+		            	break;
+		            case PURPLE:  if (PURPLE_SHOWN){map.getOverlays().remove(o); PURPLE_SHOWN = !PURPLE_SHOWN;}
+								else {map.getOverlays().add(o);PURPLE_SHOWN = !PURPLE_SHOWN; map.postInvalidate();}
+		            	break;
+		            case DOWNHILL:   
+		            	break;	  	
+		            case JUMPS:
+		            	break;
+		        }           	  
 	}
 	
+	
+	/**
 	private void addOverlay(MapView map, Overlay o){
 		map.getOverlays().add(o);
 		map.postInvalidate();
-	}
+	}*/
     
    
     public boolean isRouteDisplayed(){
@@ -178,6 +231,8 @@ public class ShowMap extends MapActivity
 
     }
     
+    
+    
 	private GeoPoint getPoint(double lat, double lon) {
 		return(new GeoPoint((int)(lat*1000000.0),
 													(int)(lon*1000000.0)));
@@ -210,7 +265,7 @@ public class ShowMap extends MapActivity
 
 
 		
-        public void draw(Canvas canvas, MapView mapv, boolean shadow){
+ /**       public void draw(Canvas canvas, MapView mapv, boolean shadow){
             super.draw(canvas, mapv, shadow);
 
 //            Paint mPaint = new Paint();
@@ -250,15 +305,14 @@ public class ShowMap extends MapActivity
 //            path.lineTo(p4.x, p4.y);
 //
 //            canvas.drawPath(path, mPaint);
-        }
+        }*/
 
 
         @Override
 		protected boolean onTap(int i) {
 			Toast.makeText(ShowMap.this,
-											items.get(i).getSnippet(),
-											Toast.LENGTH_SHORT).show();
-			
+						items.get(i).getSnippet(),
+							Toast.LENGTH_SHORT).show();
 			return(true);
 		}
 		

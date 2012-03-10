@@ -14,15 +14,12 @@ public final class R {
         public static final int background=0x7f050000;
     }
     public static final class drawable {
-        public static final int anybackground=0x7f020000;
-        public static final int custom_title_bar=0x7f020001;
-        public static final int cw=0x7f020002;
-        public static final int eject=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
-        public static final int icon=0x7f020005;
-        public static final int marker=0x7f020006;
-        public static final int marker2=0x7f020007;
-        public static final int misc=0x7f020008;
+        public static final int cw=0x7f020000;
+        public static final int eject=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int pubsmarker=0x7f020003;
+        public static final int purplemarker=0x7f020004;
+        public static final int trailsmarker=0x7f020005;
     }
     public static final class id {
         public static final int about_content=0x7f070000;
@@ -36,29 +33,27 @@ public final class R {
         public static final int button2=0x7f07000e;
         public static final int button3=0x7f07000f;
         public static final int button4=0x7f070010;
-        public static final int doAccess=0x7f07000b;
-        public static final int doOverlay=0x7f07000a;
-        public static final int doRoute=0x7f07000c;
         public static final int exit_button=0x7f070008;
         public static final int map=0x7f070009;
         public static final int output=0x7f070001;
+        public static final int pubsOverlay=0x7f07000a;
+        public static final int purpleOverlay=0x7f07000c;
+        public static final int trailsOverlay=0x7f07000b;
     }
     public static final class layout {
         public static final int about=0x7f030000;
-        public static final int callback_layout=0x7f030001;
-        public static final int location=0x7f030002;
-        public static final int main=0x7f030003;
-        public static final int qrshow=0x7f030004;
-        public static final int routeshow=0x7f030005;
-        public static final int showmap=0x7f030006;
-        public static final int wiki=0x7f030007;
-        public static final int wikishow=0x7f030008;
+        public static final int location=0x7f030001;
+        public static final int main=0x7f030002;
+        public static final int qrshow=0x7f030003;
+        public static final int routeshow=0x7f030004;
+        public static final int showmap=0x7f030005;
+        public static final int wiki=0x7f030006;
+        public static final int wikishow=0x7f030007;
     }
     public static final class string {
         public static final int about_label=0x7f06000e;
         public static final int about_text=0x7f060011;
         public static final int about_title=0x7f060010;
-        public static final int access_label=0x7f060009;
         public static final int app_name=0x7f060001;
         public static final int app_name2=0x7f060019;
         public static final int ar_name=0x7f060006;
@@ -83,12 +78,13 @@ public final class R {
         public static final int modelfile_not_found=0x7f060021;
         public static final int modelfile_not_found_title=0x7f060020;
         public static final int new_game_label=0x7f06000d;
-        public static final int overlay_label=0x7f060008;
-        public static final int route_label=0x7f06000a;
+        public static final int pubs_label=0x7f060008;
+        public static final int purple_label=0x7f06000a;
         public static final int settings_label=0x7f060013;
         public static final int settings_shortcut=0x7f060015;
         public static final int settings_title=0x7f060014;
         public static final int toast_ar_not_found=0x7f06001e;
+        public static final int trails_label=0x7f060009;
     }
     public static final class xml {
         public static final int settings=0x7f040000;

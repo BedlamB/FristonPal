@@ -14,28 +14,28 @@
             android:padding="0px"           
             >
                                                     
-        <Button android:id="@+id/doOverlay"
+        <Button android:id="@+id/pubsOverlay"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30px"
             android:layout_weight="1.0" 
             android:textSize="12sp"   
-            android:text="@string/overlay_label" />
+            android:text="@string/pubs_label" />
             
-        <Button android:id="@+id/doAccess"
+        <Button android:id="@+id/trailsOverlay"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
             android:textSize="12sp" 
-            android:text="@string/access_label" />
+            android:text="@string/trails_label" />
             
-        <Button android:id="@+id/doRoute"
+        <Button android:id="@+id/purpleOverlay"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30px"
             android:layout_weight="1.0"
             android:textSize="12sp" 
-            android:text="@string/route_label" />
+            android:text="@string/purple_label" />
                         
         </LinearLayout>
 </RelativeLayout>
