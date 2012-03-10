@@ -60,7 +60,7 @@ public class ShowMap extends MapActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showmap);
         map=(MapView)findViewById(R.id.map);
-		map.getController().setZoom(17);
+		//map.getController().setZoom(17);
 		map.setSatellite(true);
 		
 		
@@ -164,12 +164,7 @@ public class ShowMap extends MapActivity
 	}
 	
 	
-	/**
-	private void addOverlay(MapView map, Overlay o){
-		map.getOverlays().add(o);
-		map.postInvalidate();
-	}*/
-    
+   
    
     public boolean isRouteDisplayed(){
     	return false;
@@ -263,49 +258,6 @@ public class ShowMap extends MapActivity
 			return(items.get(i));
 		}
 
-
-		
- /**       public void draw(Canvas canvas, MapView mapv, boolean shadow){
-            super.draw(canvas, mapv, shadow);
-
-//            Paint mPaint = new Paint();
-//            mPaint.setDither(true);
-//            mPaint.setColor(Color.RED);
-//            mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-//            mPaint.setStrokeJoin(Paint.Join.ROUND);
-//            mPaint.setStrokeCap(Paint.Cap.ROUND);
-//            mPaint.setStrokeWidth(4);
-//
-//            GeoPoint gP1 = getPoint(50.842911, -0.131312);
-//            GeoPoint gP2 = getPoint(50.842941, -0.141312);
-//            GeoPoint gP3 = getPoint(50.829200, -0.146230);
-//            GeoPoint gP4 = getPoint(50.819583, -0.136420);
-//
-//            Point p1 = new Point();
-//            Point p2 = new Point();
-//            Point p3 = new Point();
-//            Point p4 = new Point();
-//
-//
-//            Path path = new Path();
-//
-//            Projection projection = mapv.getProjection();
-//            projection.toPixels(gP1, p1);
-//            projection.toPixels(gP2, p2);
-//            projection.toPixels(gP3, p3);
-//            projection.toPixels(gP4, p4);
-//
-//            path.moveTo(p2.x, p2.y);
-//            path.lineTo(p1.x,p1.y);
-//            path.moveTo(p3.x, p3.y);
-//            path.lineTo(p2.x, p2.y);
-//            path.moveTo(p4.x, p4.y);
-//            path.lineTo(p3.x, p3.y);
-//            path.moveTo(p1.x, p1.y);
-//            path.lineTo(p4.x, p4.y);
-//
-//            canvas.drawPath(path, mPaint);
-        }*/
 
 
         @Override
