@@ -15,6 +15,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -131,25 +132,56 @@ public class ShowMap extends MapActivity
         
 		me=new MyCustomLocationOverlay(this, map);
     	map.getOverlays().add(me);
+    	map.postInvalidate();
     }
     
-	private void toggleOverlay(MapView map, Overlay o, OverlayType type){
-    
-		        switch (type) {
-		            case PUBS:    if (PUBS_SHOWN){map.getOverlays().remove(o); PUBS_SHOWN = !PUBS_SHOWN;}
-		            			else {map.getOverlays().add(o);PUBS_SHOWN = !PUBS_SHOWN; map.postInvalidate();}
-		            	break;
-		            case TRAILS:  if (TRAILS_SHOWN){map.getOverlays().remove(o); TRAILS_SHOWN = !TRAILS_SHOWN;}
-        						else {map.getOverlays().add(o);TRAILS_SHOWN = !TRAILS_SHOWN; map.postInvalidate();}
-		            	break;
-		            case PURPLE:  if (PURPLE_SHOWN){map.getOverlays().remove(o); PURPLE_SHOWN = !PURPLE_SHOWN;}
-								else {map.getOverlays().add(o);PURPLE_SHOWN = !PURPLE_SHOWN; map.postInvalidate();}
-		            	break;
-		            case DOWNHILL:   
-		            	break;	  	
-		            case JUMPS:
-		            	break;
-		        }           	  
+	private void toggleOverlay(MapView map, Overlay o, OverlayType type) {
+
+		switch (type) {
+		case PUBS:
+			if (PUBS_SHOWN) {
+				map.getOverlays().remove(o);
+				PUBS_SHOWN = !PUBS_SHOWN;
+				map.postInvalidate();
+				break;
+			}
+
+			else {
+				map.getOverlays().add(o);
+				PUBS_SHOWN = !PUBS_SHOWN;
+				map.postInvalidate();
+				break;
+			}
+
+		case TRAILS:
+			if (TRAILS_SHOWN) {
+				map.getOverlays().remove(o);
+				TRAILS_SHOWN = !TRAILS_SHOWN;
+				map.postInvalidate();
+				break;
+			} else {
+				map.getOverlays().add(o);
+				TRAILS_SHOWN = !TRAILS_SHOWN;
+				map.postInvalidate();
+				break;
+			}
+		case PURPLE:
+			if (PURPLE_SHOWN) {
+				map.getOverlays().remove(o);
+				PURPLE_SHOWN = !PURPLE_SHOWN;
+				map.postInvalidate();
+				break;
+			} else {
+				map.getOverlays().add(o);
+				PURPLE_SHOWN = !PURPLE_SHOWN;
+				map.postInvalidate();
+				break;
+			}
+		case DOWNHILL:
+			break;
+		case JUMPS:
+			break;
+		}
 	}
 	
 	
