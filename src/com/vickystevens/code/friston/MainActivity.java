@@ -58,7 +58,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(mapIntent);
                 break;
             case R.id.btnChooseQr:
-                Intent qrIntent = new Intent(this, QrActivity.class);
+                Intent qrIntent = new Intent(this, QrWebView.class);
                 startActivity(qrIntent);
                 break;
             case R.id.btnChooseRt:
