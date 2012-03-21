@@ -4,12 +4,7 @@ package com.vickystevens.code.friston;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.android.maps.GeoPoint;
-import com.google.android.maps.ItemizedOverlay;
-import com.google.android.maps.MapActivity;
-import com.google.android.maps.MapView;
-import com.google.android.maps.Overlay;
-import com.google.android.maps.OverlayItem;
+import com.google.android.maps.*;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -28,7 +23,9 @@ public class ShowMap extends MapActivity
     long start;
     long stop;
     private MyCustomLocationOverlay me;
+    private MyLocationOverlay me2;
     private Overlay trails, pubs, purple;
+    private MapController mapController;
     private Button pubsButton, trailsButton, purpleButton;
     private boolean PUBS_SHOWN, TRAILS_SHOWN, PURPLE_SHOWN;
     public enum OverlayType
@@ -50,9 +47,13 @@ public class ShowMap extends MapActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showmap);
         map=(MapView)findViewById(R.id.map);
-		//map.getController().setZoom(17);
+        mapController = map.getController();
+		map.getController().setZoom(17);
 		map.setSatellite(true);
-		
+	
+        Touchy t = new Touchy();
+        List<Overlay> overlayList = map.getOverlays();
+        overlayList.add(t);
 		
 		// set up the drawables
 		Drawable pubsMarker=getResources().getDrawable(R.drawable.pubsmarker);
@@ -89,9 +90,9 @@ public class ShowMap extends MapActivity
         trails = (new MyItemizedOverlay(trailsMarker, trailOverlays));
         purple  = (new MyItemizedOverlay(purpleMarker, purpleOverlays));
         //add overlays
-        map.getOverlays().add(trails);
-        map.getOverlays().add(purple);
-        map.getOverlays().add(pubs);
+        overlayList.add(trails);
+        overlayList.add(purple);
+        overlayList.add(pubs);
 
         //add overlay
    //     map.getOverlays().add(pubs);
@@ -100,9 +101,7 @@ public class ShowMap extends MapActivity
         PURPLE_SHOWN = true;
 
 
-        Touchy t = new Touchy();
-        List<Overlay> overlayList = map.getOverlays();
-        overlayList.add(t);
+
         
         
         // Button to add overlays
@@ -128,10 +127,19 @@ public class ShowMap extends MapActivity
             	toggleOverlay(map, purple, OverlayType.PURPLE);
             }
         });
-        
-        
+     
+     
 		me=new MyCustomLocationOverlay(this, map);
     	map.getOverlays().add(me);
+        me.enableMyLocation();
+        // sets middle of map to be mylocationoverlay
+
+        me.runOnFirstFix(new Runnable() {
+            @Override
+            public void run() {
+                mapController.animateTo(me.getMyLocation());
+            }
+        });
     	map.postInvalidate();
     }
     

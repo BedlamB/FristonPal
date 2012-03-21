@@ -8,14 +8,18 @@ import android.graphics.Matrix;
 import android.graphics.Point;
 import android.location.Location;
 import com.google.android.maps.GeoPoint;
+import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
 
 public class MyCustomLocationOverlay extends MyLocationOverlay {
     private Context mContext;
+    private MapView mMapView;
+
 
     public MyCustomLocationOverlay(Context context, MapView mapView) {
         super(context, mapView);
+        mMapView = mapView;
         mContext = context;
     }
 
@@ -46,6 +50,15 @@ public class MyCustomLocationOverlay extends MyLocationOverlay {
 		mapView.postInvalidate();
         
     }
+    
+    @Override
+    public synchronized void onLocationChanged(Location location){
+        super.onLocationChanged(location);
+/*        GeoPoint point = new GeoPoint((int) (location.getLatitude() * 1E6), (int) (location.getLongitude() * 1E6));
+        MapController mapController = mMapView.getController();
+        mapController.animateTo(point);*/
+    }
 
- 
+
+
 }

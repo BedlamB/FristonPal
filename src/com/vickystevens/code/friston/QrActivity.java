@@ -46,6 +46,8 @@ public class QrActivity extends Activity {
                 Toast toast = Toast.makeText(this, "Content:" + contents + " Format:" + format , Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.TOP, 25, 400);
                 toast.show();
+                Intent qrWebViewIntent = new Intent(this, QrWebView.class);
+                startActivity(qrWebViewIntent);
             } else if (resultCode == RESULT_CANCELED) {
                 // Handle cancel
                 Toast toast = Toast.makeText(this, "Scan was Cancelled!", Toast.LENGTH_LONG);

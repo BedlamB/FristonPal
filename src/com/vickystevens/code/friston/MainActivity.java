@@ -7,9 +7,12 @@ package com.vickystevens.code.friston;
 import java.util.Date;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 //import android.content.Intent;
 //import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 //import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -31,7 +34,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
+          
+        
         // click-handlers for buttons
         View mapButton = findViewById(R.id.btnChooseMap);
         mapButton.setOnClickListener(this);
@@ -41,8 +45,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         qrButton.setOnClickListener(this);
         View rtButton = findViewById(R.id.btnChooseRt);
         rtButton.setOnClickListener(this);
+        
 
     }
+    
+    
 
     public void onClick(View v) {
         switch (v.getId()) {
@@ -57,6 +64,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btnChooseRt:
                 Intent rtIntent = new Intent(this, RouteActivity.class);
                 startActivity(rtIntent);
+                break;
+            case R.id.btnChooseWiki:
+                Intent arIntent = new Intent(this, ArActivity.class);
+                startActivity(arIntent);
                 break;
         }
     }
@@ -74,6 +85,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		super.onPause();
 
     }
+
 
 //    protected void onStart();
     
