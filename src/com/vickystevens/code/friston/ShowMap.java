@@ -4,6 +4,7 @@ package com.vickystevens.code.friston;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.graphics.Canvas;
 import com.google.android.maps.*;
 
 import android.app.AlertDialog;
@@ -142,6 +143,8 @@ public class ShowMap extends MapActivity
         });
     	map.postInvalidate();
     }
+
+
     
 	private void toggleOverlay(MapView map, Overlay o, OverlayType type) {
 
@@ -280,9 +283,11 @@ public class ShowMap extends MapActivity
             populate();
 
         }
-		
 
-		@Override
+
+
+
+    @Override
 		protected OverlayItem createItem(int i) {
 			return(items.get(i));
 		}

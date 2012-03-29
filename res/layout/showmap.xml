@@ -5,7 +5,7 @@
 	<com.google.android.maps.MapView android:id="@+id/map"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
-		android:apiKey="0JTKLQEELP9vw05WQj3u8JUpXUUg-asQ1R4hrBg"
+		android:apiKey="0JTKLQEELP9v6Pam_87Gu9RjkDk8w4uJ5Zs1o3w"
 		android:clickable="true" />
 	        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="horizontal"
@@ -36,6 +36,14 @@
             android:layout_weight="1.0"
             android:textSize="12sp" 
             android:text="@string/purple_label" />
+
+         <Button android:id="@+id/doRoute"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="30px"
+                        android:layout_weight="1.0"
+                        android:textSize="12sp"
+                        android:text="Do Route" />
                         
         </LinearLayout>
 </RelativeLayout>

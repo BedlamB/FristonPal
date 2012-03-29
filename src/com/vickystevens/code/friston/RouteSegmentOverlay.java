@@ -32,6 +32,8 @@ package com.vickystevens.code.friston;
                 pp = new Point(0,0);
                 paint = new Paint();
         }
+
+
         
         // Method to turn route display on and off
         public void setRouteView(boolean routeIsActive){
