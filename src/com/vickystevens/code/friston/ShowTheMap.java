@@ -38,7 +38,7 @@ public class ShowTheMap extends MapActivity {
     private boolean foodIsDisplayed = false;
 
     private Button routeButton;
-    String TAG = "GPStest";
+
     // Set up the array of GeoPoints defining the route
     int numberRoutePoints;
     GeoPoint routePoints [];   // Dimension will be set in class RouteLoader below
