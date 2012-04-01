@@ -27,6 +27,7 @@ public class ShowMap extends MapActivity
     private RouteSegmentOverlay route;
     private Overlay uphill, downhill, jumps, pirate, carparks, purple, pubs;
     private MapController mapController;
+
     private Button uphillButton, downhillButton, jumpsButton, pirateButton, carparksButton, purpleButton, pubsButton,routeButton;
     private boolean PUBS_SHOWN, CARPARKS_SHOWN, PURPLE_SHOWN, UPHILL_SHOWN, DOWNHILL_SHOWN, JUMPS_SHOWN, PIRATE_SHOWN;
 
@@ -218,7 +219,7 @@ public class ShowMap extends MapActivity
             public void onClick(View v) {
                 loadRouteData();
                 overlayRoute();
-                mapController.animateTo(new GeoPoint(50842941, -01413120));
+                mapController.animateTo(getPoint(50.829609, -0.138820));
             }
         });
 
@@ -229,12 +230,12 @@ public class ShowMap extends MapActivity
         me.enableMyLocation();
         // sets middle of map to be mylocationoverlay
 
-        me.runOnFirstFix(new Runnable() {
-            @Override
-            public void run() {
-                mapController.animateTo(me.getMyLocation());
-            }
-        });
+//        me.runOnFirstFix(new Runnable() {
+//            @Override
+//            public void run() {
+//                mapController.animateTo(me.getMyLocation());
+//            }
+//        });
 
         // Set up the array of GeoPoints defining the route
         int numberRoutePoints = 5;
@@ -242,8 +243,7 @@ public class ShowMap extends MapActivity
         int routeGrade [];               // Index for slope of route from point i to point i+1
         RouteSegmentOverlay route;   // This will hold the route segments
         boolean routeIsDisplayed = false;
-
-    	map.postInvalidate();
+     	map.postInvalidate();
     }
 
 
@@ -355,20 +355,46 @@ public class ShowMap extends MapActivity
         map.postInvalidate();
     }
 
+    private GeoPoint getPoint(double lat, double lon) {
+        return(new GeoPoint((int)(lat*1e6), (int)(lon*1e6)));
+    }
+
+ 
+
     public void loadRouteData(){
 
-        routePoints = new GeoPoint[5];
-        routeGrade = new int[5];
-        routePoints[0] = new GeoPoint(50842941, -01413120);
+
+
+        routePoints = new GeoPoint[13];
+        routeGrade = new int[13];
+        routePoints[0] = getPoint(50.829609, -0.138820);
         routeGrade[0] = 1;
-        routePoints[1] = new GeoPoint(50842850, -01364200);
+        routePoints[1] = getPoint(50.829739,-0.139140);
         routeGrade[1] = 1;
-        routePoints[2] = new GeoPoint(50842911, -01313120);
+        routePoints[2] = getPoint(50.829739, -0.139140);
         routeGrade[2] = 1;
-        routePoints[3] = new GeoPoint(50829200, -01462300);
+        routePoints[3] = getPoint(50.830170, -0.139150);
         routeGrade[3] = 1;
-        routePoints[4] = new GeoPoint(50852911, -01613120);
+        routePoints[4] = getPoint(50.830719, -0.139240);
         routeGrade[4] = 1;
+        routePoints[5] = getPoint(50.831039, -0.139170);
+        routeGrade[5] = 1;
+        routePoints[6] = getPoint(50.831108, -0.139240);
+        routeGrade[6] = 1;
+        routePoints[7] = getPoint(50.831779, -0.139340);
+        routeGrade[7] = 1;
+        routePoints[8] = getPoint(50.832981, -0.141490);
+        routeGrade[8] = 1;
+        routePoints[9] = getPoint(50.832989, -0.141690);
+        routeGrade[9] = 1;
+        routePoints[10] = getPoint(50.832878, -0.141940);
+        routeGrade[10] = 1;
+        routePoints[11] = getPoint(50.832802, -0.141990);
+        routeGrade[11] = 1;
+        routePoints[12] = getPoint(50.831890, -0.141080);
+        routeGrade[12] = 1;
+
+
     }
    
    
@@ -433,16 +459,9 @@ public class ShowMap extends MapActivity
     }
     
     
-    
-	private GeoPoint getPoint(double lat, double lon) {
-		return(new GeoPoint((int)(lat*1000000.0),
-													(int)(lon*1000000.0)));
-	}
 
 
-
-
-// extends ItemIzed overlay
+// extends ItemIized overlay
 	private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 		private List<OverlayItem> items=new ArrayList<OverlayItem>();
         private Drawable marker=null;
