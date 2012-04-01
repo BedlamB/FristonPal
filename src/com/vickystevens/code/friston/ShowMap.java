@@ -25,10 +25,10 @@ public class ShowMap extends MapActivity
     private MyCustomLocationOverlay me;
     private MyLocationOverlay me2;
     private RouteSegmentOverlay route;
-    private Overlay trails, pubs, purple;
+    private Overlay uphill, downhill, jumps, pirate, carparks, purple, pubs;
     private MapController mapController;
-    private Button pubsButton, trailsButton, purpleButton, routeButton;
-    private boolean PUBS_SHOWN, TRAILS_SHOWN, PURPLE_SHOWN;
+    private Button uphillButton, downhillButton, jumpsButton, pirateButton, carparksButton, purpleButton, pubsButton,routeButton;
+    private boolean PUBS_SHOWN, CARPARKS_SHOWN, PURPLE_SHOWN, UPHILL_SHOWN, DOWNHILL_SHOWN, JUMPS_SHOWN, PIRATE_SHOWN;
 
     
     private GeoPoint[] routePoints;
@@ -36,12 +36,13 @@ public class ShowMap extends MapActivity
     
     public enum OverlayType
     {
-        PUBS,
-        TRAILS,
+        UPHILL,
         DOWNHILL,
+        JUMPS,
+        PIRATE,
+        CARPARKS,
         PURPLE,
-        JUMPS
-      
+        PUBS
     }
 
     
@@ -62,18 +63,34 @@ public class ShowMap extends MapActivity
         overlayList.add(t);
 		
 		// set up the drawables
-		Drawable pubsMarker=getResources().getDrawable(R.drawable.pubsmarker);
-		Drawable trailsMarker=getResources().getDrawable(R.drawable.trailsmarker);	
-		Drawable purpleMarker=getResources().getDrawable(R.drawable.purplemarker);
-//		Drawable downhillMarker=getResources().getDrawable(R.drawable.downhillMarker);		
-//		Drawable jumpsMarker=getResources().getDrawable(R.drawable.jumpsMarker);	
-		
-		pubsMarker.setBounds(0, 0, pubsMarker.getIntrinsicWidth(),
-				pubsMarker.getIntrinsicHeight());
-        trailsMarker.setBounds(0, 0, trailsMarker.getIntrinsicWidth(),
-                trailsMarker.getIntrinsicHeight());
-        purpleMarker.setBounds(0, 0, trailsMarker.getIntrinsicWidth(),
+        Drawable uphillMarker=getResources().getDrawable(R.drawable.uphill);
+        Drawable downhillMarker=getResources().getDrawable(R.drawable.downhill);
+        Drawable jumpsMarker=getResources().getDrawable(R.drawable.warning);
+        Drawable pirateMarker=getResources().getDrawable(R.drawable.pirate);
+        Drawable carparkMarker=getResources().getDrawable(R.drawable.carpark);
+        Drawable purpleMarker=getResources().getDrawable(R.drawable.purple);
+		Drawable pubsMarker=getResources().getDrawable(R.drawable.pubs);
+
+
+        purpleMarker.setBounds(0, 0, purpleMarker.getIntrinsicWidth(),
                 purpleMarker.getIntrinsicHeight());
+		carparkMarker.setBounds(0, 0, carparkMarker.getIntrinsicWidth(),
+				carparkMarker.getIntrinsicHeight());
+          pubsMarker.setBounds(0, 0, pubsMarker.getIntrinsicWidth(),
+                pubsMarker.getIntrinsicHeight());
+
+
+        ArrayList<MyGeoPoint> purpleOverlays = new ArrayList<MyGeoPoint>();
+        // can get these from file later
+        purpleOverlays.add(new MyGeoPoint(50.852911, -0.161312, "purple", "Where Dreams Are Made"));
+        purpleOverlays.add(new MyGeoPoint(50.879200, -0.186230, "purple", "Xanadu"));
+
+
+
+        ArrayList<MyGeoPoint> carparkOverlays = new ArrayList<MyGeoPoint>();
+        // can get these from file later
+        carparkOverlays.add(new MyGeoPoint(50.842911, -0.131312, "car", "Where Dreams Are Made"));
+        carparkOverlays.add(new MyGeoPoint(50.829200, -0.146230, "car", "Xanadu"));        
 
         // populate arraylist
         ArrayList<MyGeoPoint> pubOverlays = new ArrayList<MyGeoPoint>();
@@ -84,29 +101,56 @@ public class ShowMap extends MapActivity
 
 
 
-        ArrayList<MyGeoPoint> trailOverlays = new ArrayList<MyGeoPoint>();
-         // can get these from file later
-        trailOverlays.add(new MyGeoPoint(50.842911, -0.131312, "trail", "Where Dreams Are Made"));
-        trailOverlays.add(new MyGeoPoint(50.829200, -0.146230, "trail", "Xanadu"));
-        
-        ArrayList<MyGeoPoint> purpleOverlays = new ArrayList<MyGeoPoint>();
-        // can get these from file later
-        purpleOverlays.add(new MyGeoPoint(50.852911, -0.161312, "purple", "Where Dreams Are Made"));
-        purpleOverlays.add(new MyGeoPoint(50.879200, -0.186230, "purple", "Xanadu"));
 
-        pubs = (new MyItemizedOverlay(pubsMarker, pubOverlays));
-        trails = (new MyItemizedOverlay(trailsMarker, trailOverlays));
+        
+        ArrayList<MyGeoPoint> uphillOverlays = new ArrayList<MyGeoPoint>();
+        uphillOverlays.add(new MyGeoPoint(50.853811, -0.171323, "uphill", "its steep here"));
+        uphillOverlays.add(new MyGeoPoint(50.82734, -0.168301, "uphill", "its steep here"));
+        
+        ArrayList<MyGeoPoint> downhillOverlays = new ArrayList<MyGeoPoint>();
+        downhillOverlays.add(new MyGeoPoint(50.852780, -0.159480, "downhill", "whee!"));
+        downhillOverlays.add(new MyGeoPoint(50.882095, -0.160392, "downhill", "Whee!"));
+        
+        ArrayList<MyGeoPoint> jumpsOverlays = new ArrayList<MyGeoPoint>();
+        jumpsOverlays.add(new MyGeoPoint(50.839573, -0.148493, "jump", "hup!"));
+        jumpsOverlays.add(new MyGeoPoint(50.882920, -0.129482, "jump", "hup!"));
+        
+        ArrayList<MyGeoPoint> pirateOverlays = new ArrayList<MyGeoPoint>();
+        pirateOverlays.add(new MyGeoPoint(50.894829, -0.182920, "pirate", "ARRRH"));
+        pirateOverlays.add(new MyGeoPoint(50.884930, -0.184028, "pirate", "ARRRRR"));
+
+
+
+
         purple  = (new MyItemizedOverlay(purpleMarker, purpleOverlays));
+        carparks = (new MyItemizedOverlay(carparkMarker, carparkOverlays));        
+        pubs = (new MyItemizedOverlay(pubsMarker, pubOverlays));
+        uphill =(new MyItemizedOverlay(uphillMarker, uphillOverlays));
+        downhill = (new MyItemizedOverlay(downhillMarker, downhillOverlays));
+        jumps = (new MyItemizedOverlay(jumpsMarker, jumpsOverlays));
+        pirate = (new MyItemizedOverlay(pirateMarker, pirateOverlays));
+        
+
+
+        
         //add overlays
-        overlayList.add(trails);
         overlayList.add(purple);
+        overlayList.add(carparks);
         overlayList.add(pubs);
+        overlayList.add(uphill);
+        overlayList.add(downhill);
+        overlayList.add(jumps);
+        overlayList.add(pirate);
 
         //add overlay
    //     map.getOverlays().add(pubs);
-        PUBS_SHOWN = true;
-        TRAILS_SHOWN = true;
         PURPLE_SHOWN = true;
+        CARPARKS_SHOWN = true;
+        PUBS_SHOWN = true;
+        UPHILL_SHOWN = true;
+        DOWNHILL_SHOWN = true;
+        JUMPS_SHOWN = true;
+        PIRATE_SHOWN = true;
 
 
 
@@ -121,10 +165,10 @@ public class ShowMap extends MapActivity
         });
         
         // Button to add overlays
-        trailsButton = (Button)findViewById(R.id.trailsOverlay);
-        trailsButton.setOnClickListener(new OnClickListener(){      
+        carparksButton = (Button)findViewById(R.id.carparksOverlay);
+        carparksButton.setOnClickListener(new OnClickListener(){
             public void onClick(View v) {	
-            	toggleOverlay(map, trails, OverlayType.TRAILS);
+            	toggleOverlay(map, carparks, OverlayType.CARPARKS);
             }
         });
         
@@ -133,6 +177,38 @@ public class ShowMap extends MapActivity
         purpleButton.setOnClickListener(new OnClickListener(){      
             public void onClick(View v) {	
             	toggleOverlay(map, purple, OverlayType.PURPLE);
+            }
+        });
+
+        // Button to add overlays
+        uphillButton = (Button)findViewById(R.id.uphillOverlay);
+        uphillButton.setOnClickListener(new OnClickListener(){
+            public void onClick(View v) {
+                toggleOverlay(map, uphill, OverlayType.UPHILL);
+            }
+        });
+
+        // Button to add overlays
+        downhillButton = (Button)findViewById(R.id.downhillOverlay);
+        downhillButton.setOnClickListener(new OnClickListener(){
+            public void onClick(View v) {
+                toggleOverlay(map, downhill, OverlayType.DOWNHILL);
+            }
+        });
+
+        // Button to add overlays
+        jumpsButton = (Button)findViewById(R.id.jumpsOverlay);
+        jumpsButton.setOnClickListener(new OnClickListener(){
+            public void onClick(View v) {
+                toggleOverlay(map, jumps, OverlayType.JUMPS);
+            }
+        });
+
+        // Button to add overlays
+        pirateButton = (Button)findViewById(R.id.pirateOverlay);
+        pirateButton.setOnClickListener(new OnClickListener(){
+            public void onClick(View v) {
+                toggleOverlay(map, pirate, OverlayType.PIRATE);
             }
         });
 
@@ -190,15 +266,15 @@ public class ShowMap extends MapActivity
 				break;
 			}
 
-		case TRAILS:
-			if (TRAILS_SHOWN) {
+		case CARPARKS:
+			if (CARPARKS_SHOWN) {
 				map.getOverlays().remove(o);
-				TRAILS_SHOWN = !TRAILS_SHOWN;
+				CARPARKS_SHOWN= !CARPARKS_SHOWN;
 				map.postInvalidate();
 				break;
 			} else {
 				map.getOverlays().add(o);
-				TRAILS_SHOWN = !TRAILS_SHOWN;
+				CARPARKS_SHOWN = !CARPARKS_SHOWN;
 				map.postInvalidate();
 				break;
 			}
@@ -214,11 +290,56 @@ public class ShowMap extends MapActivity
 				map.postInvalidate();
 				break;
 			}
-		case DOWNHILL:
-			break;
-		case JUMPS:
-			break;
-		}
+		case UPHILL:
+            if (UPHILL_SHOWN) {
+                map.getOverlays().remove(o);
+                UPHILL_SHOWN = !UPHILL_SHOWN;
+                map.postInvalidate();
+                break;
+            } else {
+                map.getOverlays().add(o);
+                UPHILL_SHOWN = !UPHILL_SHOWN;
+                map.postInvalidate();
+                break;
+            }
+            case DOWNHILL:
+                if (DOWNHILL_SHOWN) {
+                    map.getOverlays().remove(o);
+                    DOWNHILL_SHOWN = !DOWNHILL_SHOWN;
+                    map.postInvalidate();
+                    break;
+                } else {
+                    map.getOverlays().add(o);
+                    DOWNHILL_SHOWN = !DOWNHILL_SHOWN;
+                    map.postInvalidate();
+                    break;
+                }
+
+            case JUMPS:
+                if (JUMPS_SHOWN) {
+                    map.getOverlays().remove(o);
+                    JUMPS_SHOWN = !JUMPS_SHOWN;
+                    map.postInvalidate();
+                    break;
+                } else {
+                    map.getOverlays().add(o);
+                    JUMPS_SHOWN = !JUMPS_SHOWN;
+                    map.postInvalidate();
+                    break;
+                }
+            case PIRATE:
+                if (PIRATE_SHOWN) {
+                    map.getOverlays().remove(o);
+                    PIRATE_SHOWN = !PIRATE_SHOWN;
+                    map.postInvalidate();
+                    break;
+                } else {
+                    map.getOverlays().add(o);
+                    PIRATE_SHOWN = !PIRATE_SHOWN;
+                    map.postInvalidate();
+                    break;
+                }
+        }
 	}
 
     // Overlay a route.  This method is only executed after loadRouteData() completes
@@ -245,9 +366,9 @@ public class ShowMap extends MapActivity
         routePoints[2] = new GeoPoint(50842911, -01313120);
         routeGrade[2] = 1;
         routePoints[3] = new GeoPoint(50829200, -01462300);
-        routeGrade[3] = 2;
+        routeGrade[3] = 1;
         routePoints[4] = new GeoPoint(50852911, -01613120);
-        routeGrade[4] = 2;
+        routeGrade[4] = 1;
     }
    
    

@@ -75,7 +75,7 @@ package com.vickystevens.code.friston;
             for(int i=0; i<numberRoutePoints-1; i++){
                 switch(routeGrade[i]){
                     case 1:
-                            paint.setARGB(100,255,0,0);
+                            paint.setARGB(255, 160,32,240);
                             paint.setStrokeWidth(3);
                             break;
                     case 2:

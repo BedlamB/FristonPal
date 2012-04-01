@@ -29,7 +29,7 @@ public class MyCustomLocationOverlay extends MyLocationOverlay {
         Point screenPts = mapView.getProjection().toPixels(myLocation, null);
 
         // create a rotated copy of the marker
-        Bitmap arrowBitmap = BitmapFactory.decodeResource( mContext.getResources(), R.drawable.eject);
+        Bitmap arrowBitmap = BitmapFactory.decodeResource( mContext.getResources(), R.drawable.helmet);
         Matrix matrix = new Matrix(); 
         matrix.postRotate(this.getOrientation());
         Bitmap rotatedBmp = Bitmap.createBitmap(

@@ -12,8 +12,12 @@
     <string name="ar_name">AR Wiki</string>
     <string name="goLabel">Show the Map</string>
     <string name="pubs_label">Pubs</string>
-    <string name="trails_label">Trails</string>
+    <string name="carparks_label">Car Parks</string>
     <string name="purple_label">Purple</string>
+    <string name="uphill_label">Uphill</string>
+    <string name="downhill_label">Downhill</string>
+    <string name="jumps_label">Jumps</string>  
+    <string name="pirate_label">Pirate</string>
 
     <string name="main_title">Android Game of Life</string>
     <string name="continue_label">Continue</string>

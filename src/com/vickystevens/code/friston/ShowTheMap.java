@@ -48,6 +48,8 @@ public class ShowTheMap extends MapActivity {
 
     // Define an array containing the food overlay items
 
+
+
     private OverlayItem [] foodItem = {
             new OverlayItem( new GeoPoint(35952967,-83929158), "Food Title 1", "Food snippet 1"),
             new OverlayItem( new GeoPoint(35953000,-83928000), "Food Title 2", "Food snippet 2"),
