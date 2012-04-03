@@ -1,9 +1,14 @@
 package com.vickystevens.code.friston;
 
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
+import android.content.res.AssetManager;
+import android.widget.TextView;
 import com.google.android.maps.*;
 
 import android.app.AlertDialog;
@@ -15,6 +20,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class ShowMap extends MapActivity
@@ -27,6 +35,9 @@ public class ShowMap extends MapActivity
     private RouteSegmentOverlay route;
     private Overlay uphill, downhill, jumps, pirate, carparks, purple, pubs;
     private MapController mapController;
+    private String theText;
+    private TextView line1;
+    JSONArray resultsArray;
 
     private Button uphillButton, downhillButton, jumpsButton, pirateButton, carparksButton, purpleButton, pubsButton,routeButton;
     private boolean PUBS_SHOWN, CARPARKS_SHOWN, PURPLE_SHOWN, UPHILL_SHOWN, DOWNHILL_SHOWN, JUMPS_SHOWN, PIRATE_SHOWN;
@@ -77,27 +88,40 @@ public class ShowMap extends MapActivity
                 purpleMarker.getIntrinsicHeight());
 		carparkMarker.setBounds(0, 0, carparkMarker.getIntrinsicWidth(),
 				carparkMarker.getIntrinsicHeight());
-          pubsMarker.setBounds(0, 0, pubsMarker.getIntrinsicWidth(),
+        pubsMarker.setBounds(0, 0, pubsMarker.getIntrinsicWidth(),
                 pubsMarker.getIntrinsicHeight());
 
 
         ArrayList<MyGeoPoint> purpleOverlays = new ArrayList<MyGeoPoint>();
+        try {
+            readJSON("pubs");
+        } catch (JSONException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
         // can get these from file later
-        purpleOverlays.add(new MyGeoPoint(50.852911, -0.161312, "purple", "Where Dreams Are Made"));
+        for (int i = 0; i < resultsArray.length(); i++) {
+            try {
+
+                purpleOverlays.add(new MyGeoPoint(resultsArray.getJSONObject(i).getDouble("lat"), resultsArray.getJSONObject(i).getDouble("lng"), "boo", "boo"));
+
+            } catch (JSONException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+    }
         purpleOverlays.add(new MyGeoPoint(50.879200, -0.186230, "purple", "Xanadu"));
 
 
 
         ArrayList<MyGeoPoint> carparkOverlays = new ArrayList<MyGeoPoint>();
         // can get these from file later
-        carparkOverlays.add(new MyGeoPoint(50.842911, -0.131312, "car", "Where Dreams Are Made"));
-        carparkOverlays.add(new MyGeoPoint(50.829200, -0.146230, "car", "Xanadu"));        
+//        carparkOverlays.add(new MyGeoPoint(50.842911, -0.131312, "car", "Where Dreams Are Made"));
+//        carparkOverlays.add(new MyGeoPoint(50.829200, -0.146230, "car", "Xanadu"));
 
         // populate arraylist
         ArrayList<MyGeoPoint> pubOverlays = new ArrayList<MyGeoPoint>();
            // can get these from file later
-        pubOverlays.add(new MyGeoPoint(50.842941, -0.141312, "pub", "The End Of The Rainbow"));
-        pubOverlays.add(new MyGeoPoint(50.819583, -0.136420, "pub", "Brighton Pier"));
+//        pubOverlays.add(new MyGeoPoint(50.842941, -0.141312, "pub", "The End Of The Rainbow"));
+//        pubOverlays.add(new MyGeoPoint(50.819583, -0.136420, "pub", "Brighton Pier"));
 
 
 
@@ -224,7 +248,7 @@ public class ShowMap extends MapActivity
         });
 
      
-     
+       
 		me=new MyCustomLocationOverlay(this, map);
     	map.getOverlays().add(me);
         me.enableMyLocation();
@@ -245,6 +269,7 @@ public class ShowMap extends MapActivity
         boolean routeIsDisplayed = false;
      	map.postInvalidate();
     }
+
 
 
     
@@ -341,6 +366,60 @@ public class ShowMap extends MapActivity
                 }
         }
 	}
+
+    public void readJSON(String type) throws JSONException {
+        read(type);
+        try {
+            JSONObject jObject = new JSONObject(theText);
+            resultsArray = jObject.getJSONArray("results");
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < 3; i++) {
+
+                sb.append(resultsArray.getJSONObject(i)
+                        .getString("id").toString());
+                sb.append(resultsArray.getJSONObject(i)
+                        .getString("lat").toString());
+                sb.append(resultsArray.getJSONObject(i)
+                        .getString("lng").toString());
+
+
+            }
+
+
+        } catch (JSONException e) {
+            Toast.makeText(this, "JSON exception", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void read(String type) {
+        //   FileInputStream fis = null;
+        Scanner scanner = null;
+        AssetManager am = this.getAssets();
+        InputStream fis;
+
+        // To load text file
+        InputStream input;
+        try {
+            input = am.open(type);
+
+            int size = input.available();
+            byte[] buffer = new byte[size];
+            input.read(buffer);
+            input.close();
+
+            // byte buffer into a string
+            theText = new String(buffer);
+
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            Toast.makeText(this, "IOException", Toast.LENGTH_SHORT).show();
+        }
+        //    line1.setText(theText);
+
+    }
 
     // Overlay a route.  This method is only executed after loadRouteData() completes
     // on background thread.

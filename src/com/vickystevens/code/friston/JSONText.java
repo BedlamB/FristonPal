@@ -5,7 +5,7 @@ import android.app.AlertDialog;
 
 import android.os.Bundle;
 
-public class RouteActivity extends Activity {
+public class JSONText extends Activity {
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

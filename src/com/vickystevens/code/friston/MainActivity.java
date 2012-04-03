@@ -58,8 +58,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(qrIntent);
                 break;
             case R.id.btnChooseRt:
-                Intent rtIntent = new Intent(this, ShowTheMap.class);
-                startActivity(rtIntent);
                 break;
             case R.id.btnChooseWiki:
                 Intent arIntent = new Intent(this, ArActivity.class);
