@@ -1,10 +1,9 @@
 {
     "status": "OK",
-    "num_results": 3,
+    "num_results": 2,
     "results": [
-				      {"id": "New", "lat": "50.842911", "lng": "-0.131312"},
-				      {"id": "Open", "lat": "50.879200", "lng": "-0.186230"},
-				      {"id": "Close", "lat": "50.819583", "lng": "-0.136420"}
+				      {"title": "e", "snippet": "pubs", "lat": "50.842941", "lng": "-0.141312"},
+				      {"title": "f", "snippet": "booze", "lat": "50.819583", "lng": "-0.136420"},
 				    ]
 
 				}}

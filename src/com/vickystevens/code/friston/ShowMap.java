@@ -36,8 +36,8 @@ public class ShowMap extends MapActivity
     private Overlay uphill, downhill, jumps, pirate, carparks, purple, pubs;
     private MapController mapController;
     private String theText;
-    private TextView line1;
-    JSONArray resultsArray;
+
+
 
     private Button uphillButton, downhillButton, jumpsButton, pirateButton, carparksButton, purpleButton, pubsButton,routeButton;
     private boolean PUBS_SHOWN, CARPARKS_SHOWN, PURPLE_SHOWN, UPHILL_SHOWN, DOWNHILL_SHOWN, JUMPS_SHOWN, PIRATE_SHOWN;
@@ -91,58 +91,175 @@ public class ShowMap extends MapActivity
         pubsMarker.setBounds(0, 0, pubsMarker.getIntrinsicWidth(),
                 pubsMarker.getIntrinsicHeight());
 
-
+        //populate purple
         ArrayList<MyGeoPoint> purpleOverlays = new ArrayList<MyGeoPoint>();
+        JSONArray purpleArray = null;
         try {
-            readJSON("pubs");
+            purpleArray = readJSON("purple");
+
         } catch (JSONException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
         // can get these from file later
-        for (int i = 0; i < resultsArray.length(); i++) {
+        for (int i = 0; i < purpleArray.length(); i++) {
             try {
 
-                purpleOverlays.add(new MyGeoPoint(resultsArray.getJSONObject(i).getDouble("lat"), resultsArray.getJSONObject(i).getDouble("lng"), "boo", "boo"));
+                Double lat = purpleArray.getJSONObject(i).getDouble("lat");
+                Double lon = purpleArray.getJSONObject(i).getDouble("lng");
+                String title = purpleArray.getJSONObject(i).getString("title");
+                String snippet =purpleArray.getJSONObject(i).getString("snippet");
+                purpleOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
 
             } catch (JSONException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
     }
-        purpleOverlays.add(new MyGeoPoint(50.879200, -0.186230, "purple", "Xanadu"));
 
 
-
-        ArrayList<MyGeoPoint> carparkOverlays = new ArrayList<MyGeoPoint>();
-        // can get these from file later
-//        carparkOverlays.add(new MyGeoPoint(50.842911, -0.131312, "car", "Where Dreams Are Made"));
-//        carparkOverlays.add(new MyGeoPoint(50.829200, -0.146230, "car", "Xanadu"));
-
-        // populate arraylist
+        //populate pubs
         ArrayList<MyGeoPoint> pubOverlays = new ArrayList<MyGeoPoint>();
-           // can get these from file later
-//        pubOverlays.add(new MyGeoPoint(50.842941, -0.141312, "pub", "The End Of The Rainbow"));
-//        pubOverlays.add(new MyGeoPoint(50.819583, -0.136420, "pub", "Brighton Pier"));
+        JSONArray pubsArray = null;
+        try {
+            pubsArray = readJSON("pubs");
 
+        } catch (JSONException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        // can get these from file later
+        for (int i = 0; i < pubsArray.length(); i++) {
+            try {
 
+                Double lat = pubsArray.getJSONObject(i).getDouble("lat");
+                Double lon = pubsArray.getJSONObject(i).getDouble("lng");
+                String title = pubsArray.getJSONObject(i).getString("title");
+                String snippet = pubsArray.getJSONObject(i).getString("snippet");
+                pubOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
 
+            } catch (JSONException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
 
+        //populate carparks
+        ArrayList<MyGeoPoint> carparkOverlays = new ArrayList<MyGeoPoint>();
+        JSONArray carparkArray = null;
+        try {
+            carparkArray = readJSON("carparks");
 
-        
+        } catch (JSONException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        // can get these from file later
+        for (int i = 0; i < pubsArray.length(); i++) {
+            try {
+
+                Double lat = carparkArray.getJSONObject(i).getDouble("lat");
+                Double lon = carparkArray.getJSONObject(i).getDouble("lng");
+                String title = carparkArray.getJSONObject(i).getString("title");
+                String snippet = carparkArray.getJSONObject(i).getString("snippet");
+                carparkOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
+
+            } catch (JSONException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+
+        //populate uphills
         ArrayList<MyGeoPoint> uphillOverlays = new ArrayList<MyGeoPoint>();
-        uphillOverlays.add(new MyGeoPoint(50.853811, -0.171323, "uphill", "its steep here"));
-        uphillOverlays.add(new MyGeoPoint(50.82734, -0.168301, "uphill", "its steep here"));
-        
+        JSONArray uphillArray = null;
+        try {
+            uphillArray = readJSON("uphill");
+
+        } catch (JSONException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        // can get these from file later
+        for (int i = 0; i < uphillArray.length(); i++) {
+            try {
+
+                Double lat = uphillArray.getJSONObject(i).getDouble("lat");
+                Double lon = uphillArray.getJSONObject(i).getDouble("lng");
+                String title = uphillArray.getJSONObject(i).getString("title");
+                String snippet = uphillArray.getJSONObject(i).getString("snippet");
+                uphillOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
+
+            } catch (JSONException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+
+        //populate downhills
         ArrayList<MyGeoPoint> downhillOverlays = new ArrayList<MyGeoPoint>();
-        downhillOverlays.add(new MyGeoPoint(50.852780, -0.159480, "downhill", "whee!"));
-        downhillOverlays.add(new MyGeoPoint(50.882095, -0.160392, "downhill", "Whee!"));
-        
+        JSONArray downhillArray = null;
+        try {
+            downhillArray = readJSON("downhill");
+
+        } catch (JSONException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        // can get these from file later
+        for (int i = 0; i < downhillArray.length(); i++) {
+            try {
+
+                Double lat = downhillArray.getJSONObject(i).getDouble("lat");
+                Double lon = downhillArray.getJSONObject(i).getDouble("lng");
+                String title = downhillArray.getJSONObject(i).getString("title");
+                String snippet = downhillArray.getJSONObject(i).getString("snippet");
+                downhillOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
+
+            } catch (JSONException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+
+        //populate jumps
         ArrayList<MyGeoPoint> jumpsOverlays = new ArrayList<MyGeoPoint>();
-        jumpsOverlays.add(new MyGeoPoint(50.839573, -0.148493, "jump", "hup!"));
-        jumpsOverlays.add(new MyGeoPoint(50.882920, -0.129482, "jump", "hup!"));
-        
+        JSONArray jumpsArray = null;
+        try {
+            jumpsArray = readJSON("jumps");
+
+        } catch (JSONException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        // can get these from file later
+        for (int i = 0; i < jumpsArray.length(); i++) {
+            try {
+
+                Double lat = jumpsArray.getJSONObject(i).getDouble("lat");
+                Double lon = jumpsArray.getJSONObject(i).getDouble("lng");
+                String title = jumpsArray.getJSONObject(i).getString("title");
+                String snippet = jumpsArray.getJSONObject(i).getString("snippet");
+                jumpsOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
+
+            } catch (JSONException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+
+        //populate pirate
         ArrayList<MyGeoPoint> pirateOverlays = new ArrayList<MyGeoPoint>();
-        pirateOverlays.add(new MyGeoPoint(50.894829, -0.182920, "pirate", "ARRRH"));
-        pirateOverlays.add(new MyGeoPoint(50.884930, -0.184028, "pirate", "ARRRRR"));
+        JSONArray pirateArray = null;
+        try {
+            pirateArray = readJSON("pirate");
+
+        } catch (JSONException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        // can get these from file later
+        for (int i = 0; i < pirateArray.length(); i++) {
+            try {
+
+                Double lat = pirateArray.getJSONObject(i).getDouble("lat");
+                Double lon = pirateArray.getJSONObject(i).getDouble("lng");
+                String title = pirateArray.getJSONObject(i).getString("title");
+                String snippet = pirateArray.getJSONObject(i).getString("snippet");
+                pirateOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
+
+            } catch (JSONException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+        
 
 
 
@@ -168,7 +285,7 @@ public class ShowMap extends MapActivity
         overlayList.add(pirate);
 
         //add overlay
-   //     map.getOverlays().add(pubs);
+   //     map.getOverlays().add(purple);
         PURPLE_SHOWN = true;
         CARPARKS_SHOWN = true;
         PUBS_SHOWN = true;
@@ -367,29 +484,17 @@ public class ShowMap extends MapActivity
         }
 	}
 
-    public void readJSON(String type) throws JSONException {
+    public JSONArray readJSON(String type) throws JSONException {
         read(type);
         try {
             JSONObject jObject = new JSONObject(theText);
-            resultsArray = jObject.getJSONArray("results");
-            StringBuilder sb = new StringBuilder();
-
-            for (int i = 0; i < 3; i++) {
-
-                sb.append(resultsArray.getJSONObject(i)
-                        .getString("id").toString());
-                sb.append(resultsArray.getJSONObject(i)
-                        .getString("lat").toString());
-                sb.append(resultsArray.getJSONObject(i)
-                        .getString("lng").toString());
-
-
-            }
-
-
-        } catch (JSONException e) {
+            JSONArray resultsArray = jObject.getJSONArray("results");
+            return resultsArray;
+          } catch (JSONException e) {
             Toast.makeText(this, "JSON exception", Toast.LENGTH_SHORT).show();
         }
+        Toast.makeText(this, "wtf?", Toast.LENGTH_SHORT).show();
+        return null;
 
     }
 
