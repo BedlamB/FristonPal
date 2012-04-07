@@ -66,7 +66,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.exit_button:
                 Intent i = new Intent();
                 i.setAction(Intent.ACTION_VIEW);
-                i.setDataAndType(Uri.parse("http://ws.geonames.org/findNearbyWikipediaJSON"), "application/mixare-json");
+ //               i.setDataAndType(Uri.parse("http://ws.geonames.org/findNearbyWikipediaJSON"), "application/mixare-json");
+                i.setDataAndType(Uri.parse("http://www.fristonpal.info/mix.php"), "application/mixare-json");
                 startActivity(i);
                 break;
         }
