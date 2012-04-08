@@ -44,7 +44,7 @@ public class ShowMap extends MapActivity
     private boolean PUBS_SHOWN, CARPARKS_SHOWN, PURPLE_SHOWN, UPHILL_SHOWN, DOWNHILL_SHOWN, JUMPS_SHOWN, PIRATE_SHOWN;
 
     
-    private GeoPoint[] routePoints;
+    private ArrayList<GeoPoint> routePoints;
     private int[] routeGrade;
     
     public enum OverlayType
@@ -572,7 +572,7 @@ public class ShowMap extends MapActivity
  
 
     public void loadRouteData(){
-        routePoints = new GeoPoint[500];
+        routePoints = new ArrayList<GeoPoint>();
         KMLHandler handler = new KMLHandler(this);
         try {
             routePoints = handler.getParsedItems();

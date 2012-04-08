@@ -12,18 +12,18 @@ import java.util.ArrayList;
 
 public class KMLHandler {
     private XmlResourceParser xpp;
-    private GeoPoint[] route;
+    private ArrayList<GeoPoint> route;
    // private ArrayList<Location> locations = new ArrayList<Location>();
     private Context context;
 
     public KMLHandler(Context context){
         this.context = context;
-        route = new GeoPoint[4];
+        route = new ArrayList<GeoPoint>();
 
 
     }
 
-    public GeoPoint[] getParsedItems() throws IOException, XmlPullParserException {
+    public ArrayList<GeoPoint> getParsedItems() throws IOException, XmlPullParserException {
         try {
             getAllXML();
         } catch (XmlPullParserException e) {
@@ -36,9 +36,9 @@ public class KMLHandler {
 
     public void getAllXML() throws XmlPullParserException, IOException {
         Resources res = context.getResources();
-        xpp = res.getXml(R.xml.purple);
+        xpp = res.getXml(R.xml.purple2);
         int eventType = xpp.getEventType();
-        int cnt = 0;
+
         while (eventType != XmlPullParser.END_DOCUMENT) {
             if(eventType == XmlPullParser.START_TAG){
                 if(xpp.getName().equals("coordinates")){
@@ -53,8 +53,8 @@ public class KMLHandler {
                     double d = Double.valueOf(lat.trim()).doubleValue();
                     double d2 = Double.valueOf(lon.trim()).doubleValue();
                     GeoPoint g = getPoint(d, d2);  //longitude first in KML
-                    route[cnt] = g;
-                    cnt++;
+                    route.add(g);
+
 
                 }
             }

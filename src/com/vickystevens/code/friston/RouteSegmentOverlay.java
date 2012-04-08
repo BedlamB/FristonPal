@@ -9,22 +9,25 @@ package com.vickystevens.code.friston;
     import com.google.android.maps.GeoPoint;
     import com.google.android.maps.MapView;
     import com.google.android.maps.Overlay;
-    
-    public class RouteSegmentOverlay extends Overlay {
+
+    import java.util.ArrayList;
+
+public class RouteSegmentOverlay extends Overlay {
         private GeoPoint locpoint;
         private Paint paint;
-        private GeoPoint routePoints [];
+        private ArrayList<GeoPoint> routePoints;
+ //       private GeoPoint routePoints [];
         private boolean routeIsActive;
         private Point pold, pnew, pp;
         private int numberRoutePoints;
         
         // Constructor permitting the route array to be passed as an argument.
-        public RouteSegmentOverlay(GeoPoint[] routePoints) {
+        public RouteSegmentOverlay(ArrayList<GeoPoint> routePoints) {
                 this.routePoints = routePoints;
-                  numberRoutePoints  = routePoints.length;
+                  numberRoutePoints  = routePoints.size();
                 routeIsActive = true;
                 // If first time, set initial location to start of route
-                locpoint = routePoints[0];
+                locpoint = routePoints.get(0);
                 pold = new Point(0, 0);
                 pnew = new Point(0,0);
                 pp = new Point(0,0);
@@ -91,10 +94,10 @@ package com.vickystevens.code.friston;
 //                }
                 
                 // Find endpoints of this segment in pixels
-                mapview.getProjection().toPixels(routePoints[i], pold);
+                mapview.getProjection().toPixels(routePoints.get(i), pold);
                 oldx = pold.x;
                 oldy = pold.y;
-                mapview.getProjection().toPixels(routePoints[i+1], pnew);
+                mapview.getProjection().toPixels(routePoints.get(i+1), pnew);
                 newx = pnew.x;
                 newy = pnew.y;
                 
