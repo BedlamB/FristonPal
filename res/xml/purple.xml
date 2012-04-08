@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+    <kml>
+        <Document>
+            <name>Points.kml</name>
+            <Style id="point">
+                <IconStyle>
+                    <scale>0.9</scale>
+                    <Icon>
+                        <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+                    </Icon>
+                </IconStyle>
+            </Style>
+            <Folder>
+                <name>Points</name>
+                <open>1</open>
+                <Placemark>
+                    <description>Latitude: 50.77600694 Longitude : 0.1525305212</description>
+                    <Style>
+                        <IconStyle>
+                            <scale>0.9</scale>
+                            <Icon>
+                                <href>http://connect.garmin.com/image/main/icons/kml/grn-play.png</href>
+                            </Icon>
+                        </IconStyle>
+                    </Style>
+                    <Point>
+                        <coordinates>0.1525305212,50.77600694259999, -33.5089111328</coordinates>
+                    </Point>
+                </Placemark>
+                <Point>
+                    <coordinates>0.1555597410,50.7768613938, -33.5089111328</coordinates>
+                </Point>
+                <Point>
+                    <coordinates>0.1555597410,50.7768613938, -33.5089111328</coordinates>
+                </Point>
+                <Point>
+                    <coordinates>0.1562315505, 50.7767322287, -33.5089111328</coordinates>
+                </Point>
+            </Folder>
+        </Document>
+    </kml>
+</kml>

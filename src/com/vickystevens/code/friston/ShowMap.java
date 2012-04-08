@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import android.content.res.AssetManager;
-import android.widget.TextView;
 import com.google.android.maps.*;
 
 import android.app.AlertDialog;
@@ -23,6 +22,8 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.vickystevens.code.friston.JSONHandler;
+import org.xmlpull.v1.XmlPullParserException;
 
 
 public class ShowMap extends MapActivity
@@ -90,6 +91,31 @@ public class ShowMap extends MapActivity
 				carparkMarker.getIntrinsicHeight());
         pubsMarker.setBounds(0, 0, pubsMarker.getIntrinsicWidth(),
                 pubsMarker.getIntrinsicHeight());
+
+//        //populate purple
+//        ArrayList<MyGeoPoint> purpleOverlays = new ArrayList<MyGeoPoint>();
+//        JSONArray purpleArray = null;
+//        try {
+//            purpleArray = new JSONHandler().parseJSON();
+//
+//        } catch (JSONException e) {
+//            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+//        }
+//        // can get these from file later
+//        for (int i = 0; i < purpleArray.length(); i++) {
+//            try {
+//
+//                Double lat = purpleArray.getJSONObject(i).getDouble("lat");
+//                Double lon = purpleArray.getJSONObject(i).getDouble("lng");
+//                String title = purpleArray.getJSONObject(i).getString("title");
+//                String snippet =purpleArray.getJSONObject(i).getString("snippet");
+//                purpleOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
+//
+//            } catch (JSONException e) {
+//                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+//            }
+//        }
+
 
         //populate purple
         ArrayList<MyGeoPoint> purpleOverlays = new ArrayList<MyGeoPoint>();
@@ -259,7 +285,7 @@ public class ShowMap extends MapActivity
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
         }
-        
+
 
 
 
@@ -360,7 +386,7 @@ public class ShowMap extends MapActivity
             public void onClick(View v) {
                 loadRouteData();
                 overlayRoute();
-                mapController.animateTo(getPoint(50.829609, -0.138820));
+                mapController.animateTo(getPoint(50.7768613938, 0.1555597410));
             }
         });
 
@@ -532,7 +558,7 @@ public class ShowMap extends MapActivity
     public void overlayRoute() {
         //  if(route != null) return;  // To prevent multiple route instances if key toggled rapidly
         // Set up the overlay controller
-        route = new RouteSegmentOverlay(routePoints, routeGrade); // My class defining route overlay  THIS IS THE KEY!!  Make two arrays here and pass them
+        route = new RouteSegmentOverlay(routePoints); // My class defining route overlay  THIS IS THE KEY!!  Make two arrays here and pass them
         map.getOverlays().add(route);
 
         // Added symbols will be displayed when map is redrawn so force redraw now
@@ -546,37 +572,42 @@ public class ShowMap extends MapActivity
  
 
     public void loadRouteData(){
+        routePoints = new GeoPoint[500];
+        KMLHandler handler = new KMLHandler(this);
+        try {
+            routePoints = handler.getParsedItems();
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
 
 
-
-        routePoints = new GeoPoint[13];
-        routeGrade = new int[13];
-        routePoints[0] = getPoint(50.829609, -0.138820);
-        routeGrade[0] = 1;
-        routePoints[1] = getPoint(50.829739,-0.139140);
-        routeGrade[1] = 1;
-        routePoints[2] = getPoint(50.829739, -0.139140);
-        routeGrade[2] = 1;
-        routePoints[3] = getPoint(50.830170, -0.139150);
-        routeGrade[3] = 1;
-        routePoints[4] = getPoint(50.830719, -0.139240);
-        routeGrade[4] = 1;
-        routePoints[5] = getPoint(50.831039, -0.139170);
-        routeGrade[5] = 1;
-        routePoints[6] = getPoint(50.831108, -0.139240);
-        routeGrade[6] = 1;
-        routePoints[7] = getPoint(50.831779, -0.139340);
-        routeGrade[7] = 1;
-        routePoints[8] = getPoint(50.832981, -0.141490);
-        routeGrade[8] = 1;
-        routePoints[9] = getPoint(50.832989, -0.141690);
-        routeGrade[9] = 1;
-        routePoints[10] = getPoint(50.832878, -0.141940);
-        routeGrade[10] = 1;
-        routePoints[11] = getPoint(50.832802, -0.141990);
-        routeGrade[11] = 1;
-        routePoints[12] = getPoint(50.831890, -0.141080);
-        routeGrade[12] = 1;
+//        routeGrade = new int[4];
+//
+//        routePoints[0] = getPoint(50.77600694259999, 0.1525305212);
+//        routePoints[1] = getPoint(50.7768613938,0.1555597410);
+//        routePoints[2] = getPoint(50.7768613938 , 0.1555597410);
+//        routePoints[3] = getPoint(50.7767322287, 0.1562315505);
+///
+//        routePoints[4] = getPoint(50.7764936797, 0.1566385757);
+//        routeGrade[4] = 1;
+//        routePoints[5] = getPoint(50.7762706373, 0.1568238158);
+//        routeGrade[5] = 1;
+//        routePoints[6] = getPoint(50.7762034144, 0.1569409948);
+//        routeGrade[6] = 1;
+//        routePoints[7] = getPoint(50.7760506123, 0.1570190303);
+//        routeGrade[7] = 1;
+//        routePoints[8] = getPoint(50.7757995743, 0.1573062781);
+//        routeGrade[8] = 1;
+//        routePoints[9] = getPoint(50.7755352929, 0.1575327571);
+//        routeGrade[9] = 1;
+//        routePoints[10] = getPoint(50.7747028861, 0.1582158823);
+//        routeGrade[10] = 1;
+//        routePoints[11] = getPoint(50.7743825298, 0.1585206483);
+//        routeGrade[11] = 1;
+//        routePoints[12] = getPoint(50.7738315035, 0.1588980854);
+//        routeGrade[12] = 1;
 
 
     }
@@ -655,7 +686,7 @@ public class ShowMap extends MapActivity
             super(boundCenterBottom(marker));
 			this.marker=marker;
             for(MyGeoPoint point: points){
-                this.items.add(new OverlayItem(getPoint(point.getLat(), point.getLon()), point.getTag(), point.getMsg()));
+                this.items.add(new OverlayItem(getPoint(point.getLat(), point.getLon()), point.getTitle(), point.getSnippet()));
                }
             populate();
 

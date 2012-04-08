@@ -1,21 +1,19 @@
 package com.vickystevens.code.friston;
 
-import com.google.android.maps.GeoPoint;
-
 public class MyGeoPoint {
 	
-	private double lat;     //maybe store these as doubles and not have to call GetGeopoint everytime?
+	private double lat;
 	private double lon;
-	private String tag;
-	private String msg;
+	private String title;
+	private String snippet;
  
 
 
-	public MyGeoPoint(double lat, double lon, String tag, String msg){
+	public MyGeoPoint(double lat, double lon, String title, String snippet){
 		this.lat = lat;
 		this.lon = lon;
-		this.tag = tag;
-		this.msg = msg;
+		this.title = title;
+		this.snippet = snippet;
 	}
 
 
@@ -44,26 +42,26 @@ public class MyGeoPoint {
 
 
 
-	public String getTag() {
-		return tag;
+	public String getTitle() {
+		return title;
 	}
 
 
 
-	public void setTag(String tag) {
-		this.tag = tag;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 
 
-	public String getMsg() {
-		return msg;
+	public String getSnippet() {
+		return snippet;
 	}
 
 
 
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setSnippet(String snippet) {
+		this.snippet = snippet;
 	}
 
 
