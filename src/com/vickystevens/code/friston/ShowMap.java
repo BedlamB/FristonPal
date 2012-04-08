@@ -92,36 +92,12 @@ public class ShowMap extends MapActivity
         pubsMarker.setBounds(0, 0, pubsMarker.getIntrinsicWidth(),
                 pubsMarker.getIntrinsicHeight());
 
-//        //populate purple
-//        ArrayList<MyGeoPoint> purpleOverlays = new ArrayList<MyGeoPoint>();
-//        JSONArray purpleArray = null;
-//        try {
-//            purpleArray = new JSONHandler().parseJSON();
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-//        }
-//        // can get these from file later
-//        for (int i = 0; i < purpleArray.length(); i++) {
-//            try {
-//
-//                Double lat = purpleArray.getJSONObject(i).getDouble("lat");
-//                Double lon = purpleArray.getJSONObject(i).getDouble("lng");
-//                String title = purpleArray.getJSONObject(i).getString("title");
-//                String snippet =purpleArray.getJSONObject(i).getString("snippet");
-//                purpleOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
-//
-//            } catch (JSONException e) {
-//                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-//            }
-//        }
-
-
         //populate purple
         ArrayList<MyGeoPoint> purpleOverlays = new ArrayList<MyGeoPoint>();
         JSONArray purpleArray = null;
         try {
-            purpleArray = readJSON("purple");
+            JSONHandler handler = new JSONHandler(this, "purple");
+                    purpleArray = handler.parseJSON();
 
         } catch (JSONException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -139,14 +115,17 @@ public class ShowMap extends MapActivity
             } catch (JSONException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
-    }
+        }
+
+
 
 
         //populate pubs
         ArrayList<MyGeoPoint> pubOverlays = new ArrayList<MyGeoPoint>();
         JSONArray pubsArray = null;
         try {
-            pubsArray = readJSON("pubs");
+            JSONHandler handler = new JSONHandler(this, "pubs");
+            pubsArray = handler.parseJSON();
 
         } catch (JSONException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -170,7 +149,8 @@ public class ShowMap extends MapActivity
         ArrayList<MyGeoPoint> carparkOverlays = new ArrayList<MyGeoPoint>();
         JSONArray carparkArray = null;
         try {
-            carparkArray = readJSON("carparks");
+            JSONHandler handler = new JSONHandler(this, "carparks");
+            carparkArray = handler.parseJSON();
 
         } catch (JSONException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -194,7 +174,8 @@ public class ShowMap extends MapActivity
         ArrayList<MyGeoPoint> uphillOverlays = new ArrayList<MyGeoPoint>();
         JSONArray uphillArray = null;
         try {
-            uphillArray = readJSON("uphill");
+            JSONHandler handler = new JSONHandler(this, "uphill");
+            uphillArray = handler.parseJSON();
 
         } catch (JSONException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -218,7 +199,8 @@ public class ShowMap extends MapActivity
         ArrayList<MyGeoPoint> downhillOverlays = new ArrayList<MyGeoPoint>();
         JSONArray downhillArray = null;
         try {
-            downhillArray = readJSON("downhill");
+            JSONHandler handler = new JSONHandler(this, "downhill");
+            downhillArray = handler.parseJSON();
 
         } catch (JSONException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -242,7 +224,8 @@ public class ShowMap extends MapActivity
         ArrayList<MyGeoPoint> jumpsOverlays = new ArrayList<MyGeoPoint>();
         JSONArray jumpsArray = null;
         try {
-            jumpsArray = readJSON("jumps");
+            JSONHandler handler = new JSONHandler(this, "jumps");
+            jumpsArray = handler.parseJSON();
 
         } catch (JSONException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -266,7 +249,8 @@ public class ShowMap extends MapActivity
         ArrayList<MyGeoPoint> pirateOverlays = new ArrayList<MyGeoPoint>();
         JSONArray pirateArray = null;
         try {
-            pirateArray = readJSON("pirate");
+            JSONHandler handler = new JSONHandler(this, "pirate");
+            pirateArray = handler.parseJSON();
 
         } catch (JSONException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -380,15 +364,10 @@ public class ShowMap extends MapActivity
             }
         });
 
-        // Button to control route overlay
-        routeButton = (Button)findViewById(R.id.doRoute);
-        routeButton.setOnClickListener(new OnClickListener(){
-            public void onClick(View v) {
-                loadRouteData();
-                overlayRoute();
-                mapController.animateTo(getPoint(50.7768613938, 0.1555597410));
-            }
-        });
+        loadRouteData();
+        overlayRoute();
+        mapController.animateTo(getPoint(50.7768613938, 0.1555597410));
+
 
      
        
@@ -577,38 +556,10 @@ public class ShowMap extends MapActivity
         try {
             routePoints = handler.getParsedItems();
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            Toast.makeText(this, "KML file does not exist", Toast.LENGTH_SHORT);
         } catch (XmlPullParserException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            Toast.makeText(this, "Invalid XML", Toast.LENGTH_SHORT);
         }
-
-
-//        routeGrade = new int[4];
-//
-//        routePoints[0] = getPoint(50.77600694259999, 0.1525305212);
-//        routePoints[1] = getPoint(50.7768613938,0.1555597410);
-//        routePoints[2] = getPoint(50.7768613938 , 0.1555597410);
-//        routePoints[3] = getPoint(50.7767322287, 0.1562315505);
-///
-//        routePoints[4] = getPoint(50.7764936797, 0.1566385757);
-//        routeGrade[4] = 1;
-//        routePoints[5] = getPoint(50.7762706373, 0.1568238158);
-//        routeGrade[5] = 1;
-//        routePoints[6] = getPoint(50.7762034144, 0.1569409948);
-//        routeGrade[6] = 1;
-//        routePoints[7] = getPoint(50.7760506123, 0.1570190303);
-//        routeGrade[7] = 1;
-//        routePoints[8] = getPoint(50.7757995743, 0.1573062781);
-//        routeGrade[8] = 1;
-//        routePoints[9] = getPoint(50.7755352929, 0.1575327571);
-//        routeGrade[9] = 1;
-//        routePoints[10] = getPoint(50.7747028861, 0.1582158823);
-//        routeGrade[10] = 1;
-//        routePoints[11] = getPoint(50.7743825298, 0.1585206483);
-//        routeGrade[11] = 1;
-//        routePoints[12] = getPoint(50.7738315035, 0.1588980854);
-//        routeGrade[12] = 1;
-
 
     }
    

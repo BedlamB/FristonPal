@@ -1,11 +1,10 @@
 package com.vickystevens.code.friston;
 
 
-import android.app.Activity;
+
+import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.widget.Toast;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,23 +12,20 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.Scanner;
 
-public class JSONHandler extends Activity{
+
+public class JSONHandler{
 	
     private List<MyGeoPoint> data;
     private String filename;
     private String JSONText;
+    private Context context;
 
-    public void JSONHandler(String filename){
+    public JSONHandler(Context context, String filename) throws JSONException {
+        this.context = context;
         this.filename = filename;
-        try {
             parseJSON();
-        } catch (JSONException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-
-    }
+     }
 
     public JSONArray parseJSON() throws JSONException {
         readFile();
@@ -38,19 +34,15 @@ public class JSONHandler extends Activity{
             JSONArray resultsArray = jObject.getJSONArray("results");
             return resultsArray;
         } catch (JSONException e) {
-            Toast.makeText(this, "JSON exception", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
         }
-        Toast.makeText(this, "wtf?", Toast.LENGTH_SHORT).show();
+
         return null;
 
     }
 
     private void readFile() {
-        //   FileInputStream fis = null;
-        Scanner scanner = null;
-        AssetManager am = this.getAssets();
-        InputStream fis;
-
+        AssetManager am = context.getAssets();
         // To load text file
         InputStream input;
         try {
@@ -64,12 +56,9 @@ public class JSONHandler extends Activity{
             // byte buffer into a string
             JSONText = new String(buffer);
 
-
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            Toast.makeText(this, "IOException", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
         }
-        //    line1.setText(theText);
 
     }
 

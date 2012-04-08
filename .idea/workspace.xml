@@ -16,10 +16,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="948525ec-1787-473b-ad33-54b948d34996" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/xml/purple2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/JSONHandler.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/JSONHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java" />
     </list>
     <ignored path="FristonPal.iws" />
@@ -38,21 +35,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java" line="386" class="com.vickystevens.code.friston.ShowMap$8" package="com.vickystevens.code.friston">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -93,19 +75,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ShowMap.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ShowMap.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="577" column="48" selection-start="20468" selection-end="20468" vertical-scroll-proportion="0.0">
+            <state line="560" column="45" selection-start="19812" selection-end="19812" vertical-scroll-proportion="0.672">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4175#4187#0" expanded="true" />
-                <element signature="e#5210#5222#0" expanded="true" />
-                <element signature="e#6238#6250#0" expanded="true" />
-                <element signature="e#7290#7302#0" expanded="true" />
-                <element signature="e#8339#8351#0" expanded="true" />
-                <element signature="e#9399#9411#0" expanded="true" />
-                <element signature="e#10434#10446#0" expanded="true" />
+                <element signature="e#3074#3086#0" expanded="true" />
+                <element signature="e#4191#4203#0" expanded="true" />
+                <element signature="e#5287#5299#0" expanded="true" />
+                <element signature="e#6407#6419#0" expanded="true" />
+                <element signature="e#7524#7536#0" expanded="true" />
+                <element signature="e#8652#8664#0" expanded="true" />
+                <element signature="e#9755#9767#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -156,10 +138,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KMLHandler.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="KMLHandler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="38" selection-start="1290" selection-end="1290" vertical-scroll-proportion="0.22">
+            <state line="38" column="38" selection-start="1290" selection-end="1290" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -186,8 +168,10 @@
       <file leaf-file-name="JSONHandler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/JSONHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="59" selection-start="606" selection-end="606" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="14" column="0" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -216,13 +200,13 @@
         <option value="$PROJECT_DIR$/assets/pirate" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java" />
         <option value="$PROJECT_DIR$/assets/pubs" />
-        <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/JSONHandler.java" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/MyGeoPoint.java" />
         <option value="$PROJECT_DIR$/res/xml/purple.xml" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java" />
-        <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java" />
         <option value="$PROJECT_DIR$/res/xml/purple2.xml" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/JSONHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java" />
       </list>
     </option>
   </component>
@@ -618,7 +602,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1680" height="951" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992035" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -632,7 +616,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32944787" sideWeight="0.6761434" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32944787" sideWeight="0.6761434" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32385662" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3250927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="100" y="124" width="1480" height="754" />
@@ -752,11 +736,6 @@
         <state line="37" column="62" selection-start="1693" selection-end="1693" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/JSONHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="59" selection-start="606" selection-end="606" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteItemizedOverlay.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="13" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" />
@@ -769,22 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="577" column="48" selection-start="20468" selection-end="20468" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4175#4187#0" expanded="true" />
-            <element signature="e#5210#5222#0" expanded="true" />
-            <element signature="e#6238#6250#0" expanded="true" />
-            <element signature="e#7290#7302#0" expanded="true" />
-            <element signature="e#8339#8351#0" expanded="true" />
-            <element signature="e#9399#9411#0" expanded="true" />
-            <element signature="e#10434#10446#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/xml/purple2.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3309" column="10" selection-start="152627" selection-end="152627" vertical-scroll-proportion="0.0">
@@ -794,8 +757,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="38" selection-start="1290" selection-end="1290" vertical-scroll-proportion="0.22">
+        <state line="38" column="38" selection-start="1290" selection-end="1290" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/JSONHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="560" column="45" selection-start="19812" selection-end="19812" vertical-scroll-proportion="0.672">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3074#3086#0" expanded="true" />
+            <element signature="e#4191#4203#0" expanded="true" />
+            <element signature="e#5287#5299#0" expanded="true" />
+            <element signature="e#6407#6419#0" expanded="true" />
+            <element signature="e#7524#7536#0" expanded="true" />
+            <element signature="e#8652#8664#0" expanded="true" />
+            <element signature="e#9755#9767#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
