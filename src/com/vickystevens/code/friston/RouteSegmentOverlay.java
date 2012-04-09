@@ -76,8 +76,8 @@ public class RouteSegmentOverlay extends Overlay {
             for(int i=0; i<numberRoutePoints-1; i++){
 //                switch(routeGrade[i]){
 //                    case 1:
-                            paint.setARGB(255, 160,32,240);
-                            paint.setStrokeWidth(3);
+                            paint.setARGB(255, 222,16,50);
+                            paint.setStrokeWidth(4);
                         //    break;
 //                    case 2:
 //                            paint.setARGB(100, 0, 255, 0);
