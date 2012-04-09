@@ -36,7 +36,7 @@ public class KMLHandler {
 
     public void getAllXML() throws XmlPullParserException, IOException {
         Resources res = context.getResources();
-        xpp = res.getXml(R.xml.purple2);
+        xpp = res.getXml(R.xml.path);
         int eventType = xpp.getEventType();
 
         while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -47,13 +47,19 @@ public class KMLHandler {
                     // convert to doubles
 
                     String s = xpp.nextText();
-                    String[] tokens = s.split(",");
-                    String lat = tokens[1];
-                    String lon = tokens[0];
-                    double d = Double.valueOf(lat.trim()).doubleValue();
-                    double d2 = Double.valueOf(lon.trim()).doubleValue();
-                    GeoPoint g = getPoint(d, d2);  //longitude first in KML
-                    route.add(g);
+                    String[] pairs = s.trim().split(" ");
+                    String[] lngLat = pairs[0].split(","); // lngLat[0]=longitude lngLat[1]=latitude lngLat[2]=height
+                    for (int i = 1; i < pairs.length; i++) // the last one would be crash
+                    {
+                        lngLat = pairs[i].split(",");
+                        String lat = lngLat[1];
+                        String lon = lngLat[0];
+                        double d = Double.valueOf(lat.trim()).doubleValue();
+                        double d2 = Double.valueOf(lon.trim()).doubleValue();
+                        GeoPoint g = getPoint(d, d2);  //longitude first in KML
+                        route.add(g);
+
+                    }
 
 
                 }
