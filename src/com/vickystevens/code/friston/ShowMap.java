@@ -382,15 +382,20 @@ public class ShowMap extends MapActivity
 //                mapController.animateTo(me.getMyLocation());
 //            }
 //        });
+        
+
+
 
         // Set up the array of GeoPoints defining the route
-        int numberRoutePoints = 5;
-        GeoPoint routePoints [];   // Dimension will be set in class RouteLoader below
-        int routeGrade [];               // Index for slope of route from point i to point i+1
-        RouteSegmentOverlay route;   // This will hold the route segments
-        boolean routeIsDisplayed = false;
+//        int numberRoutePoints = 5;
+//        GeoPoint routePoints [];   // Dimension will be set in class RouteLoader below
+//        int routeGrade [];               // Index for slope of route from point i to point i+1
+//        RouteSegmentOverlay route;   // This will hold the route segments
+//        boolean routeIsDisplayed = false;
      	map.postInvalidate();
+        
     }
+
 
 
 

@@ -58,7 +58,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(qrIntent);
                 break;
             case R.id.btnChooseRt:
-                break;
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("http://maps.google.com/maps?saddr=50.773901,0.145079&daddr=50.758887,0.205702&dirflg=w&mra=ltm&t=h&z=13"));
+                startActivity(intent);
             case R.id.btnChooseWiki:
                 Intent arIntent = new Intent(this, ArActivity.class);
                 startActivity(arIntent);
@@ -66,7 +68,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.exit_button:
                 Intent i = new Intent();
                 i.setAction(Intent.ACTION_VIEW);
- //               i.setDataAndType(Uri.parse("http://ws.geonames.org/findNearbyWikipediaJSON"), "application/mixare-json");
                 i.setDataAndType(Uri.parse("http://www.fristonpal.info/mix.php"), "application/mixare-json");
                 startActivity(i);
                 break;
