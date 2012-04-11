@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
+import android.net.Uri;
+import android.util.Log;
 import com.google.android.maps.*;
 
 import android.app.AlertDialog;
@@ -364,9 +367,7 @@ public class ShowMap extends MapActivity
             }
         });
 
-        loadRouteData();
-        overlayRoute();
-        mapController.animateTo(getPoint(50.7768613938, 0.1555597410));
+
 
 
      
@@ -386,12 +387,9 @@ public class ShowMap extends MapActivity
 
 
 
-        // Set up the array of GeoPoints defining the route
-//        int numberRoutePoints = 5;
-//        GeoPoint routePoints [];   // Dimension will be set in class RouteLoader below
-//        int routeGrade [];               // Index for slope of route from point i to point i+1
-//        RouteSegmentOverlay route;   // This will hold the route segments
-//        boolean routeIsDisplayed = false;
+        loadRouteData();
+        overlayRoute();
+        mapController.animateTo(getPoint(50.7768613938, 0.1555597410));
      	map.postInvalidate();
         
     }
@@ -544,9 +542,8 @@ public class ShowMap extends MapActivity
         // Set up the overlay controller
         route = new RouteSegmentOverlay(routePoints); // My class defining route overlay  THIS IS THE KEY!!  Make two arrays here and pass them
         map.getOverlays().add(route);
-
         // Added symbols will be displayed when map is redrawn so force redraw now
-        map.postInvalidate();
+  //      map.postInvalidate();
     }
 
     private GeoPoint getPoint(double lat, double lon) {
@@ -658,13 +655,87 @@ public class ShowMap extends MapActivity
 
 
 
-        @Override
-		protected boolean onTap(int i) {
-			Toast.makeText(ShowMap.this,
-						items.get(i).getSnippet(),
-							Toast.LENGTH_SHORT).show();
-			return(true);
-		}
+//        @Override
+//		protected boolean onTap(int i) {
+//			Toast.makeText(ShowMap.this,
+//						items.get(i).getSnippet(),
+//							Toast.LENGTH_SHORT).show();
+//			return(true);
+//		}
+
+   // Handle tap events on overlay icons
+//    @Override
+//    protected boolean onTap(int i){
+
+        /*	In this case we will just put a transient Toast message on the screen indicating that we have
+    captured the relevant information about the overlay item.  In a more serious application one
+    could replace the Toast with display of a customized view with the title, snippet text, and additional
+    features like an embedded image, video, or sound, or links to additional information. (The lat and
+    lon variables return the coordinates of the icon that was clicked, which could be used for custom
+    positioning of a display view.)*/
+//
+
+//        String toast = "Title: "+items.get(i).getTitle();
+//        toast += "\nText: "+items.get(i).getSnippet();
+//        toast += 	"\nSymbol coordinates: Lat = "+lat+" Lon = "+lon+" (microdegrees)";
+//        Toast.makeText(ShowMap.this, toast, Toast.LENGTH_LONG).show();
+//
+//        Toast toast = Toast.makeText(getApplicationContext(),"This is Bat", Toast.LENGTH_SHORT);
+//        toast.setGravity(Gravity.CENTER, 0, 0);
+//        LinearLayout toastView = (LinearLayout) toast.getView();
+//        ImageView imageCodeProject = new ImageView(getApplicationContext());
+//        imageCodeProject.setImageResource(R.drawable.b_1);
+//        toastView.addView(imageCodeProject, 0);
+//        toast.show();
+        protected boolean onTap(int i) {
+
+            OverlayItem itemClicked = items.get(i);
+            GeoPoint  point = itemClicked.getPoint();
+            final Double lat = point.getLatitudeE6()/1e6;
+            final Double lon = point.getLongitudeE6()/1e6;
+          //  String latString = lat.toString();
+         //   String lonString = lon.toString();
+            AlertDialog.Builder dialog = new AlertDialog.Builder(ShowMap.this);
+            dialog.setTitle(itemClicked.getTitle());
+            dialog.setMessage(itemClicked.getSnippet());
+            dialog.setCancelable(true);
+            dialog.setPositiveButton("Navigate to here", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+//                    Log.i(this.getClass().getName(), "Selected Yes To Add Location");
+//                    Toast.makeText(ShowMap.this, pString, Toast.LENGTH_LONG).show();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("http://maps.google.com/maps?saddr=");
+                    sb.append(Double.toString((double) me.getMyLocation().getLatitudeE6()));
+                    sb.append(",");
+                    sb.append(Double.toString((double) me.getMyLocation().getLongitudeE6()));
+                    sb.append("&daddr=");
+                    sb.append(Double.toString((lat)));
+                    sb.append(",");
+                    sb.append(Double.toString((lon)));
+                    sb.append("&dirflg=b&mra=ltm&t=h&z=13");
+                    Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                                          Uri.parse(sb.toString()));
+                    startActivity(intent);
+                }
+            });
+            dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    Log.i(this.getClass().getName(), "Selected No To Add Location");
+                    dialog.cancel();
+                }
+            });
+            dialog.setNeutralButton("Details", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    Toast.makeText(ShowMap.this, "details", Toast.LENGTH_LONG).show();
+                }
+            });
+            dialog.show();
+            return true;
+        }
+
+
+
+
 		
 		@Override
 		public int size() {

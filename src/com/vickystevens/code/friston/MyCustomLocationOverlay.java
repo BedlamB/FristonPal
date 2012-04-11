@@ -23,33 +23,33 @@ public class MyCustomLocationOverlay extends MyLocationOverlay {
         mContext = context;
     }
 
-    @Override 
-    protected void drawMyLocation(Canvas canvas, MapView mapView, Location lastFix, GeoPoint myLocation, long when) {
-        // translate the GeoPoint to screen pixels
-        Point screenPts = mapView.getProjection().toPixels(myLocation, null);
-
-        // create a rotated copy of the marker
-        Bitmap arrowBitmap = BitmapFactory.decodeResource( mContext.getResources(), R.drawable.helmet);
-        Matrix matrix = new Matrix(); 
-        matrix.postRotate(this.getOrientation());
-        Bitmap rotatedBmp = Bitmap.createBitmap(
-            arrowBitmap, 
-            0, 0, 
-            arrowBitmap.getWidth(), 
-            arrowBitmap.getHeight(), 
-            matrix, 
-            true
-        );
-        // add the rotated marker to the canvas
-        canvas.drawBitmap(
-            rotatedBmp, 
-            screenPts.x - (rotatedBmp.getWidth()  / 2), 
-            screenPts.y - (rotatedBmp.getHeight() / 2), 
-            null
-        );
-		mapView.postInvalidate();
-        
-    }
+//    @Override
+//    protected void drawMyLocation(Canvas canvas, MapView mapView, Location lastFix, GeoPoint myLocation, long when) {
+//        // translate the GeoPoint to screen pixels
+//        Point screenPts = mapView.getProjection().toPixels(myLocation, null);
+//
+//        // create a rotated copy of the marker
+//        Bitmap arrowBitmap = BitmapFactory.decodeResource( mContext.getResources(), R.drawable.helmet);
+//        Matrix matrix = new Matrix();
+//        matrix.postRotate(this.getOrientation());
+//        Bitmap rotatedBmp = Bitmap.createBitmap(
+//            arrowBitmap,
+//            0, 0,
+//            arrowBitmap.getWidth(),
+//            arrowBitmap.getHeight(),
+//            matrix,
+//            true
+//        );
+//        // add the rotated marker to the canvas
+//        canvas.drawBitmap(
+//            rotatedBmp,
+//            screenPts.x - (rotatedBmp.getWidth()  / 2),
+//            screenPts.y - (rotatedBmp.getHeight() / 2),
+//            null
+//        );
+//		mapView.postInvalidate();
+//
+//    }
     
     @Override
     public synchronized void onLocationChanged(Location location){

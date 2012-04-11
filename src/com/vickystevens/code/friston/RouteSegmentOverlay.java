@@ -74,25 +74,9 @@ public class RouteSegmentOverlay extends Overlay {
             // information returned from the server for the route.
             
             for(int i=0; i<numberRoutePoints-1; i++){
-//                switch(routeGrade[i]){
-//                    case 1:
-                            paint.setARGB(255, 222,16,50);
-                            paint.setStrokeWidth(4);
-                        //    break;
-//                    case 2:
-//                            paint.setARGB(100, 0, 255, 0);
-//                            paint.setStrokeWidth(5);
-//                            break;
-//                    case 3:
-//                            paint.setARGB(100, 0, 0, 255);
-//                            paint.setStrokeWidth(7);
-//                            break;
-//                    case 4:
-//                            paint.setARGB(90, 153, 102, 153);
-//                            paint.setStrokeWidth(6);
-//                            break;
-//                }
-                
+               paint.setARGB(100, 44,133,110);
+               paint.setStrokeWidth(6);
+
                 // Find endpoints of this segment in pixels
                 mapview.getProjection().toPixels(routePoints.get(i), pold);
                 oldx = pold.x;
