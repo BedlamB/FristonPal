@@ -25,7 +25,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/purple" afterPath="$PROJECT_DIR$/assets/purple" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/uphill" afterPath="$PROJECT_DIR$/assets/uphill" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/MyCustomLocationOverlay.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/MyCustomLocationOverlay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteItemizedOverlay.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteItemizedOverlay.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java" />
     </list>
@@ -85,28 +85,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="carparks" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/carparks">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="72" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
+            <state line="72" column="0" selection-start="2534" selection-end="2534" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="downhill" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/downhill">
+      <file leaf-file-name="QrWebView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/QrWebView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="58" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0">
+            <state line="21" column="13" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RouteSegmentOverlay.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java">
+      <file leaf-file-name="MyCustomLocationOverlay.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MyCustomLocationOverlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="0" selection-start="3571" selection-end="3571" vertical-scroll-proportion="0.0">
+            <state line="19" column="123" selection-start="696" selection-end="696" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShowMap.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="303" column="0" selection-start="11834" selection-end="11834" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -115,7 +124,25 @@
       <file leaf-file-name="RouteItemizedOverlay.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteItemizedOverlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="26" selection-start="916" selection-end="2074" vertical-scroll-proportion="0.0">
+            <state line="37" column="6" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RouteSegmentOverlay.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="16" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.26838967">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="carparks" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/carparks">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="20" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -124,16 +151,7 @@
       <file leaf-file-name="jumps" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/jumps">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="55" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pirate" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/pirate">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="78" selection-start="688" selection-end="688" vertical-scroll-proportion="-3.9">
+            <state line="7" column="0" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -142,7 +160,7 @@
       <file leaf-file-name="pubs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/pubs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="54" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0">
+            <state line="11" column="86" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -151,25 +169,7 @@
       <file leaf-file-name="purple" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/purple">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="59" selection-start="108" selection-end="108" vertical-scroll-proportion="-1.2">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="uphill" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/uphill">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="87" selection-start="397" selection-end="405" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShowMap.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="728" column="59" selection-start="25572" selection-end="25572" vertical-scroll-proportion="0.5472441">
+            <state line="13" column="8" selection-start="910" selection-end="910" vertical-scroll-proportion="-3.9">
               <folding />
             </state>
           </provider>
@@ -190,22 +190,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/showmap.xml" />
         <option value="$PROJECT_DIR$/res/xml/friston2.xml" />
         <option value="$PROJECT_DIR$/res/xml/path.xml" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/Navkml.java" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/MyCustomLocationOverlay.java" />
+        <option value="$PROJECT_DIR$/assets/pubs" />
+        <option value="$PROJECT_DIR$/assets/carparks" />
+        <option value="$PROJECT_DIR$/assets/pirate" />
         <option value="$PROJECT_DIR$/assets/downhill" />
         <option value="$PROJECT_DIR$/assets/jumps" />
-        <option value="$PROJECT_DIR$/assets/pirate" />
-        <option value="$PROJECT_DIR$/assets/pubs" />
         <option value="$PROJECT_DIR$/assets/uphill" />
-        <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java" />
         <option value="$PROJECT_DIR$/assets/purple" />
-        <option value="$PROJECT_DIR$/assets/carparks" />
+        <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java" />
+        <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteItemizedOverlay.java" />
       </list>
     </option>
   </component>
@@ -313,24 +313,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FristonPal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FristonPal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -356,8 +338,8 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="MyAvd0" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -413,24 +395,6 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -456,6 +420,24 @@
       <envs />
       <properties />
       <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -614,14 +596,14 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992035" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3250927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32880098" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32883435" sideWeight="0.1223733" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32883435" sideWeight="0.092707045" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32883435" sideWeight="0.86897403" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32014832" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17428924" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32883435" sideWeight="0.578492" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32014832" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37824476" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="100" y="124" width="1480" height="754" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21717791" sideWeight="0.67861557" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32881773" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -687,11 +669,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/xml/purple.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4711" column="143" selection-start="213883" selection-end="213883" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/JSONHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="0" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0" />
@@ -707,84 +684,91 @@
         <state line="2" column="13" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MyCustomLocationOverlay.java">
+    <entry file="file://$PROJECT_DIR$/assets/downhill">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="123" selection-start="696" selection-end="696" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="77" selection-start="2485" selection-end="2485" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/jumps">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="55" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/uphill">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="87" selection-start="397" selection-end="405" vertical-scroll-proportion="0.0">
+        <state line="8" column="69" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/pirate">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="78" selection-start="688" selection-end="688" vertical-scroll-proportion="-3.9">
+        <state line="2" column="20" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/purple">
+    <entry file="file://$PROJECT_DIR$/assets/uphill">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="59" selection-start="108" selection-end="108" vertical-scroll-proportion="-1.2">
+        <state line="6" column="62" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/carparks">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="20" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/jumps">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/pubs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="54" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0">
+        <state line="11" column="86" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/downhill">
+    <entry file="file://$PROJECT_DIR$/assets/purple">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="58" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0">
+        <state line="13" column="8" selection-start="910" selection-end="910" vertical-scroll-proportion="-3.9">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java">
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/QrWebView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="0" selection-start="3571" selection-end="3571" vertical-scroll-proportion="0.0">
+        <state line="21" column="13" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="0" selection-start="2534" selection-end="2534" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MyCustomLocationOverlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="123" selection-start="696" selection-end="696" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="303" column="0" selection-start="11834" selection-end="11834" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteItemizedOverlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="26" selection-start="916" selection-end="2074" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/carparks">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="72" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
+        <state line="37" column="6" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java">
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="728" column="59" selection-start="25572" selection-end="25572" vertical-scroll-proportion="0.5472441">
+        <state line="47" column="16" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.26838967">
           <folding />
         </state>
       </provider>

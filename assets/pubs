@@ -2,9 +2,9 @@
     "status": "OK",
     "num_results": 3,
     "results": [
-				      {"title": "51", "snippet": "pubs", "lat": "50.773901", "lng": "0.145079"},
-				      {"title": "52", "snippet": "pubs", "lat": "50.798151", "lng": "0.161950"},
-				      {"title": "53", "snippet": "pubs", "lat": "50.758887", "lng": "0.205702"}
+				      {"title": "51", "snippet": "The Plough and Harrow", "lat": "50.798012", "lng": "0.162030"},
+				      {"title": "52", "snippet": "The Golden Galleon", "lat": "50.773836", "lng": "0.145049"},
+				      {"title": "53", "snippet": "The Tiger Inn", "lat": "50.758887", "lng": "0.205702"}
 
 				      
 		]

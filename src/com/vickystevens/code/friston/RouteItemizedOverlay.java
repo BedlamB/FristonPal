@@ -3,10 +3,13 @@ package com.vickystevens.code.friston;
 
 
 import java.util.ArrayList;
+
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.widget.Toast;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.ItemizedOverlay;
+import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 
 public class RouteItemizedOverlay extends ItemizedOverlay<OverlayItem> {
@@ -21,7 +24,7 @@ public class RouteItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 
     public void addOverlay(OverlayItem overlay){
         myOverlays.add(overlay);
-        populate();
+      //  populate();
     }
 
     @Override
@@ -32,7 +35,16 @@ public class RouteItemizedOverlay extends ItemizedOverlay<OverlayItem> {
     // Removes overlay item i
     public void removeItem(int i){
         myOverlays.remove(i);
-        populate();
+    //    populate();
+    }
+    
+    @Override
+    public void draw(Canvas canvas, MapView mapView, boolean shadow){
+        if(!shadow)
+        {
+            super.draw(canvas, mapView, shadow);
+        }
+            
     }
 
     // Handle tap events on overlay icons

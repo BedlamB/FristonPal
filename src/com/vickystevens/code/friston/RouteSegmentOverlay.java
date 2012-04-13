@@ -43,7 +43,9 @@ public class RouteSegmentOverlay extends Overlay {
     
         @Override
         public void draw(Canvas canvas, MapView mapview, boolean shadow) {
-            super.draw(canvas, mapview, shadow);
+            if (!shadow){
+                super.draw(canvas, mapview, shadow);
+            }
             if(! routeIsActive) return;
             
             /* 

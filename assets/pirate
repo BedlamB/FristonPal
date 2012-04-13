@@ -1,6 +1,6 @@
 {
     "status": "OK",
-    "num_results": 3,
+    "num_results": 7,
     "results": [
 				      {"title": "41", "snippet": "pirate", "lat": "50.781374", "lng": "0.153575"},
 				      {"title": "42", "snippet": "pirate", "lat": "50.765470", "lng": "0.183326"},

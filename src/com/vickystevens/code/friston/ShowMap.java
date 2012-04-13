@@ -9,8 +9,13 @@ import java.util.Scanner;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.Canvas;
 import android.net.Uri;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.util.Log;
+import android.widget.TextView;
 import com.google.android.maps.*;
 
 import android.app.AlertDialog;
@@ -296,6 +301,7 @@ public class ShowMap extends MapActivity
         overlayList.add(downhill);
         overlayList.add(jumps);
         overlayList.add(pirate);
+
 
         //add overlay
    //     map.getOverlays().add(purple);
@@ -655,59 +661,28 @@ public class ShowMap extends MapActivity
 
 
 
-//        @Override
-//		protected boolean onTap(int i) {
-//			Toast.makeText(ShowMap.this,
-//						items.get(i).getSnippet(),
-//							Toast.LENGTH_SHORT).show();
-//			return(true);
-//		}
 
-   // Handle tap events on overlay icons
-//    @Override
-//    protected boolean onTap(int i){
 
-        /*	In this case we will just put a transient Toast message on the screen indicating that we have
-    captured the relevant information about the overlay item.  In a more serious application one
-    could replace the Toast with display of a customized view with the title, snippet text, and additional
-    features like an embedded image, video, or sound, or links to additional information. (The lat and
-    lon variables return the coordinates of the icon that was clicked, which could be used for custom
-    positioning of a display view.)*/
-//
 
-//        String toast = "Title: "+items.get(i).getTitle();
-//        toast += "\nText: "+items.get(i).getSnippet();
-//        toast += 	"\nSymbol coordinates: Lat = "+lat+" Lon = "+lon+" (microdegrees)";
-//        Toast.makeText(ShowMap.this, toast, Toast.LENGTH_LONG).show();
-//
-//        Toast toast = Toast.makeText(getApplicationContext(),"This is Bat", Toast.LENGTH_SHORT);
-//        toast.setGravity(Gravity.CENTER, 0, 0);
-//        LinearLayout toastView = (LinearLayout) toast.getView();
-//        ImageView imageCodeProject = new ImageView(getApplicationContext());
-//        imageCodeProject.setImageResource(R.drawable.b_1);
-//        toastView.addView(imageCodeProject, 0);
-//        toast.show();
+
         protected boolean onTap(int i) {
 
             OverlayItem itemClicked = items.get(i);
             GeoPoint  point = itemClicked.getPoint();
             final Double lat = point.getLatitudeE6()/1e6;
             final Double lon = point.getLongitudeE6()/1e6;
-          //  String latString = lat.toString();
-         //   String lonString = lon.toString();
             AlertDialog.Builder dialog = new AlertDialog.Builder(ShowMap.this);
+
             dialog.setTitle(itemClicked.getTitle());
             dialog.setMessage(itemClicked.getSnippet());
             dialog.setCancelable(true);
             dialog.setPositiveButton("Navigate to here", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-//                    Log.i(this.getClass().getName(), "Selected Yes To Add Location");
-//                    Toast.makeText(ShowMap.this, pString, Toast.LENGTH_LONG).show();
                     StringBuilder sb = new StringBuilder();
                     sb.append("http://maps.google.com/maps?saddr=");
-                    sb.append(Double.toString((double) me.getMyLocation().getLatitudeE6()));
+                    sb.append(Double.toString( me.getMyLocation().getLatitudeE6()/1e6));
                     sb.append(",");
-                    sb.append(Double.toString((double) me.getMyLocation().getLongitudeE6()));
+                    sb.append(Double.toString( me.getMyLocation().getLongitudeE6()/1e6));
                     sb.append("&daddr=");
                     sb.append(Double.toString((lat)));
                     sb.append(",");
@@ -726,7 +701,19 @@ public class ShowMap extends MapActivity
             });
             dialog.setNeutralButton("Details", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    Toast.makeText(ShowMap.this, "details", Toast.LENGTH_LONG).show();
+                    String url = "http://www.fristonpal.info";
+                    final SpannableString s = new SpannableString(url);
+                    Linkify.addLinks(s, Linkify.ALL);
+
+                    final AlertDialog d = new AlertDialog.Builder(ShowMap.this)
+                            .setPositiveButton(android.R.string.ok, null)
+                            .setIcon(R.drawable.icon)
+                            .setMessage(s)
+                            .create();
+                    d.show();
+
+                    // Make the textview clickable. Must be called after show()
+                    ((TextView)d.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
                 }
             });
             dialog.show();
@@ -734,7 +721,12 @@ public class ShowMap extends MapActivity
         }
 
 
-
+        @Override public void draw(Canvas canvas, MapView mapView, boolean shadow){
+            if(!shadow)
+                {
+                    super.draw(canvas, mapView, shadow);
+                }
+        }
 
 		
 		@Override

@@ -1,12 +1,12 @@
 {
     "status": "OK",
-    "num_results": 3,
+    "num_results": 5,
     "results": [
-				      {"title": "21", "snippet": "downhill", "lat": "50.771286", "lng": "0.163146"},
-				      {"title": "22", "snippet": "downhill", "lat": "50.768620", "lng": "0.175504"},
-				      {"title": "23", "snippet": "downhill", "lat": "50.769931", "lng": "0.176897"},
-				      {"title": "24", "snippet": "downhill", "lat": "50.768376", "lng": "0.183172"},
-				      {"title": "25", "snippet": "downhill", "lat": "50.777412", "lng": "0.186839"}
+				      {"title": "21", "snippet": "Sharp Downhill", "lat": "50.771286", "lng": "0.163146"},
+				      {"title": "22", "snippet": "Off-camber downhill", "lat": "50.768620", "lng": "0.175504"},
+				      {"title": "23", "snippet": "Steep downhill", "lat": "50.769931", "lng": "0.176897"},
+				      {"title": "24", "snippet": "Downhill Section", "lat": "50.768376", "lng": "0.183172"},
+				      {"title": "25", "snippet": "Off-camber downhill", "lat": "50.777412", "lng": "0.186839"}
 				      
 				      
 		]
