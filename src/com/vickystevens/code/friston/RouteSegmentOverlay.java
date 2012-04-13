@@ -48,19 +48,7 @@ public class RouteSegmentOverlay extends Overlay {
             }
             if(! routeIsActive) return;
             
-            /* 
-            The object mapview is a MapView.  The class MapView, documented at 
-            http://code.google.com/android/add-ons/google-apis/reference/com/google/android/maps/MapView.html,
-            has a method getProjection() that returns a Projection of the MapView.  Projection is an interface, docs at
-            http://code.google.com/android/add-ons/google-apis/reference/com/google/android/maps/Projection.html,
-            which has a method toPixels(GeoPoint in, android.graphics.Point out), which takes a GeoPoint (in) and outputs
-            a Point (out) that contains the screen x and y coordinates (in pixels) corresponding to the GeoPoint. (with latitude
-            and longitude specified in microdegrees).  Thus, after implementing mapview.getProjection().toPixels(gp, pp),
-            where gp is a GeoPoint, pp.x and pp.y hold the corresponding screen coordinates for the current MapView.
-            Note that this translation must be done each time draw is called, since the relationship between GeoPoints and
-            x-y coordinates may have changed (for example, if the map were panned or zoomed since the last draw).
-                */
-            
+
             mapview.getProjection().toPixels(locpoint, pp);       // Converts GeoPoint to screen pixels
             
             int xoff = 0;

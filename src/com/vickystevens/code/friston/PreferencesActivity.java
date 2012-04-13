@@ -1,6 +1,5 @@
 package com.vickystevens.code.friston;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 

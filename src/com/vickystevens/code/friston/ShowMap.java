@@ -15,6 +15,7 @@ import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.util.Log;
+import android.view.*;
 import android.widget.TextView;
 import com.google.android.maps.*;
 
@@ -22,15 +23,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.vickystevens.code.friston.JSONHandler;
 import org.xmlpull.v1.XmlPullParserException;
 
 
@@ -53,7 +51,7 @@ public class ShowMap extends MapActivity
 
     
     private ArrayList<GeoPoint> routePoints;
-    private int[] routeGrade;
+//    private int[] routeGrade;
     
     public enum OverlayType
     {
@@ -400,11 +398,50 @@ public class ShowMap extends MapActivity
         
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.xml.mapmenu, menu);
+        return true;
+    }
 
-
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.addpin:
+                addPin();
+                return true;
+            case R.id.armenu:
+                Intent i = new Intent();
+                i.setAction(Intent.ACTION_VIEW);
+                i.setDataAndType(Uri.parse("http://www.fristonpal.info/mixare.php"), "application/mixare-json");
+                startActivity(i);
+                return true;
+            case R.id.togglemenu:
+                toggle();
+                return true;
+            case R.id.scanQRmenu:
+                Intent qrIntent = new Intent(this, QrWebView.class);
+                startActivity(qrIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     
-	private void toggleOverlay(MapView map, Overlay o, OverlayType type) {
+    public void addPin()
+    {
+        Toast.makeText(this, "add pin pushed", Toast.LENGTH_SHORT).show();
+    }
+
+    public void toggle()
+    {
+        Toast.makeText(this, "toggle pushed", Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void toggleOverlay(MapView map, Overlay o, OverlayType type) {
 
 		switch (type) {
 		case PUBS:
@@ -706,7 +743,7 @@ public class ShowMap extends MapActivity
                     Linkify.addLinks(s, Linkify.ALL);
 
                     final AlertDialog d = new AlertDialog.Builder(ShowMap.this)
-                            .setPositiveButton(android.R.string.ok, null)
+                            .setPositiveButton(android.R.string.cancel, null)
                             .setIcon(R.drawable.icon)
                             .setMessage(s)
                             .create();

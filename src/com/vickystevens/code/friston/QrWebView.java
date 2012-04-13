@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.Toast;
 
 
@@ -22,26 +20,18 @@ import android.widget.Toast;
 public class QrWebView extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.qrshow);
-
-        try {
-            Button scanner = (Button)findViewById(R.id.scan_qr_code);
-            scanner.setOnClickListener(new View.OnClickListener() {
-
-                public void onClick(View v) {
-                    Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-                    intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
-                    startActivityForResult(intent, 0);
-                }
-
-            });
-
-
-        } catch (ActivityNotFoundException anfe) {
-            Log.e("onCreate", "Scanner Not Found", anfe);
+        setContentView(R.layout.qrwebview);
+        try{
+            Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+            intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+            startActivityForResult(intent, 0);
+        } catch (ActivityNotFoundException e){
+            Log.e("onCreate", "Scanner Not Found", e);
         }
 
     }
+
+
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == 0) {

@@ -5,19 +5,16 @@ package com.vickystevens.code.friston;
 
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 //import android.content.Intent;
 //import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 //import android.preference.PreferenceManager;
-import android.text.SpannableString;
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 
 // main activity class to implement FristonPal
@@ -42,8 +39,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         arButton.setOnClickListener(this);
         View qrButton = findViewById(R.id.btnChooseQr);
         qrButton.setOnClickListener(this);
-        View rtButton = findViewById(R.id.btnChooseRt);
-        rtButton.setOnClickListener(this);
         View exButton = findViewById(R.id.exit_button);
         exButton.setOnClickListener(this);
         
@@ -62,10 +57,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Intent qrIntent = new Intent(this, QrWebView.class);
                 startActivity(qrIntent);
                 break;
-            case R.id.btnChooseRt:
-                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                Uri.parse("http://maps.google.com/maps?saddr=50.773901,0.145079&daddr=50.758887,0.205702&dirflg=w&mra=ltm&t=h&z=13"));
-                startActivity(intent);
             case R.id.btnChooseWiki:
                 Intent i = new Intent();
                 i.setAction(Intent.ACTION_VIEW);
@@ -79,13 +70,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
 
-	
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.xml.mainmenu, menu);
+        return true;
+    }
+
+
 	@Override
 	public void onResume() {
 		super.onResume();
 
 	}
-	
+
+    @Override
 	public void onPause() {
 		super.onPause();
 

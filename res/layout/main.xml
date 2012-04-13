@@ -18,12 +18,7 @@
             android:layout_height="wrap_content"
             android:text="Map"/>
 
-    <Button
-            android:id="@+id/btnGetLoc"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btnChooseMap"
-            android:text="Get Location"/>
+
 
     <Button
             android:id="@+id/btnChooseWiki"
@@ -39,12 +34,7 @@
              android:layout_below="@+id/btnChooseWiki"
             android:text="QR"/>
 
-        <Button
-                android:id="@+id/btnChooseRt"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnChooseQr"
-                android:text="Route"/>
+
 
         <Button android:id="@+id/exit_button"
                 android:layout_width="fill_parent"
