@@ -44,6 +44,7 @@ public class ShowMap extends MapActivity
     private MapController mapController;
     private String theText;
     private ArrayList<MyGeoPoint> userOverlays = new ArrayList<MyGeoPoint>();
+    private boolean edit = false;
 
 
 
@@ -380,16 +381,16 @@ public class ShowMap extends MapActivity
      
        
 		me=new MyCustomLocationOverlay(this, map);
-    	map.getOverlays().add(me);
+        map.getOverlays().add(me);
         me.enableMyLocation();
         // sets middle of map to be mylocationoverlay
 
-//        me.runOnFirstFix(new Runnable() {
-//            @Override
-//            public void run() {
-//                mapController.animateTo(me.getMyLocation());
-//            }
-//        });
+        me.runOnFirstFix(new Runnable() {
+            @Override
+            public void run() {
+                mapController.animateTo(me.getMyLocation());
+            }
+        });
         
 
 
@@ -435,6 +436,7 @@ public class ShowMap extends MapActivity
     
     public void addPin()
     {
+        edit = true;
         Toast.makeText(this, "add pin pushed", Toast.LENGTH_SHORT).show();
     }
 
@@ -589,7 +591,7 @@ public class ShowMap extends MapActivity
         route = new RouteSegmentOverlay(routePoints); // My class defining route overlay  THIS IS THE KEY!!  Make two arrays here and pass them
         map.getOverlays().add(route);
         // Added symbols will be displayed when map is redrawn so force redraw now
-  //      map.postInvalidate();
+
     }
 
     private GeoPoint getPoint(double lat, double lon) {
@@ -638,7 +640,7 @@ public class ShowMap extends MapActivity
     		if (event.getAction() == MotionEvent.ACTION_UP){
     			stop = event.getEventTime();
     		}
-    		if (stop - start > 1500){
+    		if (stop - start > 1500 && edit){
                 GeoPoint p = map.getProjection().fromPixels(
                         (int) event.getX(),
                         (int) event.getY());
@@ -656,7 +658,8 @@ public class ShowMap extends MapActivity
               //  overlayList.add(purple);
                 map.getOverlays().add(user);
                 map.postInvalidate();
-
+                edit = false;
+                return true;
 
     		}
     		return false;
@@ -664,28 +667,7 @@ public class ShowMap extends MapActivity
 
     }
 
-//    public boolean onTap(GeoPoint p, MapView mapView) {
-//        Log.d("tap event ", "tap called");
-//        mapOverlays = mapView.getOverlays();
-//        drawable  =getResources().getDrawable(R.drawable.marker);
-//        itemizedOverlay = new SitesOverlay(drawable);
-//        int lat=(int)p.getLatitudeE6();
-//        int lng=(int)p.getLongitudeE6();
-//
-//
-//        GeoPoint point = new GeoPoint(lat,lng);
-//        Log.d("tap event ", "tapcalled"+lat+""+lng);
-//        OverlayItem overlayitem = new OverlayItem(point, "", "");
-//
-//        items.add(overlayitem);
-//        populate();
-//        Log.d("tap event ", "populated");
-//        //      mapOverlays.add(itemizedOverlay);   
-//
-//
-//        return true;
-//    
-    
+
 
 
 // extends ItemIized overlay
@@ -719,6 +701,7 @@ public class ShowMap extends MapActivity
 
 
         protected boolean onTap(int i) {
+            if(!edit){
 
             OverlayItem itemClicked = items.get(i);
             GeoPoint  point = itemClicked.getPoint();
@@ -772,6 +755,9 @@ public class ShowMap extends MapActivity
             dialog.show();
             return true;
         }
+            return false;
+        }
+
 
 
         @Override public void draw(Canvas canvas, MapView mapView, boolean shadow){
