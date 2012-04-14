@@ -40,9 +40,10 @@ public class ShowMap extends MapActivity
     private MyCustomLocationOverlay me;
     private MyLocationOverlay me2;
     private RouteSegmentOverlay route;
-    private Overlay uphill, downhill, jumps, pirate, carparks, purple, pubs;
+    private Overlay uphill, downhill, jumps, pirate, carparks, purple, pubs, user;
     private MapController mapController;
     private String theText;
+    private ArrayList<MyGeoPoint> userOverlays = new ArrayList<MyGeoPoint>();
 
 
 
@@ -97,7 +98,9 @@ public class ShowMap extends MapActivity
 				carparkMarker.getIntrinsicHeight());
         pubsMarker.setBounds(0, 0, pubsMarker.getIntrinsicWidth(),
                 pubsMarker.getIntrinsicHeight());
-
+        
+     //   ArrayList<MyGeoPoint> userOverlays = new ArrayList<MyGeoPoint>();
+        
         //populate purple
         ArrayList<MyGeoPoint> purpleOverlays = new ArrayList<MyGeoPoint>();
         JSONArray purpleArray = null;
@@ -628,47 +631,60 @@ public class ShowMap extends MapActivity
 
 
     class Touchy extends Overlay {
-    	public boolean onTouchEvent(MotionEvent e, MapView v){
-    		if (e.getAction() == MotionEvent.ACTION_DOWN){
-    			start = e.getEventTime();
+    	public boolean onTouchEvent(MotionEvent event, MapView map){
+    		if (event.getAction() == MotionEvent.ACTION_DOWN){
+    			start = event.getEventTime();
     		}
-    		if (e.getAction() == MotionEvent.ACTION_UP){
-    			stop = e.getEventTime();
+    		if (event.getAction() == MotionEvent.ACTION_UP){
+    			stop = event.getEventTime();
     		}
     		if (stop - start > 1500){
-    			AlertDialog alert = new AlertDialog.Builder(ShowMap.this).create();
-    			alert.setTitle("Pick an Option");
-    			alert.setMessage("I told you to pick and option");
-    			alert.setButton("Place a pin", new DialogInterface.OnClickListener() {
+                GeoPoint p = map.getProjection().fromPixels(
+                        (int) event.getX(),
+                        (int) event.getY());
+                Toast.makeText(getBaseContext(),
+                        p.getLatitudeE6() / 1E6 + "," +
+                                p.getLongitudeE6() /1E6 ,
+                        Toast.LENGTH_SHORT).show();
+                Log.d("tap event ", "tap called");
 
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
+                final MapController mc = map.getController();
+                mc.setZoom(16);
+                Drawable drawable  =getResources().getDrawable(R.drawable.pin_yellow);
+                userOverlays.add(new MyGeoPoint(p.getLatitudeE6() / 1E6, p.getLongitudeE6() / 1E6, "test", "test"));
+                user  = (new MyItemizedOverlay(drawable, userOverlays));
+              //  overlayList.add(purple);
+                map.getOverlays().add(user);
+                map.postInvalidate();
 
-					}
-				});
-    			alert.setButton2("Get Address", new DialogInterface.OnClickListener() {
-
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-				
-					}
-				});
-    			alert.setButton3("Option 3", new DialogInterface.OnClickListener() {
-
-					public void onClick(DialogInterface dialog, int which) {
-				
-
-					}
-				});
-    			alert.show();
-    			return true;
 
     		}
     		return false;
     	}
 
     }
-    
+
+//    public boolean onTap(GeoPoint p, MapView mapView) {
+//        Log.d("tap event ", "tap called");
+//        mapOverlays = mapView.getOverlays();
+//        drawable  =getResources().getDrawable(R.drawable.marker);
+//        itemizedOverlay = new SitesOverlay(drawable);
+//        int lat=(int)p.getLatitudeE6();
+//        int lng=(int)p.getLongitudeE6();
+//
+//
+//        GeoPoint point = new GeoPoint(lat,lng);
+//        Log.d("tap event ", "tapcalled"+lat+""+lng);
+//        OverlayItem overlayitem = new OverlayItem(point, "", "");
+//
+//        items.add(overlayitem);
+//        populate();
+//        Log.d("tap event ", "populated");
+//        //      mapOverlays.add(itemizedOverlay);   
+//
+//
+//        return true;
+//    
     
 
 
