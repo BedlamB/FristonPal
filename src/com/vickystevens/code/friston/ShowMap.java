@@ -1,12 +1,14 @@
 package com.vickystevens.code.friston;
 
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Canvas;
@@ -38,7 +40,7 @@ public class ShowMap extends MapActivity
     long start;
     long stop;
     private MyCustomLocationOverlay me;
-    private MyLocationOverlay me2;
+  //  private MyLocationOverlay me2;
     private RouteSegmentOverlay route;
     private Overlay uphill, downhill, jumps, pirate, carparks, purple, pubs, user;
     private MapController mapController;
@@ -322,8 +324,13 @@ public class ShowMap extends MapActivity
         // Button to add overlays
         pubsButton = (Button)findViewById(R.id.pubsOverlay);
         pubsButton.setOnClickListener(new OnClickListener(){      
-            public void onClick(View v) {	
-            	toggleOverlay(map, pubs, OverlayType.PUBS);
+            public void onClick(View v) {
+                try {
+                    writejson();
+                } catch (IOException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+                //toggleOverlay(map, pubs, OverlayType.PUBS);
             }
         });
         
@@ -401,6 +408,21 @@ public class ShowMap extends MapActivity
      	map.postInvalidate();
         
     }
+    
+    public void writejson() throws IOException {
+        Toast.makeText(this, userOverlays.get(0).getTitle(),Toast.LENGTH_LONG).show();
+        FileOutputStream fos = null;
+        fos = openFileOutput("test.json", Context.MODE_PRIVATE);
+        fos.write(userOverlays.get(0).getTitle().getBytes());
+        Toast.makeText(this, "file written", Toast.LENGTH_LONG).show();
+        fos.close();
+       // new jsonwriter(userOverlays);    
+    }
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
