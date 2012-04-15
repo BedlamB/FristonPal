@@ -10,14 +10,18 @@ import android.webkit.WebView;
 import android.widget.Toast;
 
 
+// TODO: Auto-generated Javadoc
 /**
- * Created by IntelliJ IDEA.
- * User: vicks
- * Date: 20/03/12
- * Time: 20:55
- * To change this template use File | Settings | File Templates.
+ * The Class QrWebView.
+ * 
+ * @author Vicky Stevens
+ * @version 1.0 Build 9000 15th April 2012.
  */
 public class QrWebView extends Activity {
+    
+    /* (non-Javadoc)
+     * @see android.app.Activity#onCreate(android.os.Bundle)
+     */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qrwebview);
@@ -33,6 +37,9 @@ public class QrWebView extends Activity {
 
 
 
+    /* (non-Javadoc)
+     * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
+     */
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {

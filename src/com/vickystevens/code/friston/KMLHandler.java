@@ -10,12 +10,31 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class KMLHandler.
+ *
+ * A class that takes KML and
+ *
+ * @author Vicky Stevens
+ * @version 1.0 Build 9000 15th April 2012.
+ */
 public class KMLHandler {
+    
+    /** The xpp. */
     private XmlResourceParser xpp;
+    
+    /** The route. */
     private ArrayList<GeoPoint> route;
    // private ArrayList<Location> locations = new ArrayList<Location>();
-    private Context context;
+    /** The context. */
+   private Context context;
 
+    /**
+     * Instantiates a new kML handler.
+     *
+     * @param context the context
+     */
     public KMLHandler(Context context){
         this.context = context;
         route = new ArrayList<GeoPoint>();
@@ -23,6 +42,13 @@ public class KMLHandler {
 
     }
 
+    /**
+     * Gets the parsed items.
+     *
+     * @return the parsed items
+     * @throws IOException Signals that an I/O exception has occurred.
+     * @throws XmlPullParserException the xml pull parser exception
+     */
     public ArrayList<GeoPoint> getParsedItems() throws IOException, XmlPullParserException {
         try {
             getAllXML();
@@ -34,6 +60,13 @@ public class KMLHandler {
         return route;
     }
 
+    /**
+     * Gets the all xml.
+     *
+     * @return the all xml
+     * @throws XmlPullParserException the xml pull parser exception
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     public void getAllXML() throws XmlPullParserException, IOException {
         Resources res = context.getResources();
         xpp = res.getXml(R.xml.path);
@@ -70,6 +103,13 @@ public class KMLHandler {
 
     }
 
+    /**
+     * Gets the point.
+     *
+     * @param lat the lat
+     * @param lon the lon
+     * @return the point
+     */
     private GeoPoint getPoint(double lat, double lon) {
         return(new GeoPoint((int)(lat*1e6), (int)(lon*1e6)));
     }

@@ -11,17 +11,36 @@ import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MyCustomLocationOverlay.
+ * @author Vicky Stevens
+ * @version 1.0 Build 9000 15th April 2012.
+ */
 public class MyCustomLocationOverlay extends MyLocationOverlay {
+    
+    /** The m context. */
     private Context mContext;
+    
+    /** The m map view. */
     private MapView mMapView;
 
 
+    /**
+     * Instantiates a new my custom location overlay.
+     *
+     * @param context the context
+     * @param mapView the map view
+     */
     public MyCustomLocationOverlay(Context context, MapView mapView) {
         super(context, mapView);
         mMapView = mapView;
         mContext = context;
     }
 
+    /* (non-Javadoc)
+     * @see com.google.android.maps.MyLocationOverlay#drawMyLocation(android.graphics.Canvas, com.google.android.maps.MapView, android.location.Location, com.google.android.maps.GeoPoint, long)
+     */
     @Override
     protected void drawMyLocation(Canvas canvas, MapView mapView, Location lastFix, GeoPoint myLocation, long when) {
         // translate the GeoPoint to screen pixels
@@ -50,6 +69,9 @@ public class MyCustomLocationOverlay extends MyLocationOverlay {
 
     }
     
+    /* (non-Javadoc)
+     * @see com.google.android.maps.MyLocationOverlay#onLocationChanged(android.location.Location)
+     */
     @Override
     public synchronized void onLocationChanged(Location location){
         super.onLocationChanged(location);

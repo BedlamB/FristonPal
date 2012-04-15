@@ -12,32 +12,61 @@ import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class RouteItemizedOverlay.
+ * 
+ * @author Vicky Stevens
+ * @version 1.0 Build 9000 15th April 2012.
+ */
 public class RouteItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 
+    /** The my overlays. */
     private ArrayList<OverlayItem> myOverlays ;
 
+    /**
+     * Instantiates a new route itemized overlay.
+     *
+     * @param defaultMarker the default marker
+     */
     public RouteItemizedOverlay(Drawable defaultMarker) {
         super(boundCenterBottom(defaultMarker));
         myOverlays = new ArrayList<OverlayItem>();
         populate();
     }
 
+    /**
+     * Adds the overlay.
+     *
+     * @param overlay the overlay
+     */
     public void addOverlay(OverlayItem overlay){
         myOverlays.add(overlay);
       //  populate();
     }
 
+    /* (non-Javadoc)
+     * @see com.google.android.maps.ItemizedOverlay#createItem(int)
+     */
     @Override
     protected OverlayItem createItem(int i) {
         return myOverlays.get(i);
     }
 
     // Removes overlay item i
+    /**
+     * Removes the item.
+     *
+     * @param i the i
+     */
     public void removeItem(int i){
         myOverlays.remove(i);
     //    populate();
     }
     
+    /* (non-Javadoc)
+     * @see com.google.android.maps.ItemizedOverlay#draw(android.graphics.Canvas, com.google.android.maps.MapView, boolean)
+     */
     @Override
     public void draw(Canvas canvas, MapView mapView, boolean shadow){
         if(!shadow)
@@ -69,6 +98,9 @@ public class RouteItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 //    }
 
     // Returns present number of items in list
+    /* (non-Javadoc)
+     * @see com.google.android.maps.ItemizedOverlay#size()
+     */
     @Override
     public int size() {
         return myOverlays.size();

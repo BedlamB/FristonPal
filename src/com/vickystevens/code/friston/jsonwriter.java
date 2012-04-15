@@ -2,15 +2,19 @@ package com.vickystevens.code.friston;
 
 import java.util.ArrayList;
 
+// TODO: Auto-generated Javadoc
 /**
- * Created by IntelliJ IDEA.
- * User: vicks
- * Date: 14/04/12
- * Time: 20:58
- * To change this template use File | Settings | File Templates.
+ * The Class jsonwriter.
+ * @author Vicky Stevens
+ * @version 1.0 Build 9000 15th April 2012.
  */
 public class jsonwriter {
     
+    /**
+     * Instantiates a new jsonwriter.
+     *
+     * @param points the points
+     */
     public  jsonwriter(ArrayList points){
 
         //open file writer

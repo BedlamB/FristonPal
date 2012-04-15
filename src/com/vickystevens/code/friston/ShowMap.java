@@ -34,32 +34,67 @@ import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParserException;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ShowMap.
+ * 
+ * @author Vicky Stevens
+ * @version 1.0 Build 9000 15th April 2012.
+ */
 public class ShowMap extends MapActivity
 {
+    
+    /** The map. */
     private MapView map;
+    
+    /** The start. */
     long start;
+    
+    /** The stop. */
     long stop;
+    
+    /** The me. */
     private MyCustomLocationOverlay me;
   //  private MyLocationOverlay me2;
-    private RouteSegmentOverlay route;
+    /** The route. */
+  private RouteSegmentOverlay route;
+    
+    /** The user. */
     private Overlay uphill, downhill, jumps, pirate, carparks, purple, pubs, user;
+    
+    /** The map controller. */
     private MapController mapController;
+    
+    /** The text. */
     private String theText;
+    
+    /** The user overlays. */
     private ArrayList<MyGeoPoint> userOverlays = new ArrayList<MyGeoPoint>();
+    
+    /** The edit. */
     private boolean edit = false;
 
 
 
+    /** The route button. */
     private Button uphillButton, downhillButton, jumpsButton, pirateButton, carparksButton, purpleButton, pubsButton,routeButton;
+    
+    /** The PIRAT e_ shown. */
     private boolean PUBS_SHOWN, CARPARKS_SHOWN, PURPLE_SHOWN, UPHILL_SHOWN, DOWNHILL_SHOWN, JUMPS_SHOWN, PIRATE_SHOWN;
 
     
+    /** The route points. */
     private ArrayList<GeoPoint> routePoints;
 //    private int[] routeGrade;
     
-    public enum OverlayType
+    /**
+ * The Enum OverlayType.
+ */
+public enum OverlayType
     {
-        UPHILL,
+        
+		USER,
+        UPHILL,        
         DOWNHILL,
         JUMPS,
         PIRATE,
@@ -70,7 +105,9 @@ public class ShowMap extends MapActivity
 
     
 
-    /** Called when the activity is first created. */
+    /* (non-Javadoc)
+     * @see com.google.android.maps.MapActivity#onCreate(android.os.Bundle)
+     */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -409,6 +446,11 @@ public class ShowMap extends MapActivity
         
     }
     
+    /**
+     * Writejson.
+     *
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     public void writejson() throws IOException {
         Toast.makeText(this, userOverlays.get(0).getTitle(),Toast.LENGTH_LONG).show();
         FileOutputStream fos = null;
@@ -424,6 +466,9 @@ public class ShowMap extends MapActivity
 
 
 
+    /* (non-Javadoc)
+     * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -431,6 +476,9 @@ public class ShowMap extends MapActivity
         return true;
     }
 
+    /* (non-Javadoc)
+     * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -456,18 +504,31 @@ public class ShowMap extends MapActivity
         }
     }
     
+    /**
+     * Adds the pin.
+     */
     public void addPin()
     {
         edit = true;
         Toast.makeText(this, "add pin pushed", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Toggle.
+     */
     public void toggle()
     {
         Toast.makeText(this, "toggle pushed", Toast.LENGTH_SHORT).show();
     }
 
 
+    /**
+     * Toggle overlay.
+     *
+     * @param map the map
+     * @param o the o
+     * @param type the type
+     */
     private void toggleOverlay(MapView map, Overlay o, OverlayType type) {
 
 		switch (type) {
@@ -562,6 +623,13 @@ public class ShowMap extends MapActivity
         }
 	}
 
+    /**
+     * Read json.
+     *
+     * @param type the type
+     * @return the jSON array
+     * @throws JSONException the jSON exception
+     */
     public JSONArray readJSON(String type) throws JSONException {
         read(type);
         try {
@@ -576,6 +644,11 @@ public class ShowMap extends MapActivity
 
     }
 
+    /**
+     * Read.
+     *
+     * @param type the type
+     */
     private void read(String type) {
         //   FileInputStream fis = null;
         Scanner scanner = null;
@@ -607,6 +680,9 @@ public class ShowMap extends MapActivity
     // Overlay a route.  This method is only executed after loadRouteData() completes
     // on background thread.
 
+    /**
+     * Overlay route.
+     */
     public void overlayRoute() {
         //  if(route != null) return;  // To prevent multiple route instances if key toggled rapidly
         // Set up the overlay controller
@@ -616,12 +692,22 @@ public class ShowMap extends MapActivity
 
     }
 
+    /**
+     * Gets the point.
+     *
+     * @param lat the lat
+     * @param lon the lon
+     * @return the point
+     */
     private GeoPoint getPoint(double lat, double lon) {
         return(new GeoPoint((int)(lat*1e6), (int)(lon*1e6)));
     }
 
  
 
+    /**
+     * Load route data.
+     */
     public void loadRouteData(){
         routePoints = new ArrayList<GeoPoint>();
         KMLHandler handler = new KMLHandler(this);
@@ -636,17 +722,26 @@ public class ShowMap extends MapActivity
     }
    
    
+    /* (non-Javadoc)
+     * @see com.google.android.maps.MapActivity#isRouteDisplayed()
+     */
     public boolean isRouteDisplayed(){
     	return false;
     }
 
 
 
+    /* (non-Javadoc)
+     * @see com.google.android.maps.MapActivity#onPause()
+     */
     public void onPause(){
     	super.onPause();
     	me.disableMyLocation();
     }
     
+    /* (non-Javadoc)
+     * @see com.google.android.maps.MapActivity#onResume()
+     */
     public void onResume(){
     	super.onResume();
     	me.enableCompass();
@@ -654,8 +749,15 @@ public class ShowMap extends MapActivity
     }
 
 
+    /**
+     * The Class Touchy.
+     */
     class Touchy extends Overlay {
-    	public boolean onTouchEvent(MotionEvent event, MapView map){
+    	
+	    /* (non-Javadoc)
+	     * @see com.google.android.maps.Overlay#onTouchEvent(android.view.MotionEvent, com.google.android.maps.MapView)
+	     */
+	    public boolean onTouchEvent(MotionEvent event, MapView map){
     		if (event.getAction() == MotionEvent.ACTION_DOWN){
     			start = event.getEventTime();
     		}
@@ -693,12 +795,25 @@ public class ShowMap extends MapActivity
 
 
 // extends ItemIized overlay
-	private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
+	/**
+ * The Class MyItemizedOverlay.
+ */
+private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
+		
+		/** The items. */
 		private List<OverlayItem> items=new ArrayList<OverlayItem>();
+        
+        /** The marker. */
         private Drawable marker=null;
 
 	//	public MyItemizedOverlay(Drawable marker, ArrayList<MyGeoPoint> points) {
-    public MyItemizedOverlay(Drawable marker, ArrayList<MyGeoPoint> points) {
+    /**
+	 * Instantiates a new my itemized overlay.
+	 *
+	 * @param marker the marker
+	 * @param points the points
+	 */
+	public MyItemizedOverlay(Drawable marker, ArrayList<MyGeoPoint> points) {
             super(boundCenterBottom(marker));
 			this.marker=marker;
             for(MyGeoPoint point: points){
@@ -711,6 +826,9 @@ public class ShowMap extends MapActivity
 
 
 
+    /* (non-Javadoc)
+     * @see com.google.android.maps.ItemizedOverlay#createItem(int)
+     */
     @Override
 		protected OverlayItem createItem(int i) {
 			return(items.get(i));
@@ -722,6 +840,9 @@ public class ShowMap extends MapActivity
 
 
 
+        /* (non-Javadoc)
+         * @see com.google.android.maps.ItemizedOverlay#onTap(int)
+         */
         protected boolean onTap(int i) {
             if(!edit){
 
@@ -782,6 +903,9 @@ public class ShowMap extends MapActivity
 
 
 
+        /* (non-Javadoc)
+         * @see com.google.android.maps.ItemizedOverlay#draw(android.graphics.Canvas, com.google.android.maps.MapView, boolean)
+         */
         @Override public void draw(Canvas canvas, MapView mapView, boolean shadow){
             if(!shadow)
                 {
@@ -790,6 +914,9 @@ public class ShowMap extends MapActivity
         }
 
 		
+		/* (non-Javadoc)
+		 * @see com.google.android.maps.ItemizedOverlay#size()
+		 */
 		@Override
 		public int size() {
 			return(items.size());

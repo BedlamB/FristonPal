@@ -1,11 +1,9 @@
 package com.vickystevens.code.friston;
 
 /**
- * Created by IntelliJ IDEA.
- * User: vicks
- * Date: 14/04/12
- * Time: 21:15
- * To change this template use File | Settings | File Templates.
+ * The Class MyItemizedOverlay.
+ * @author Vicky Stevens
+ * @version 1.0 Build 9000 15th April 2012.
  */
 public class MyItemizedOverlay {
 }

@@ -12,16 +12,39 @@ package com.vickystevens.code.friston;
 
     import java.util.ArrayList;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class RouteSegmentOverlay.
+ * 
+ * @author Vicky Stevens
+ * @version 1.0 Build 9000 15th April 2012.
+ */
 public class RouteSegmentOverlay extends Overlay {
+        
+        /** The locpoint. */
         private GeoPoint locpoint;
+        
+        /** The paint. */
         private Paint paint;
+        
+        /** The route points. */
         private ArrayList<GeoPoint> routePoints;
  //       private GeoPoint routePoints [];
-        private boolean routeIsActive;
+        /** The route is active. */
+ private boolean routeIsActive;
+        
+        /** The pp. */
         private Point pold, pnew, pp;
+        
+        /** The number route points. */
         private int numberRoutePoints;
         
         // Constructor permitting the route array to be passed as an argument.
+        /**
+         * Instantiates a new route segment overlay.
+         *
+         * @param routePoints the route points
+         */
         public RouteSegmentOverlay(ArrayList<GeoPoint> routePoints) {
                 this.routePoints = routePoints;
                   numberRoutePoints  = routePoints.size();
@@ -37,10 +60,18 @@ public class RouteSegmentOverlay extends Overlay {
 
         
         // Method to turn route display on and off
+        /**
+         * Sets the route view.
+         *
+         * @param routeIsActive the new route view
+         */
         public void setRouteView(boolean routeIsActive){
                 this.routeIsActive = routeIsActive;
         }
     
+        /* (non-Javadoc)
+         * @see com.google.android.maps.Overlay#draw(android.graphics.Canvas, com.google.android.maps.MapView, boolean)
+         */
         @Override
         public void draw(Canvas canvas, MapView mapview, boolean shadow) {
             if (!shadow){
