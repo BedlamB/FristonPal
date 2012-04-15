@@ -37,6 +37,8 @@ import org.xmlpull.v1.XmlPullParserException;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ShowMap.
+ * main controller of app.  Handles displaying the map, and
+ * the pois.
  * 
  * @author Vicky Stevens
  * @version 1.0 Build 9000 15th April 2012.
@@ -89,6 +91,7 @@ public class ShowMap extends MapActivity
     
     /**
  * The Enum OverlayType.
+     * Enum for keeping track of which overlays are shown
  */
 public enum OverlayType
     {
@@ -113,14 +116,14 @@ public enum OverlayType
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showmap);
-        map=(MapView)findViewById(R.id.map);
-        mapController = map.getController();
-		map.getController().setZoom(17);
+        map=(MapView)findViewById(R.id.map);             // getting map
+        mapController = map.getController();              // getting controller for map and
+		map.getController().setZoom(17);                 // setting zoom and satellite options
 		map.setSatellite(true);
 	
-        Touchy t = new Touchy();
+        TouchOverlay t = new TouchOverlay();                        // creates Touch overlay which resonds to touch events
         List<Overlay> overlayList = map.getOverlays();
-        overlayList.add(t);
+        overlayList.add(t);                                           // add it to overlay list
 		
 		// set up the drawables
         Drawable uphillMarker=getResources().getDrawable(R.drawable.uphill);
@@ -139,19 +142,18 @@ public enum OverlayType
         pubsMarker.setBounds(0, 0, pubsMarker.getIntrinsicWidth(),
                 pubsMarker.getIntrinsicHeight());
         
-     //   ArrayList<MyGeoPoint> userOverlays = new ArrayList<MyGeoPoint>();
-        
-        //populate purple
+
+        //populate purple overlaylist
         ArrayList<MyGeoPoint> purpleOverlays = new ArrayList<MyGeoPoint>();
         JSONArray purpleArray = null;
         try {
-            JSONHandler handler = new JSONHandler(this, "purple");
+            JSONHandler handler = new JSONHandler(this, "purple");             // starts JSONHandler to get pois from file
                     purpleArray = handler.parseJSON();
 
         } catch (JSONException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
         }
-        // can get these from file later
+        // reads creates geopoints based on data from json
         for (int i = 0; i < purpleArray.length(); i++) {
             try {
 
@@ -162,7 +164,7 @@ public enum OverlayType
                 purpleOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
 
             } catch (JSONException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
             }
         }
 
@@ -177,9 +179,9 @@ public enum OverlayType
             pubsArray = handler.parseJSON();
 
         } catch (JSONException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
         }
-        // can get these from file later
+
         for (int i = 0; i < pubsArray.length(); i++) {
             try {
 
@@ -190,7 +192,7 @@ public enum OverlayType
                 pubOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
 
             } catch (JSONException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
             }
         }
 
@@ -202,9 +204,9 @@ public enum OverlayType
             carparkArray = handler.parseJSON();
 
         } catch (JSONException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
         }
-        // can get these from file later
+
         for (int i = 0; i < pubsArray.length(); i++) {
             try {
 
@@ -215,7 +217,7 @@ public enum OverlayType
                 carparkOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
 
             } catch (JSONException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
             }
         }
 
@@ -227,9 +229,9 @@ public enum OverlayType
             uphillArray = handler.parseJSON();
 
         } catch (JSONException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
-        // can get these from file later
+
         for (int i = 0; i < uphillArray.length(); i++) {
             try {
 
@@ -240,7 +242,7 @@ public enum OverlayType
                 uphillOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
 
             } catch (JSONException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
             }
         }
 
@@ -252,9 +254,9 @@ public enum OverlayType
             downhillArray = handler.parseJSON();
 
         } catch (JSONException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
         }
-        // can get these from file later
+
         for (int i = 0; i < downhillArray.length(); i++) {
             try {
 
@@ -265,7 +267,7 @@ public enum OverlayType
                 downhillOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
 
             } catch (JSONException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
             }
         }
 
@@ -277,9 +279,9 @@ public enum OverlayType
             jumpsArray = handler.parseJSON();
 
         } catch (JSONException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
         }
-        // can get these from file later
+
         for (int i = 0; i < jumpsArray.length(); i++) {
             try {
 
@@ -290,7 +292,7 @@ public enum OverlayType
                 jumpsOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
 
             } catch (JSONException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
             }
         }
 
@@ -302,9 +304,9 @@ public enum OverlayType
             pirateArray = handler.parseJSON();
 
         } catch (JSONException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
         }
-        // can get these from file later
+
         for (int i = 0; i < pirateArray.length(); i++) {
             try {
 
@@ -315,14 +317,12 @@ public enum OverlayType
                 pirateOverlays.add(new MyGeoPoint(lat, lon, title, snippet));
 
             } catch (JSONException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
             }
         }
 
 
-
-
-
+         // sets up an itemized overlay for each set of pois
         purple  = (new MyItemizedOverlay(purpleMarker, purpleOverlays));
         carparks = (new MyItemizedOverlay(carparkMarker, carparkOverlays));        
         pubs = (new MyItemizedOverlay(pubsMarker, pubOverlays));
@@ -334,7 +334,7 @@ public enum OverlayType
 
 
         
-        //add overlays
+        //add overlays to the map overlay list
         overlayList.add(purple);
         overlayList.add(carparks);
         overlayList.add(pubs);
@@ -344,8 +344,8 @@ public enum OverlayType
         overlayList.add(pirate);
 
 
-        //add overlay
-   //     map.getOverlays().add(purple);
+
+   //    keeping track of overlay displayed or not
         PURPLE_SHOWN = true;
         CARPARKS_SHOWN = true;
         PUBS_SHOWN = true;
@@ -365,7 +365,7 @@ public enum OverlayType
                 try {
                     writejson();
                 } catch (IOException e) {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    e.printStackTrace();
                 }
                 //toggleOverlay(map, pubs, OverlayType.PUBS);
             }
@@ -375,7 +375,7 @@ public enum OverlayType
         carparksButton = (Button)findViewById(R.id.carparksOverlay);
         carparksButton.setOnClickListener(new OnClickListener(){
             public void onClick(View v) {	
-            	toggleOverlay(map, carparks, OverlayType.CARPARKS);
+            	toggleOverlay(map, carparks, OverlayType.CARPARKS);           //calls toggle overlay to switch between visible or not
             }
         });
         
@@ -420,16 +420,13 @@ public enum OverlayType
         });
 
 
-
-
-     
        
-		me=new MyCustomLocationOverlay(this, map);
-        map.getOverlays().add(me);
+		me=new MyCustomLocationOverlay(this, map);    //creates a new custom MyLocationOverlay
+        map.getOverlays().add(me);                     // and adds it to the map
         me.enableMyLocation();
-        // sets middle of map to be mylocationoverlay
 
-        me.runOnFirstFix(new Runnable() {
+        // sets middle of map to be mylocationoverlay
+         me.runOnFirstFix(new Runnable() {
             @Override
             public void run() {
                 mapController.animateTo(me.getMyLocation());
@@ -437,17 +434,15 @@ public enum OverlayType
         });
         
 
-
-
-        loadRouteData();
-        overlayRoute();
-        mapController.animateTo(getPoint(50.7768613938, 0.1555597410));
-     	map.postInvalidate();
+        loadRouteData();             // loads main trail
+        overlayRoute();              // draws the route in an overlay
+        mapController.animateTo(getPoint(50.7768613938, 0.1555597410));    // centres map on start of route. (change to user location when finished)
+     	map.postInvalidate();       // call postInvalidate to redraw mapview with changes added
         
     }
     
     /**
-     * Writejson.
+     * Write the JSON file of user pois
      *
      * @throws IOException Signals that an I/O exception has occurred.
      */
@@ -458,7 +453,7 @@ public enum OverlayType
         fos.write(userOverlays.get(0).getTitle().getBytes());
         Toast.makeText(this, "file written", Toast.LENGTH_LONG).show();
         fos.close();
-       // new jsonwriter(userOverlays);    
+       // new JSONWriter(userOverlays);
     }
 
 
@@ -470,35 +465,37 @@ public enum OverlayType
      * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
      */
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+    public boolean onCreateOptionsMenu(Menu menu) {               // creates options menu based on
+        MenuInflater inflater = getMenuInflater();                // mapmenu.xml
         inflater.inflate(R.xml.mapmenu, menu);
         return true;
     }
 
     /* (non-Javadoc)
      * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
+     *
+     *  Handles which option is selected my user
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.addpin:
-                addPin();
+                addPin();                        // calls method allowing user to add a pin
                 return true;
             case R.id.armenu:
                 Intent i = new Intent();
-                i.setAction(Intent.ACTION_VIEW);
+                i.setAction(Intent.ACTION_VIEW);          // starts a mixare view
                 i.setDataAndType(Uri.parse("http://www.fristonpal.info/mixare.php"), "application/mixare-json");
                 startActivity(i);
                 return true;
             case R.id.togglemenu:
-                toggle();
+                toggle();                              // opens up a toggle menu allowing user to toggle the pois
                 return true;
             case R.id.scanQRmenu:
                 Intent qrIntent = new Intent(this, QrWebView.class);
                 startActivity(qrIntent);
-                return true;
+                return true;                                   // starts a ZXing QR reader activity
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -506,6 +503,7 @@ public enum OverlayType
     
     /**
      * Adds the pin.
+     * sets a flag which enables the touch overlay
      */
     public void addPin()
     {
@@ -514,7 +512,7 @@ public enum OverlayType
     }
 
     /**
-     * Toggle.
+     * Shows the toggle options for the pois.
      */
     public void toggle()
     {
@@ -523,10 +521,10 @@ public enum OverlayType
 
 
     /**
-     * Toggle overlay.
+     * Toggles the overlays to be visible or not
      *
      * @param map the map
-     * @param o the o
+     * @param o the the Overlay
      * @param type the type
      */
     private void toggleOverlay(MapView map, Overlay o, OverlayType type) {
@@ -534,9 +532,9 @@ public enum OverlayType
 		switch (type) {
 		case PUBS:
 			if (PUBS_SHOWN) {
-				map.getOverlays().remove(o);
-				PUBS_SHOWN = !PUBS_SHOWN;
-				map.postInvalidate();
+				map.getOverlays().remove(o);                   // removes overlay
+				PUBS_SHOWN = !PUBS_SHOWN;                       // sets flag
+				map.postInvalidate();                           // invalidate map to force redraw
 				break;
 			}
 
@@ -623,59 +621,7 @@ public enum OverlayType
         }
 	}
 
-    /**
-     * Read json.
-     *
-     * @param type the type
-     * @return the jSON array
-     * @throws JSONException the jSON exception
-     */
-    public JSONArray readJSON(String type) throws JSONException {
-        read(type);
-        try {
-            JSONObject jObject = new JSONObject(theText);
-            JSONArray resultsArray = jObject.getJSONArray("results");
-            return resultsArray;
-          } catch (JSONException e) {
-            Toast.makeText(this, "JSON exception", Toast.LENGTH_SHORT).show();
-        }
-        Toast.makeText(this, "wtf?", Toast.LENGTH_SHORT).show();
-        return null;
 
-    }
-
-    /**
-     * Read.
-     *
-     * @param type the type
-     */
-    private void read(String type) {
-        //   FileInputStream fis = null;
-        Scanner scanner = null;
-        AssetManager am = this.getAssets();
-        InputStream fis;
-
-        // To load text file
-        InputStream input;
-        try {
-            input = am.open(type);
-
-            int size = input.available();
-            byte[] buffer = new byte[size];
-            input.read(buffer);
-            input.close();
-
-            // byte buffer into a string
-            theText = new String(buffer);
-
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            Toast.makeText(this, "IOException", Toast.LENGTH_SHORT).show();
-        }
-        //    line1.setText(theText);
-
-    }
 
     // Overlay a route.  This method is only executed after loadRouteData() completes
     // on background thread.
@@ -706,7 +652,7 @@ public enum OverlayType
  
 
     /**
-     * Load route data.
+     * Loads route data via an instance of KMLHandler
      */
     public void loadRouteData(){
         routePoints = new ArrayList<GeoPoint>();
@@ -733,6 +679,9 @@ public enum OverlayType
 
     /* (non-Javadoc)
      * @see com.google.android.maps.MapActivity#onPause()
+     *
+     * disables MyLocation on pause of application
+     *
      */
     public void onPause(){
     	super.onPause();
@@ -741,6 +690,9 @@ public enum OverlayType
     
     /* (non-Javadoc)
      * @see com.google.android.maps.MapActivity#onResume()
+     *
+     * re-enables mylocation on resume
+     *
      */
     public void onResume(){
     	super.onResume();
@@ -750,9 +702,15 @@ public enum OverlayType
 
 
     /**
-     * The Class Touchy.
+     * The Class TouchOverlay.
+     *
+     * handles event when map touched.
+     * counts time and responds on a long touch
+     * gets location of touch and creates geopoint at that location
+     * add geopoint to useroverlay and adds pin to map
+     *
      */
-    class Touchy extends Overlay {
+    class TouchOverlay extends Overlay {
     	
 	    /* (non-Javadoc)
 	     * @see com.google.android.maps.Overlay#onTouchEvent(android.view.MotionEvent, com.google.android.maps.MapView)
@@ -794,9 +752,13 @@ public enum OverlayType
 
 
 
-// extends ItemIized overlay
+// extends Itemiized overlay
 	/**
  * The Class MyItemizedOverlay.
+     * extends Itemized overlay, takes an Arraylist of Geopoints
+     * and adds them to the maps overlay list
+     * then populates list
+     *
  */
 private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 		
@@ -806,7 +768,7 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
         /** The marker. */
         private Drawable marker=null;
 
-	//	public MyItemizedOverlay(Drawable marker, ArrayList<MyGeoPoint> points) {
+
     /**
 	 * Instantiates a new my itemized overlay.
 	 *
@@ -817,8 +779,8 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
             super(boundCenterBottom(marker));
 			this.marker=marker;
             for(MyGeoPoint point: points){
-                this.items.add(new OverlayItem(getPoint(point.getLat(), point.getLon()), point.getTitle(), point.getSnippet()));
-               }
+                this.items.add(new OverlayItem(getPoint(point.getLat(), point.getLon()), point.getTitle(), point.getSnippet()));   // iterates over list
+               }                                                                                                                   // adding Overlay items to overlay list
             populate();
 
         }
@@ -842,14 +804,19 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 
         /* (non-Javadoc)
          * @see com.google.android.maps.ItemizedOverlay#onTap(int)
+         *
+         * handles tap events on the OverlayItems (pois)
+         * if flag not set, gets location of poi and creates builder dialog
+         * allowing the user to map a route, get more details or cancel
+         *
          */
         protected boolean onTap(int i) {
-            if(!edit){
+            if(!edit){                      // if in edit mode, we don't want to do this.
 
-            OverlayItem itemClicked = items.get(i);
+            OverlayItem itemClicked = items.get(i);                           //gets item clicked
             GeoPoint  point = itemClicked.getPoint();
             final Double lat = point.getLatitudeE6()/1e6;
-            final Double lon = point.getLongitudeE6()/1e6;
+            final Double lon = point.getLongitudeE6()/1e6;                     // gets location co-ords
             AlertDialog.Builder dialog = new AlertDialog.Builder(ShowMap.this);
 
             dialog.setTitle(itemClicked.getTitle());
@@ -857,7 +824,7 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
             dialog.setCancelable(true);
             dialog.setPositiveButton("Navigate to here", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    StringBuilder sb = new StringBuilder();
+                    StringBuilder sb = new StringBuilder();                                             // build string to pass to google nav
                     sb.append("http://maps.google.com/maps?saddr=");
                     sb.append(Double.toString( me.getMyLocation().getLatitudeE6()/1e6));
                     sb.append(",");
@@ -869,19 +836,19 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
                     sb.append("&dirflg=b&mra=ltm&t=h&z=13");
                     Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
                                           Uri.parse(sb.toString()));
-                    startActivity(intent);
+                    startActivity(intent);                                                    // start google navigation Intent
                 }
             });
             dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    Log.i(this.getClass().getName(), "Selected No To Add Location");
+                    Log.i(this.getClass().getName(), "Selected No To Add Location");               // handles cancel
                     dialog.cancel();
                 }
             });
             dialog.setNeutralButton("Details", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     String url = "http://www.fristonpal.info";
-                    final SpannableString s = new SpannableString(url);
+                    final SpannableString s = new SpannableString(url);                                 // makes string a clickable url.
                     Linkify.addLinks(s, Linkify.ALL);
 
                     final AlertDialog d = new AlertDialog.Builder(ShowMap.this)
@@ -892,7 +859,7 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
                     d.show();
 
                     // Make the textview clickable. Must be called after show()
-                    ((TextView)d.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
+                    ((TextView)d.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());     // on click, web Intent started
                 }
             });
             dialog.show();

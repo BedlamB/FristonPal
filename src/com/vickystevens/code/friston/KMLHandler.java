@@ -15,6 +15,7 @@ import java.util.ArrayList;
  * The Class KMLHandler.
  *
  * A class that takes KML and
+ * parses it, returning an Arraylist of Geopoints
  *
  * @author Vicky Stevens
  * @version 1.0 Build 9000 15th April 2012.
@@ -61,7 +62,7 @@ public class KMLHandler {
     }
 
     /**
-     * Gets the all xml.
+     * Uses XML pullparser to get co-ordinate tags.
      *
      * @return the all xml
      * @throws XmlPullParserException the xml pull parser exception
@@ -104,7 +105,7 @@ public class KMLHandler {
     }
 
     /**
-     * Gets the point.
+     * Returns a Geopoint in Int number of microdegrees.
      *
      * @param lat the lat
      * @param lon the lon

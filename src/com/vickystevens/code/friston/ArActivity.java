@@ -24,8 +24,8 @@ import android.provider.Settings;
  */
 public class ArActivity extends Activity {
 	
-    /* (non-Javadoc)
-     * @see android.app.Activity#onCreate(android.os.Bundle)
+    /*
+    * Called on create.  creates new intent and starts Mixare activity
      */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,7 @@ public class ArActivity extends Activity {
     }
         
         /**
-         * Builds the alert message no gps.
+         * Builds the alert message if no GPS found.
          */
         private void buildAlertMessageNoGps() {
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);

@@ -3,6 +3,9 @@ package com.vickystevens.code.friston;
 // TODO: Auto-generated Javadoc
 /**
  * The Class MyGeoPoint.
+ *
+ * holds a geopoint  object.
+ *
  * @author Vicky Stevens
  * @version 1.0 Build 9000 15th April 2012.
  */
@@ -40,7 +43,7 @@ public class MyGeoPoint {
 
 
 	/**
-	 * Gets the lat.
+	 * Gets the latitude.
 	 *
 	 * @return the lat
 	 */
@@ -51,7 +54,7 @@ public class MyGeoPoint {
 
 
 	/**
-	 * Sets the lat.
+	 * Sets the latitude.
 	 *
 	 * @param lat the new lat
 	 */
@@ -62,7 +65,7 @@ public class MyGeoPoint {
 
 
 	/**
-	 * Gets the lon.
+	 * Gets the longitude.
 	 *
 	 * @return the lon
 	 */
@@ -73,7 +76,7 @@ public class MyGeoPoint {
 
 
 	/**
-	 * Sets the lon.
+	 * Sets the longitude.
 	 *
 	 * @param lon the new lon
 	 */

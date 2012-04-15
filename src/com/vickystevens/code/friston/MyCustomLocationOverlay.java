@@ -1,5 +1,5 @@
 package com.vickystevens.code.friston;
-// from stack overflow custom bitmap you are here
+// idea from stack overflow http://stackoverflow.com/questions/753793/how-can-i-use-a-custom-bitmap-for-the-you-are-here-point-in-a-mylocationoverlay
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,6 +14,11 @@ import com.google.android.maps.MyLocationOverlay;
 // TODO: Auto-generated Javadoc
 /**
  * The Class MyCustomLocationOverlay.
+ *
+ * class extending MyLocationOverlay.
+ * Overrides drawlocation to use a custom icon and animates
+ * icon as accelerometer changes position
+ *
  * @author Vicky Stevens
  * @version 1.0 Build 9000 15th April 2012.
  */
@@ -75,8 +80,8 @@ public class MyCustomLocationOverlay extends MyLocationOverlay {
     @Override
     public synchronized void onLocationChanged(Location location){
         super.onLocationChanged(location);
-/*        GeoPoint point = new GeoPoint((int) (location.getLatitude() * 1E6), (int) (location.getLongitude() * 1E6));
-        MapController mapController = mMapView.getController();
+/*        GeoPoint point = new GeoPoint((int) (location.getLatitude() * 1E6), (int) (location.getLongitude() * 1E6));   // can use this to keep focus
+        MapController mapController = mMapView.getController();                                                         // on user icon as phone changes location
         mapController.animateTo(point);*/
     }
 

@@ -60,7 +60,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".EditPreferences"/>
-        <activity android:name=".AboutActivity"/>
         <activity android:name=".PreferencesActivity"/>
         <activity android:name=".QrWebView"/>
         <activity android:name=".WikiActivity"/>

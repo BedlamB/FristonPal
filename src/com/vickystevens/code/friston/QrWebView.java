@@ -13,6 +13,7 @@ import android.widget.Toast;
 // TODO: Auto-generated Javadoc
 /**
  * The Class QrWebView.
+ * starts an Intent that starts zxing to read a QR code
  * 
  * @author Vicky Stevens
  * @version 1.0 Build 9000 15th April 2012.
@@ -37,8 +38,8 @@ public class QrWebView extends Activity {
 
 
 
-    /* (non-Javadoc)
-     * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
+    /*
+     * After QR code read, starts web view with returned url
      */
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == 0) {
@@ -50,7 +51,7 @@ public class QrWebView extends Activity {
                 toast.setGravity(Gravity.TOP, 25, 400);
                 toast.show();
                 WebView webView = new WebView(this);
-                webView.loadUrl(contents);
+                webView.loadUrl(contents);  // loads a web view with URL read from QR code.
                 setContentView(webView);
                         
             } else if (resultCode == RESULT_CANCELED) {

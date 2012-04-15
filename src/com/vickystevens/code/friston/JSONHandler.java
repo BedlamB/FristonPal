@@ -33,8 +33,7 @@ public class JSONHandler{
     /** The filename. */
     private String filename;
     
-    /** The JSON text. */
-    private String JSONText;
+
     
     /** The context. */
     private Context context;
@@ -47,19 +46,22 @@ public class JSONHandler{
      * @throws JSONException the jSON exception
      */
     public JSONHandler(Context context, String filename) throws JSONException {
+
         this.context = context;
         this.filename = filename;
             parseJSON();
      }
 
     /**
-     * Parses the json.
+     * Parses the JSON into a JSONARRAY
      *
      * @return the JSON array
      * @throws JSONException the JSON exception
      */
     public JSONArray parseJSON() throws JSONException {
-        readFile();
+        /** The JSON text. */
+        String JSONText;
+        JSONText = readFile();
         try {
             JSONObject jObject = new JSONObject(JSONText);
             JSONArray resultsArray = jObject.getJSONArray("results");
@@ -73,9 +75,10 @@ public class JSONHandler{
     }
 
     /**
-     * Read file.
+     * Read file from Assets.
+     *
      */
-    private void readFile() {
+    private String readFile() {
         AssetManager am = context.getAssets();
         // To load text file
         InputStream input;
@@ -88,11 +91,12 @@ public class JSONHandler{
             input.close();
 
             // byte buffer into a string
-            JSONText = new String(buffer);
+            return new String(buffer);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
 
     }
 

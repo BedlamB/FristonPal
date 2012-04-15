@@ -12,10 +12,12 @@ import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class RouteItemizedOverlay.
- * 
+ *
+ *
+ *
  * @author Vicky Stevens
  * @version 1.0 Build 9000 15th April 2012.
  */

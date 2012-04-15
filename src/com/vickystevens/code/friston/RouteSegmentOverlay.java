@@ -12,10 +12,13 @@ package com.vickystevens.code.friston;
 
     import java.util.ArrayList;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class RouteSegmentOverlay.
- * 
+ *
+ * Extends Overlay. Overrides on draw to draw a segment of the route,
+ * between an overlayitem point.
+ *
  * @author Vicky Stevens
  * @version 1.0 Build 9000 15th April 2012.
  */
