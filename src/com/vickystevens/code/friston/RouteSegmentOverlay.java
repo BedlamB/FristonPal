@@ -98,7 +98,7 @@ public class RouteSegmentOverlay extends Overlay {
             // information returned from the server for the route.
             
             for(int i=0; i<numberRoutePoints-1; i++){
-               paint.setARGB(100, 44,133,110);
+               paint.setARGB(100, 203,42,42);
                paint.setStrokeWidth(6);
 
                 // Find endpoints of this segment in pixels

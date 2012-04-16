@@ -5,10 +5,14 @@ package com.vickystevens.code.friston;
 import android.content.Context;
 import android.content.res.AssetManager;
 
+
+import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -32,6 +36,7 @@ public class JSONHandler{
     
     /** The filename. */
     private String filename;
+    private boolean internal;
     
 
     
@@ -45,11 +50,11 @@ public class JSONHandler{
      * @param filename the filename
      * @throws JSONException the jSON exception
      */
-    public JSONHandler(Context context, String filename) throws JSONException {
-
+    public JSONHandler(Context context, String filename, boolean internal) throws JSONException {
+        this.internal = internal;
         this.context = context;
         this.filename = filename;
-            parseJSON();
+         //   parseJSON();
      }
 
     /**
@@ -60,8 +65,18 @@ public class JSONHandler{
      */
     public JSONArray parseJSON() throws JSONException {
         /** The JSON text. */
-        String JSONText;
-        JSONText = readFile();
+        String JSONText = null;
+        if(internal){
+            try {
+                JSONText = readFile(filename);
+            } catch (IOException e) {
+                Toast.makeText(context.getApplicationContext(), "failing in JSONHANDLER.ParseJson()", Toast.LENGTH_SHORT);  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+        else{
+            JSONText = readFile();    
+        }
+        if(JSONText !=null){
         try {
             JSONObject jObject = new JSONObject(JSONText);
             JSONArray resultsArray = jObject.getJSONArray("results");
@@ -69,10 +84,14 @@ public class JSONHandler{
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        } else{
+            Toast.makeText(context.getApplicationContext(), "File not found", Toast.LENGTH_SHORT);
+            return null;
+        }
         return null;
 
     }
+
 
     /**
      * Read file from Assets.
@@ -99,6 +118,33 @@ public class JSONHandler{
         return null;
 
     }
+
+    /**
+     * Read file from Assets.
+     *
+     */
+    private String readFile(String filename) throws IOException {
+      //  AssetManager am = context.getAssets();
+        // To load text file
+       
+        try {
+            FileInputStream input = context.openFileInput(filename);
+            int size = input.available();
+            byte[] buffer = new byte[size];
+            input.read(buffer);
+            input.close();
+            Toast.makeText(context.getApplicationContext(), new String(buffer), Toast.LENGTH_LONG).show();
+            return new String(buffer);
+
+        } catch (FileNotFoundException e) {
+            Toast.makeText(context.getApplicationContext(), "failing in JSONHANDLER.ReadFile()", Toast.LENGTH_SHORT);  //To change body of catch statement use File | Settings | File Templates.
+        }
+        return null;
+    }
+
+            
+            
+
 
 
 

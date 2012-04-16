@@ -14,7 +14,7 @@ import android.widget.Button;
 // main activity class to implement FristonPal
 /**
  * The Class MainActivity.
- * Main activity of app.  Starts main.xml layout
+ * Main activity of app.  Starts mainpage.xml layout
  * and handles users choice. Starts relevant technologies
  *
  * @author Vicky Stevens
@@ -40,18 +40,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.mainpage);
 
         
         // gets buttons and sets up click-handlers for them
         View mapButton = findViewById(R.id.btnChooseMap);
         mapButton.setOnClickListener(this);
-        View arButton = findViewById(R.id.btnChooseWiki);
+        View arButton = findViewById(R.id.btnChooseAR);
         arButton.setOnClickListener(this);
         View qrButton = findViewById(R.id.btnChooseQr);
         qrButton.setOnClickListener(this);
-        View exButton = findViewById(R.id.exit_button);
-        exButton.setOnClickListener(this);
 
     }
     
@@ -71,14 +69,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(qrIntent);
                 break;
             // launches mixare with Intent and reads JSON from web
-            case R.id.btnChooseWiki:
+            case R.id.btnChooseAR:
                 Intent i = new Intent();
                 i.setAction(Intent.ACTION_VIEW);
                 i.setDataAndType(Uri.parse("http://www.fristonpal.info/mixare.php"), "application/mixare-json");
                 startActivity(i);
                 break;
-            case R.id.exit_button:
-                  finish();
          }
     }
 
