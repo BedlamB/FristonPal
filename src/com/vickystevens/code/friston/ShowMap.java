@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Canvas;
 import android.net.Uri;
 import android.text.SpannableString;
+import android.text.StaticLayout;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.util.Log;
@@ -538,7 +539,9 @@ public enum OverlayType
     public boolean onCreateOptionsMenu(Menu menu) {               // creates options menu based on
         MenuInflater inflater = getMenuInflater();                // mapmenu.xml
         inflater.inflate(R.xml.mapmenu, menu);
+
         return true;
+
     }
 
     /* (non-Javadoc)
@@ -559,13 +562,17 @@ public enum OverlayType
                 i.setDataAndType(Uri.parse("http://www.fristonpal.info/mixare.php"), "application/mixare-json");
                 startActivity(i);
                 return true;
-            case R.id.togglemenu:
-                toggle();                              // opens up a toggle menu allowing user to toggle the pois
-                return true;
+            case R.id.toggle:
+            toggle();
+
             case R.id.scanQRmenu:
                 Intent qrIntent = new Intent(this, QrWebView.class);
                 startActivity(qrIntent);
-                return true;                                   // starts a ZXing QR reader activity
+                return true; 
+             case 0:
+             Toast.makeText(this, "car", Toast.LENGTH_SHORT);
+            case 1:
+                Toast.makeText(this, "dh", Toast.LENGTH_SHORT);// starts a ZXing QR reader activity
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -586,6 +593,7 @@ public enum OverlayType
      */
     public void toggle()
     {
+
         Toast.makeText(this, "toggle pushed", Toast.LENGTH_SHORT).show();
     }
 
@@ -819,9 +827,37 @@ public enum OverlayType
 
     }
 
+   private Overlay getOverlay(OverlayItem o){
+       Character id = o.getTitle().charAt(0);
+       switch (id){
+           case '1': return carparks;
+           case '2': return downhill;
+           case '3': return jumps;
+           case '4': return pirate;
+           case '5': return pubs;
+           case '6': return purple;
+           case '7': return uphill;
+           case '8': return user;
+       }
+       return null;
+   }
 
+    private OverlayType getItemType(OverlayItem o){
+        Character id = o.getTitle().charAt(0);
+        switch (id){
+            case '1': return OverlayType.CARPARKS;
+            case '2': return OverlayType.DOWNHILL;
+            case '3': return OverlayType.JUMPS;
+            case '4': return OverlayType.PIRATE;
+            case '5': return OverlayType.PUBS;
+            case '6': return OverlayType.PURPLE;
+            case '7': return OverlayType.UPHILL;
+            case '8': return OverlayType.USER;
+        }
+        return null;
+    }
 
-
+    
 // extends Itemiized overlay
 	/**
  * The Class MyItemizedOverlay.
@@ -837,7 +873,8 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
         
         /** The marker. */
         private Drawable marker=null;
-
+        private Overlay overlay = null;
+        private OverlayType type = null;
 
     /**
 	 * Instantiates a new my itemized overlay.
@@ -869,9 +906,6 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 
 
 
-
-
-
         /* (non-Javadoc)
          * @see com.google.android.maps.ItemizedOverlay#onTap(int)
          *
@@ -883,7 +917,11 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
         protected boolean onTap(int i) {
             if(!edit){                      // if in edit mode, we don't want to do this.
 
-            OverlayItem itemClicked = items.get(i);                           //gets item clicked
+            OverlayItem itemClicked = items.get(i);
+            overlay = getOverlay(itemClicked);
+            type = getItemType(itemClicked);
+               
+                                       //gets item clicked
             GeoPoint  point = itemClicked.getPoint();
             final Double lat = point.getLatitudeE6()/1e6;
             final Double lon = point.getLongitudeE6()/1e6;                     // gets location co-ords
@@ -892,7 +930,7 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
             dialog.setTitle(itemClicked.getTitle());
             dialog.setMessage(itemClicked.getSnippet());
             dialog.setCancelable(true);
-            dialog.setPositiveButton("Navigate Here", new DialogInterface.OnClickListener() {
+            dialog.setPositiveButton("Navigate", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     StringBuilder sb = new StringBuilder();                                             // build string to pass to google nav
                     sb.append("http://maps.google.com/maps?saddr=");
@@ -911,9 +949,12 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
             });
             dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    Log.i(this.getClass().getName(), "Selected No To Add Location");               // handles cancel
-                    dialog.cancel();
+                    // call toggle here
+                     dialog.cancel();
+                    //toggleOverlay(map, overlay, type);
+                    
                 }
+
             });
             dialog.setNeutralButton("Details", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
@@ -923,7 +964,7 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 
                     final AlertDialog d = new AlertDialog.Builder(ShowMap.this)
                             .setPositiveButton(android.R.string.cancel, null)
-                            .setIcon(R.drawable.icon)
+                            .setIcon(R.drawable.pin_blue)
                             .setMessage(s)
                             .create();
                     d.show();
@@ -960,4 +1001,3 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
 		}
 	}
 }
-	

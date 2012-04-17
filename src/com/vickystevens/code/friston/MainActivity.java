@@ -25,7 +25,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	/** The map btn. */
 	private Button mapBtn=null;
 	
-	/** The wiki btn. */
+	/** The help btn. */
 	private Button wikiBtn=null;
 	
 	/** The qr btn. */
