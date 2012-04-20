@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, FristonPALActivity!</string>
+    <string name="hello">Friston Pal</string>
     <string name="app_name">FristonPAL</string>
 
     <string name="btnshowmap">Show Map</string>
@@ -19,18 +19,18 @@
     <string name="jumps_label">Jumps</string>  
     <string name="pirate_label">Pirate</string>
 
-    <string name="main_title">Android Game of Life</string>
-    <string name="continue_label">Continue</string>
-    <string name="new_game_label">New Game</string>
     <string name="about_label">About</string>
+
     <string name="exit_label">Exit</string>
     <string name="about_title">About Android Game of Life</string>
     <string name="about_text">
-        The Game of Life, also known simply as Life, is a
-        <i>cellular automaton</i>
-        devised by the British mathematician
-        John Horton Conway in 1970. It is the best-known example
-        of a cellular automaton.
+       Friston Pal, a guide to the mountain bike trails at the Friston Forest in East Sussex
+    </string>
+    <string name="help_text">
+        Use the Scan QR option to get more info about trails.
+        Show the map to see the trails.  Click on a pushpin for more info, or to navigate.
+        Select Option then long-press to add a pushpin.
+        Click AR for an  alternative view.
     </string>
     <string name="grid_title">Game of Life Grid</string>
     <string name="settings_label">Settings...</string>
@@ -39,15 +39,8 @@
     <string name="color_coding_title">Color_coding_title</string>
     <string name="color_coding_summary">color_coding_summary</string>
 
-
     
-        <string name="hello2">This activity demonstrates the basic use of Open AR.\n
-    It will open the CamView with the points of interests for New York, Tokyo, Rome, and Vienna.</string>
-    <string name="app_name2">Basic Open AR Demo</string>
-    <string name="launch1">Launch basic AR view</string>
-    <string name="launch2">Launch with custom icons</string>
-    <string name="launch3">Launch with customized title bar</string>
-    <string name="launch4">Launch 3D view</string>
+
     <string name="toast_ar_not_found">No application installed to show AR view</string>
     <string name="callback">We are now in the callback Intent</string>
     <string name="modelfile_not_found_title">File not found</string>

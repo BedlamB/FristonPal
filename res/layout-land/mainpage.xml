@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:id="@+id/widget385"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/forest_background">
+    <TextView
+            android:id="@+id/main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Friston Pal"
+            style="@style/mainFontLargeBlack"
+            android:layout_gravity="center_horizontal" />
+    <Button
+            android:id="@+id/btnChooseMap"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:text="View Map"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button"
+            style="@style/buttonFont" />
+    <Button
+            android:id="@+id/btnChooseAR"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="View AR"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button"
+            style="@style/buttonFont" />
+    <Button
+            android:id="@+id/btnChooseQr"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:text="Scan QR Code"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button"
+            style="@style/buttonFont" />
+</LinearLayout>

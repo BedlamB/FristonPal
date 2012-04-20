@@ -45,6 +45,9 @@ public class ShowMap extends MapActivity
     
     /** The map. */
     private MapView map;
+
+    List<Overlay> overlayList;
+
     
     /** The start. */
     long start;
@@ -76,7 +79,7 @@ public class ShowMap extends MapActivity
     /** The route button. */
     private Button uphillButton, downhillButton, jumpsButton, pirateButton, carparksButton, purpleButton, pubsButton;
     
-    /** The PIRAT e_ shown. */
+    /** The PIRATE_ shown. */
     private boolean PUBS_SHOWN, CARPARKS_SHOWN, PURPLE_SHOWN, UPHILL_SHOWN, DOWNHILL_SHOWN, JUMPS_SHOWN, PIRATE_SHOWN, USER_SHOWN;
 
     
@@ -120,7 +123,7 @@ public enum OverlayType
         overlayRoute();              // draws the route in an overlay
 
         TouchOverlay t = new TouchOverlay();                        // creates Touch overlay which resonds to touch events
-        List<Overlay> overlayList = map.getOverlays();
+        overlayList = map.getOverlays();
         overlayList.add(t);                                           // add it to overlay list
 		
 		// set up the drawables
@@ -354,7 +357,7 @@ public enum OverlayType
         DOWNHILL_SHOWN = true;
         JUMPS_SHOWN = true;
         PIRATE_SHOWN = true;
-        USER_SHOWN = true;
+        USER_SHOWN = false;
 
 
 
@@ -400,37 +403,6 @@ public enum OverlayType
             }
         });
 
-        // Button to add overlays
-        uphillButton = (Button)findViewById(R.id.uphillOverlay);
-        uphillButton.setOnClickListener(new OnClickListener(){
-            public void onClick(View v) {
-                toggleOverlay(map, uphill, OverlayType.UPHILL);
-            }
-        });
-
-        // Button to add overlays
-        downhillButton = (Button)findViewById(R.id.downhillOverlay);
-        downhillButton.setOnClickListener(new OnClickListener(){
-            public void onClick(View v) {
-                toggleOverlay(map, downhill, OverlayType.DOWNHILL);
-            }
-        });
-
-        // Button to add overlays
-        jumpsButton = (Button)findViewById(R.id.jumpsOverlay);
-        jumpsButton.setOnClickListener(new OnClickListener(){
-            public void onClick(View v) {
-                toggleOverlay(map, jumps, OverlayType.JUMPS);
-            }
-        });
-
-        // Button to add overlays
-        pirateButton = (Button)findViewById(R.id.pirateOverlay);
-        pirateButton.setOnClickListener(new OnClickListener(){
-            public void onClick(View v) {
-                toggleOverlay(map, pirate, OverlayType.PIRATE);
-            }
-        });
 
 
        
@@ -480,7 +452,7 @@ public enum OverlayType
 
        FileOutputStream fos = null;
         try {
-            fos = openFileOutput("test", Context.MODE_APPEND);
+            fos = openFileOutput("user", Context.MODE_APPEND);
         } catch (FileNotFoundException e) {
             Toast.makeText(this, "file not found", Toast.LENGTH_LONG).show();
         }
@@ -499,7 +471,7 @@ public enum OverlayType
     public void readJson() throws IOException, JSONException {
         String JSONString = null;
         try {
-            FileInputStream input = openFileInput("test");
+            FileInputStream input = openFileInput("user");
             int size = input.available();
             byte[] buffer = new byte[size];
             input.read(buffer);
@@ -508,7 +480,7 @@ public enum OverlayType
             Toast.makeText(this, JSONString, Toast.LENGTH_LONG).show();
 
         } catch (FileNotFoundException e){
-            Toast.makeText(this, "boo", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "File not found", Toast.LENGTH_LONG).show();
         }
          JSONArray userArray = new JSONArray(JSONString);
          Toast.makeText(this, " before parsing" + userArray.toString(), Toast.LENGTH_LONG);
@@ -526,9 +498,15 @@ public enum OverlayType
                 Toast.makeText(this, "JSON Exception", Toast.LENGTH_SHORT);
             }
         }
-        List<Overlay> overlayList = map.getOverlays();
-        overlayList.add(user);
+        Drawable userMarker=getResources().getDrawable(R.drawable.pin_blue);
+        user  = (new MyItemizedOverlay(userMarker, userOverlays));
+        //  overlayList.add(purple);
+        map.getOverlays().add(user);
         map.postInvalidate();
+        edit = false;
+
+   //     toggleOverlay(map, user, OverlayType.USER);
+
     }
 
 
@@ -538,16 +516,15 @@ public enum OverlayType
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {               // creates options menu based on
         MenuInflater inflater = getMenuInflater();                // mapmenu.xml
-        inflater.inflate(R.xml.mapmenu, menu);
-
-        return true;
+        inflater.inflate(R.menu.mapmenu, menu);
+         return true;
 
     }
 
     /* (non-Javadoc)
      * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
      *
-     *  Handles which option is selected my user
+     *  Handles which option is selected the user
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -563,16 +540,35 @@ public enum OverlayType
                 startActivity(i);
                 return true;
             case R.id.toggle:
-            toggle();
-
+                return true;
             case R.id.scanQRmenu:
                 Intent qrIntent = new Intent(this, QrWebView.class);
                 startActivity(qrIntent);
                 return true; 
-             case 0:
-             Toast.makeText(this, "car", Toast.LENGTH_SHORT);
-            case 1:
-                Toast.makeText(this, "dh", Toast.LENGTH_SHORT);// starts a ZXing QR reader activity
+             case R.id.carparks:
+                 toggleOverlay(map, carparks, OverlayType.CARPARKS);
+                 return true;
+            case R.id.downhill:
+                toggleOverlay(map, downhill, OverlayType.DOWNHILL);
+                return true;// starts a ZXing QR reader activity
+            case R.id.jumps:
+                toggleOverlay(map, jumps, OverlayType.JUMPS);
+                return true;
+            case R.id.pirate:
+                toggleOverlay(map, pirate, OverlayType.PIRATE);
+                return true;
+            case R.id.pubs:
+                toggleOverlay(map, pubs, OverlayType.PUBS);
+                return true;
+            case R.id.purple:
+                toggleOverlay(map, purple, OverlayType.PURPLE);
+                return true;
+            case R.id.uphill:
+                toggleOverlay(map, uphill, OverlayType.UPHILL);
+                return true;
+            case R.id.user:
+                toggleOverlay(map, user, OverlayType.USER);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -588,14 +584,6 @@ public enum OverlayType
         Toast.makeText(this, "Long press to add", Toast.LENGTH_LONG).show();
     }
 
-    /**
-     * Shows the toggle options for the pois.
-     */
-    public void toggle()
-    {
-
-        Toast.makeText(this, "toggle pushed", Toast.LENGTH_SHORT).show();
-    }
 
 
     /**
@@ -920,15 +908,17 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
             OverlayItem itemClicked = items.get(i);
             overlay = getOverlay(itemClicked);
             type = getItemType(itemClicked);
-               
+
                                        //gets item clicked
             GeoPoint  point = itemClicked.getPoint();
             final Double lat = point.getLatitudeE6()/1e6;
             final Double lon = point.getLongitudeE6()/1e6;                     // gets location co-ords
             AlertDialog.Builder dialog = new AlertDialog.Builder(ShowMap.this);
+            final String theid = itemClicked.getTitle();
 
-            dialog.setTitle(itemClicked.getTitle());
+            dialog.setTitle(theid);
             dialog.setMessage(itemClicked.getSnippet());
+                
             dialog.setCancelable(true);
             dialog.setPositiveButton("Navigate", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
@@ -948,7 +938,9 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
                 }
             });
             dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
+                public void onClick(DialogInterface dialog, int id)
+                {
+
                     // call toggle here
                      dialog.cancel();
                     //toggleOverlay(map, overlay, type);
@@ -958,10 +950,10 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
             });
             dialog.setNeutralButton("Details", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    String url = "http://www.fristonpal.info";
+                    String url = "http://www.fristonpal.info/";
                     final SpannableString s = new SpannableString(url);                                 // makes string a clickable url.
                     Linkify.addLinks(s, Linkify.ALL);
-
+                    // ur = getLink(theid)
                     final AlertDialog d = new AlertDialog.Builder(ShowMap.this)
                             .setPositiveButton(android.R.string.cancel, null)
                             .setIcon(R.drawable.pin_blue)
@@ -978,7 +970,6 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
         }
             return false;
         }
-
 
 
         /* (non-Javadoc)

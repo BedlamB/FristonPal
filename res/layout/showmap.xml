@@ -11,9 +11,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="0px" >
-
-                                                    
-        <Button android:id="@+id/pubsOverlay"
+       <Button android:id="@+id/pubsOverlay"
                 android:layout_width="60dp"
             android:layout_height="wrap_content"
              android:layout_weight="1.0"
@@ -38,50 +36,7 @@
             android:text="@string/purple_label" />
 
 
-    <Button android:id="@+id/uphillOverlay"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:layout_below="@+id/purpleOverlay"
-            android:textSize="12sp"
-            android:text="@string/uphill_label" />
 
-    <Button android:id="@+id/downhillOverlay"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30px"
-            android:layout_weight="1.0"
-            android:layout_below="@+id/uphillOverlay"
-            android:textSize="12sp"
-            android:text="@string/downhill_label" />
-
-    <Button android:id="@+id/jumpsOverlay"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30px"
-            android:layout_weight="1.0"
-            android:layout_below="@+id/downhillOverlay"
-            android:textSize="12sp"
-            android:text="@string/jumps_label" />
-
-    <Button android:id="@+id/pirateOverlay"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30px"
-            android:layout_weight="1.0"
-            android:layout_below="@+id/jumpsOverlay"
-            android:textSize="12sp"
-            android:text="@string/pirate_label" />
-
-
-    <Button android:id="@+id/doRoute"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30px"
-            android:layout_weight="1.0"
-            android:layout_below="@+id/pirateOverlay"
-            android:textSize="12sp"
-            android:text="Do Route" />
 
 
 </RelativeLayout>

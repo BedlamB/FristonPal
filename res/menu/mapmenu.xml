@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/addpin"
+          android:title="Add Pushpin"
+          android:icon="@drawable/pin_blue">
+    </item>
+    <item android:id="@+id/toggle"
+          android:icon="@drawable/pin_black"
+          android:title="Toggle">
+        <menu>
+            <item android:id="@+id/carparks"
+                  android:title="Carparks"></item>
+            <item
+                    android:title="Downhill"
+                    android:id="@+id/downhill"></item>
+            <item
+                    android:title="Jumps"
+                    android:id="@+id/jumps"></item>
+            <item
+                    android:title="Pirate"
+                    android:id="@+id/pirate"></item>
+
+            <item android:id="@+id/pubs"
+                  android:title="Pubs"></item>
+            <item
+                    android:title="Purple"
+                    android:id="@+id/purple"></item>
+            <item
+                    android:title="Uphill"
+                    android:id="@+id/uphill"></item>
+            <item
+                    android:title="User"
+                    android:id="@+id/user"></item>
+        </menu>
+    </item>
+    <item android:id="@+id/scanQRmenu"
+          android:icon="@drawable/pin_red"
+          android:title="Scan QR">
+    </item>
+    <item android:id="@+id/armenu"
+          android:icon="@drawable/pin_yellow"
+          android:title="AR View">
+    </item>
+
+
+</menu>
+
