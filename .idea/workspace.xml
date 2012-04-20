@@ -19,21 +19,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="948525ec-1787-473b-ad33-54b948d34996" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/mapmenu.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/Help.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/IntentIntegrator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/IntentResult.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/xml/mapmenu.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/xml/togglemenu.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/xml/mainmenu.xml" afterPath="$PROJECT_DIR$/res/menu/mainmenu.xml" />
+      <change type="DELETED" beforePath="C:\Users\vicks\project\FristonPal\res\layout_land\mainpage.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\vicks\project\FristonPal\src\com\vickystevens\code\friston\RouteItemizedOverlay.java" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\vicks\project\FristonPal\src\com\vickystevens\code\friston\Help.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/HelpActivity.java" />
+      <change type="MOVED" beforePath="C:\Users\vicks\project\FristonPal\src\com\vickystevens\code\friston\MyCustomLocationOverlay.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/CustomMyLocationOverlay.java" />
+      <change type="MOVED" beforePath="C:\Users\vicks\project\FristonPal\src\com\vickystevens\code\friston\ShowMap.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/MapMainView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/about.xml" afterPath="$PROJECT_DIR$/res/layout/about.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/help.xml" afterPath="$PROJECT_DIR$/res/layout/help.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/showmap.xml" afterPath="$PROJECT_DIR$/res/layout/showmap.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java" afterPath="$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java" />
     </list>
     <ignored path="FristonPal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,21 +45,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java" line="121" class="com.vickystevens.code.friston.MainActivity" package="com.vickystevens.code.friston">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -108,38 +87,45 @@
     <splitter split-orientation="horizontal" split-proportion="0.49041373">
       <split-first>
         <leaf>
-          <file leaf-file-name="ShowMap.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="519" column="64" selection-start="18817" selection-end="18817" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="KMLHandler.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="KMLHandler.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="22" column="13" selection-start="571" selection-end="571" vertical-scroll-proportion="0.030425964">
+                <state line="109" column="0" selection-start="3755" selection-end="3755" vertical-scroll-proportion="1.7069943">
+                  <folding>
+                    <element signature="e#802#812#0" expanded="true" />
+                    <element signature="e#2052#2062#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AsyncTask.class" pinned="false" current="false" current-in-tab="false">
+            <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-10/android.jar!/android/os/AsyncTask.class">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="e#0#1838#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Thread.class" pinned="false" current="false" current-in-tab="false">
+            <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-10/android.jar!/java/lang/Thread.class">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="14" column="11" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="mainmenu.xml" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/menu/mainmenu.xml">
+          <file leaf-file-name="ThreadGroup.class" pinned="false" current="false" current-in-tab="false">
+            <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-10/android.jar!/java/lang/ThreadGroup.class">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="7" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="mapmenu.xml" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/menu/mapmenu.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="36" column="53" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.0">
-                  <folding />
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="e#0#2166#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -148,73 +134,28 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+          <file leaf-file-name="RouteSegmentOverlay.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="31" column="15" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.0">
+                <state line="55" column="0" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="showmap.xml" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/layout/showmap.xml">
+          <file leaf-file-name="MapMainView.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MapMainView.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="42" column="63" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0">
+                <state line="733" column="0" selection-start="25440" selection-end="25440" vertical-scroll-proportion="0.64650285">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="136" column="26" selection-start="4917" selection-end="4917" vertical-scroll-proportion="0.22669491">
-                  <folding>
-                    <element signature="e#2319#2346#0" expanded="true" />
-                    <element signature="e#2377#2404#0" expanded="true" />
-                    <element signature="e#2706#2733#0" expanded="true" />
-                    <element signature="e#5619#5646#0" expanded="true" />
-                    <element signature="e#5677#5704#0" expanded="true" />
-                    <element signature="e#6093#6120#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IntentIntegrator.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/IntentIntegrator.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="18" column="0" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IntentResult.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/IntentResult.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="18" column="0" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="mainpage.xml" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/layout/mainpage.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="14" selection-start="619" selection-end="652" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="mainpage.xml" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/res/layout-land/mainpage.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="40" column="39" selection-start="1673" selection-end="1673" vertical-scroll-proportion="0.0">
+                <state line="95" column="153" selection-start="2926" selection-end="2926" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -237,10 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/gen/com/vickystevens/code/friston/R.java" />
-        <option value="$PROJECT_DIR$/res/xml/togglemenu.xml" />
-        <option value="$PROJECT_DIR$/res/xml/mapmenu.xml" />
-        <option value="$PROJECT_DIR$/res/layout/about.xml" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/Help.java" />
         <option value="$PROJECT_DIR$/res/layout/help.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
@@ -252,7 +189,11 @@
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/IntentIntegrator.java" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/IntentResult.java" />
+        <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/HelpActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/CustomMyLocationOverlay.java" />
         <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/MapMainView.java" />
+        <option value="$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java" />
       </list>
     </option>
   </component>
@@ -264,9 +205,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
-    <option name="width" value="1680" />
-    <option name="height" value="954" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -316,6 +258,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -406,10 +350,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FristonPal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FristonPal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -426,7 +386,6 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="HT154TJ00709" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="MyAvd0" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -675,29 +634,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1680" height="954" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992035" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14031863" sideWeight="0.6551724" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756633" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37068966" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3702422" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822084" sideWeight="0.2694685" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992035" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32389164" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32295272" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32880098" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.27955666" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24877451" sideWeight="0.21222606" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.36699507" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3448276" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37807882" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24877451" sideWeight="0.43598616" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34371397" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2687428" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="145" y="171" width="1480" height="754" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3275862" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -772,66 +731,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/Help.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="12" selection-start="684" selection-end="684" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/about.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="24" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/help.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="8" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/jumps">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="33" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/ShowMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="519" column="64" selection-start="18817" selection-end="18817" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="13" selection-start="571" selection-end="571" vertical-scroll-proportion="0.030425964">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/mainmenu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="7" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/mapmenu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="53" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="15" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/mainpage.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="14" selection-start="619" selection-end="652" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-land/mainpage.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="39" selection-start="1673" selection-end="1673" vertical-scroll-proportion="0.0" />
+        <state line="20" column="0" selection-start="778" selection-end="778" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/showmap.xml">
@@ -844,29 +748,104 @@
     <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/IntentIntegrator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/IntentResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
+        <state line="24" column="19" selection-start="785" selection-end="785" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/QrWebView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="13" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MyGeoPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="13" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/PreferencesActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/mainpage.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="14" selection-start="619" selection-end="652" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout-land/mainpage.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="39" selection-start="1673" selection-end="1673" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-10/android.jar!/java/lang/ThreadGroup.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#2166#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-10/android.jar!/java/lang/Thread.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="11" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="26" selection-start="4917" selection-end="4917" vertical-scroll-proportion="0.22669491">
+        <state line="95" column="153" selection-start="2926" selection-end="2926" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-10/android.jar!/android/os/AsyncTask.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#2319#2346#0" expanded="true" />
-            <element signature="e#2377#2404#0" expanded="true" />
-            <element signature="e#2706#2733#0" expanded="true" />
-            <element signature="e#5619#5646#0" expanded="true" />
-            <element signature="e#5677#5704#0" expanded="true" />
-            <element signature="e#6093#6120#0" expanded="true" />
+            <element signature="e#0#1838#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/RouteSegmentOverlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/MapMainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="733" column="0" selection-start="25440" selection-end="25440" vertical-scroll-proportion="0.64650285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vickystevens/code/friston/KMLHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="0" selection-start="3755" selection-end="3755" vertical-scroll-proportion="1.7069943">
+          <folding>
+            <element signature="e#802#812#0" expanded="true" />
+            <element signature="e#2052#2062#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 
 /**
- * Created by IntelliJ IDEA.
- * User: vicks
- * Date: 17/04/12
- * Time: 19:54
- * To change this template use File | Settings | File Templates.
+ *
+ * User: vicky stevens
+ * Date: 17/03/12
+ *
+ * Simple Activity to show help page
+ *
  */
-public class Help extends Activity {
+public class HelpActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.help);

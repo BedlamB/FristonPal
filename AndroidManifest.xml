@@ -21,7 +21,7 @@
         </activity>
 
         <activity
-                android:name="ShowMap"
+                android:name=".MapMainView"
                 android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -48,7 +48,7 @@
         <activity android:name=".PreferencesActivity"/>
         <activity android:name=".QrWebView"/>
         <activity android:name=".WikiActivity"/>
-        <activity android:name=".Help"/>
+        <activity android:name=".HelpActivity"/>
 
     </application>
 

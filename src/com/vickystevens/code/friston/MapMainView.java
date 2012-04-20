@@ -4,13 +4,13 @@ package com.vickystevens.code.friston;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.net.Uri;
 import android.text.SpannableString;
-import android.text.StaticLayout;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.util.Log;
@@ -33,14 +33,14 @@ import org.xmlpull.v1.XmlPullParserException;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class ShowMap.
+ * The Class MapMainView.
  * main controller of app.  Handles displaying the map, and
  * the pois.
  * 
  * @author Vicky Stevens
  * @version 1.0 Build 9000 15th April 2012.
  */
-public class ShowMap extends MapActivity
+public class MapMainView extends MapActivity
 {
     
     /** The map. */
@@ -56,7 +56,7 @@ public class ShowMap extends MapActivity
     long stop;
     
     /** The me. */
-    private MyCustomLocationOverlay me;
+    private CustomMyLocationOverlay me;
   //  private MyLocationOverlay me2;
     /** The route. */
   private RouteSegmentOverlay route;
@@ -406,7 +406,7 @@ public enum OverlayType
 
 
        
-		me=new MyCustomLocationOverlay(this, map);    //creates a new custom MyLocationOverlay
+		me=new CustomMyLocationOverlay(this, map);    //creates a new custom MyLocationOverlay
         map.getOverlays().add(me);                     // and adds it to the map
         me.enableMyLocation();
 
@@ -720,15 +720,15 @@ public enum OverlayType
     /**
      * Loads route data via an instance of KMLHandler
      */
-    public void loadRouteData(){
+    public void loadRouteData() {
         routePoints = new ArrayList<GeoPoint>();
         KMLHandler handler = new KMLHandler(this);
         try {
-            routePoints = handler.getParsedItems();
-        } catch (IOException e) {
-            Toast.makeText(this, "KML file does not exist", Toast.LENGTH_SHORT);
-        } catch (XmlPullParserException e) {
-            Toast.makeText(this, "Invalid XML", Toast.LENGTH_SHORT);
+            routePoints = handler.execute().get();         // starts async task
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            Toast.makeText(this, "Invalid XML", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -913,7 +913,7 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
             GeoPoint  point = itemClicked.getPoint();
             final Double lat = point.getLatitudeE6()/1e6;
             final Double lon = point.getLongitudeE6()/1e6;                     // gets location co-ords
-            AlertDialog.Builder dialog = new AlertDialog.Builder(ShowMap.this);
+            AlertDialog.Builder dialog = new AlertDialog.Builder(MapMainView.this);
             final String theid = itemClicked.getTitle();
 
             dialog.setTitle(theid);
@@ -954,7 +954,7 @@ private class MyItemizedOverlay extends ItemizedOverlay<OverlayItem> {
                     final SpannableString s = new SpannableString(url);                                 // makes string a clickable url.
                     Linkify.addLinks(s, Linkify.ALL);
                     // ur = getLink(theid)
-                    final AlertDialog d = new AlertDialog.Builder(ShowMap.this)
+                    final AlertDialog d = new AlertDialog.Builder(MapMainView.this)
                             .setPositiveButton(android.R.string.cancel, null)
                             .setIcon(R.drawable.pin_blue)
                             .setMessage(s)

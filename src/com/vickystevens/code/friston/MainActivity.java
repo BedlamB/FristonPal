@@ -11,9 +11,9 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -68,6 +68,39 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
+    /* (non-Javadoc)
+     * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mainmenu, menu);
+        return true;
+    }
+
+
+    /* (non-Javadoc)
+     * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
+     *
+     *  Handles which option is selected the user
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.help:
+                 Intent i = new Intent(this, HelpActivity.class);
+                 startActivity(i);
+                 return true;
+            case R.id.about:
+                Toast.makeText(this, "FristonPal is an app giving information about the cycling trails in the Friston Forest", Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+    
     private void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("FristonPal needs GPS.  Enable?")
@@ -85,6 +118,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final AlertDialog alert = builder.create();
         alert.show();
     }
+    
 
 
 
@@ -116,7 +150,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnChooseMap:
-                Intent mapIntent = new Intent(this, ShowMap.class);
+                Intent mapIntent = new Intent(this, MapMainView.class);
                 startActivity(mapIntent);
                 break;
             case R.id.btnChooseQr:
@@ -167,15 +201,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         alert.show();
     }
 
-    /* (non-Javadoc)
-     * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mainmenu, menu);
-        return true;
-    }
+ 
 
 
     /* (non-Javadoc)

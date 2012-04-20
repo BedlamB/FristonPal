@@ -13,7 +13,7 @@ import com.google.android.maps.MyLocationOverlay;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class MyCustomLocationOverlay.
+ * The Class CustomMyLocationOverlay.
  *
  * class extending MyLocationOverlay.
  * Overrides drawlocation to use a custom icon and animates
@@ -22,37 +22,37 @@ import com.google.android.maps.MyLocationOverlay;
  * @author Vicky Stevens
  * @version 1.0 Build 9000 15th April 2012.
  */
-public class MyCustomLocationOverlay extends MyLocationOverlay {
+public class CustomMyLocationOverlay extends MyLocationOverlay {
     
     /** The m context. */
-    private Context mContext;
+    private Context context;
     
     /** The m map view. */
-    private MapView mMapView;
+    private MapView map;
 
 
     /**
      * Instantiates a new my custom location overlay.
      *
      * @param context the context
-     * @param mapView the map view
+     * @param map the map view
      */
-    public MyCustomLocationOverlay(Context context, MapView mapView) {
-        super(context, mapView);
-        mMapView = mapView;
-        mContext = context;
+    public CustomMyLocationOverlay(Context context, MapView map) {
+        super(context, map);
+        map = map;
+        this.context = context;
     }
 
     /* (non-Javadoc)
      * @see com.google.android.maps.MyLocationOverlay#drawMyLocation(android.graphics.Canvas, com.google.android.maps.MapView, android.location.Location, com.google.android.maps.GeoPoint, long)
      */
     @Override
-    protected void drawMyLocation(Canvas canvas, MapView mapView, Location lastFix, GeoPoint myLocation, long when) {
+    protected void drawMyLocation(Canvas canvas, MapView map, Location lastFix, GeoPoint myLocation, long when) {
         // translate the GeoPoint to screen pixels
-        Point screenPts = mapView.getProjection().toPixels(myLocation, null);
+        Point screenPts = map.getProjection().toPixels(myLocation, null);
 
         // create a rotated copy of the marker
-        Bitmap arrowBitmap = BitmapFactory.decodeResource( mContext.getResources(), R.drawable.helmet);
+        Bitmap arrowBitmap = BitmapFactory.decodeResource( context.getResources(), R.drawable.helmet);
         Matrix matrix = new Matrix();
         matrix.postRotate(this.getOrientation());
         Bitmap rotatedBmp = Bitmap.createBitmap(
@@ -70,7 +70,7 @@ public class MyCustomLocationOverlay extends MyLocationOverlay {
             screenPts.y - (rotatedBmp.getHeight() / 2),
             null
         );
-		mapView.postInvalidate();
+		map.postInvalidate();
 
     }
     
